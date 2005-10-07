@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.w3c.doc.feature"
+      label="org.w3c.doc.feature"
+      version="1.0.0"
+      provider-name="EclipseDocs">
+
+   <description url="http://eclipsedocs.berlios.de">
+      A collection of W3C specification documents. Note that these are for informational purpose only. Visit http://www.w3c.org to access the original documents.
+   </description>
+
+   <copyright url="http://www.w3.org/Consortium/Legal/2002/copyright-documents-20021231">
+      Documents taken from W3C.
+   </copyright>
+
+   <license>
+      The plugin itself is licensed under Eclipse Public License. The
+content is licensed as http://www.w3.org/Consortium/Legal/2002/copyright-documents-20021231.
+   </license>
+
+   <url>
+      <update label="EclipseDocs" url="http://eclipsedocs.berlios.de/site"/>
+      <discovery label="EclipseDocs update site." url="http://eclipsedocs.berlios.de/site"/>
+   </url>
+
+   <plugin
+         id="org.w3c.doc"
+         download-size="0"
+         install-size="0"
+         version="1.0.0"
+         unpack="false"/>
+
+</feature>

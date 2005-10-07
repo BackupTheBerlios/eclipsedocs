@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="EclipseCon.doc.feature"
+      label="EclipseCon.doc.feature"
+      version="1.0.0"
+      provider-name="EclipseDocs">
+
+   <description>
+      A number of presentation slides from EclipseCon 2005 packaged
+as a plugin. For the original slides see http://www.eclipsecon.org/2005/
+   </description>
+
+   <copyright>
+      The slides are copyrighted as indicated on each slide.
+   </copyright>
+
+   <license>
+      The contents and the plugin are licensed as Eclipse Public License.
+   </license>
+
+   <url>
+      <update label="EclipseDocs" url="http://eclipsedocs.berlios.de/site"/>
+      <discovery label="EclipseDocs update site." url="http://eclipsedocs.berlios.de/site"/>
+   </url>
+
+   <plugin
+         id="EclipseCon.doc"
+         download-size="0"
+         install-size="0"
+         version="1.0.0"
+         unpack="false"/>
+
+</feature>

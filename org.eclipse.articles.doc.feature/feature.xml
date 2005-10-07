@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.articles.doc.feature"
+      label="org.eclipse.articles.doc.feature"
+      version="1.0.1"
+      provider-name="EclipseDocs">
+
+   <description>
+      The Eclipse Corner Articles packaged as a help plugin. See  http://www.eclipse.org/articles/index.html for the original documents.
+   </description>
+
+   <copyright>
+      The respective copyright holder is indicated in each article.
+   </copyright>
+
+   <license>
+      The articles are licensed as CPL (http://www.eclipse.org/legal/cpl-v10.html). The Eclipse plugin itself is licensed as EPL (http://www.eclipse.org/legal/epl-v10.html).
+   </license>
+
+   <url>
+      <update label="EclipseDocs" url="http://eclipsedocs.berlios.de/site"/>
+      <discovery label="EclipseDocs update site." url="http://eclipsedocs.berlios.de/site"/>
+   </url>
+
+   <plugin
+         id="org.eclipse.articles.doc"
+         download-size="0"
+         install-size="0"
+         version="1.0.1"
+         unpack="false"/>
+
+</feature>
