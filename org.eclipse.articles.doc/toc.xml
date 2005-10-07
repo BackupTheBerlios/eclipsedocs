@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Eclipse Articles">
+	<topic label="General">
+		<topic
+			label="Build and Test Automation for plug-ins and features"
+			href="html/general/Automation.htm" />
+		<topic label="Rich Client Tutorial Part 1"
+			href="html/general/tutorial1.html" />
+		<topic label="Rich Client Tutorial Part 2"
+			href="html/general/tutorial2.html" />
+		<topic label="Rich Client Tutorial Part 3"
+			href="html/general/tutorial3.html" />
+		<topic label="PDE Does Plug-ins"
+			href="html/general/PDE-intro.html" />
+		<topic label="How to Internationalize your Eclipse Plug-In"
+			href="html/general/how2I18n.html" />
+		<topic
+			label="How to Test Your Internationalized Eclipse Plug-In"
+			href="html/general/how2TestI18n.html" />
+		<topic label="Designing Accessible Plug-ins in Eclipse"
+			href="html/general/accessibility.html" />
+		<topic label="Branding Your Application"
+			href="html/general/branding-your-application.html" />
+		<topic label="How to Use the Eclipse API"
+			href="html/general/eclipse-api-usage-rules.html" />
+		<topic label="Building administrative applications in Eclipse"
+			href="html/general/monitorArticle.html" />
+		<topic label="Levels Of Integration"
+			href="html/general/Levels Of Integration.html" />
+	</topic>
+
+	<topic label="Core">
+		<topic label="Project Builders and Natures"
+			href="html/core/builders.html" />
+		<topic label="Notes on the Eclipse Plug-in Architecture"
+			href="html/core/plugin_architecture.html" />
+		<topic label="How You've Changed!"
+			href="html/core/resource-deltas.html" />
+	</topic>
+
+
+	<topic label="Debug">
+		<topic label="How to write an Eclipse debugger"
+			href="html/debug/how-to.html" />
+		<topic
+			label="We Have Lift-off: The Launching Framework in Eclipse"
+			href="html/debug/launch.html" />
+		<topic label="Launching Java Applications Programmatically"
+			href="html/debug/launching-java.html" />
+	</topic>
+
+	<topic label="Help">
+		<topic label="Help – Part 1 Contributing a little help"
+			href="html/help/help1.htm">
+		</topic>
+	</topic>
+
+	<topic label="SWT">
+		<topic label="ActiveX Support In SWT"
+			href="html/SWT/ActiveX Support in SWT.html" />
+
+		<topic
+			label="Getting Your Feet Wet with the SWT StyledText Widget "
+			href="html/SWT/article1.html" />
+
+		<topic label="Into the Deep End of the SWT StyledText Widget"
+			href="html/SWT/article2.html" />
+
+		<topic label="Viewing HTML pages with SWT Browser widget"
+			href="html/SWT/browser.html" />
+
+		<topic
+			label="Drag and Drop Adding Drag and Drop to an SWT Application"
+			href="html/SWT/DND-in-SWT.html" />
+
+		<topic label="Taking a look at SWT Images"
+			href="html/SWT/graphics-resources.html" />
+
+		<topic label="A Basic Image Viewer"
+			href="html/SWT/Image_viewer.html" />
+
+		<topic label="Using OpenGL with SWT"
+			href="html/SWT/opengl.html" />
+
+		<topic label="A small cup of SWT"
+			href="html/SWT/pocket-PC.html" />
+
+		<topic label="Graphics Context - Quick on the draw"
+			href="html/SWT/SWT_graphics.html" />
+
+		<topic label="SWT Color Model"
+			href="html/SWT/swt-color-model.htm" />
+
+		<topic label="Implementation Strategy for Java™ Natives"
+			href="html/SWT/SWT-Design-1.html" />
+
+		<topic label="Managing Operating System Resources"
+			href="html/SWT/swt-design-2.html" />
+
+		<topic label="Understanding Layouts in SWT"
+			href="html/SWT/Understanding Layouts.htm" />
+
+		<topic label="Creating Your Own Widgets using SWT"
+			href="html/SWT/Writing Your Own Widget.htm" />
+	</topic>
+
+	<topic label="Workbench &amp; JFace">
+		<topic label="Eclipse User Interface Guidelines Version 2.1"
+			href="html/jface/Contents.html" />
+		<topic label="Understanding Decorators in Eclipse"
+			href="html/jface/decorators.html" />
+		<topic label="Contributing Actions to the Eclipse Workbench"
+			href="html/jface/Eclipse-Workbench.htm" />
+		<topic label="Simplifying Preference Pages with Field Editors"
+			href="html/jface/field_editors.html" />
+		<topic label="Folding in Eclipse Text Editors"
+			href="html/jface/folding.html" />
+		<topic label="Mark My Words"
+			href="html/jface/Mark My Words.html" />
+		<topic label="Using Perspectives in the Eclipse UI"
+			href="html/jface/PerspectiveArticle.html" />
+		<topic label="Preferences in the Eclipse Workbench UI"
+			href="html/jface/preferences.htm" />
+		<topic label="How to use the JFace Tree Viewer"
+			href="html/jface/TreeViewerArticle.htm" />
+		<topic label="Using Images in the Eclipse UI"
+			href="html/jface/Using Images In Eclipse.html" />
+		<topic label="Creating an Eclipse View"
+			href="html/jface/ViewArticle2.html" />
+		<topic label="Creating JFace Wizards"
+			href="html/jface/wizardArticle.html" />
+		<topic label="Drag and Drop in the Eclipse UI"
+			href="html/jface/drag_drop.html" />
+		<topic label="On the Job: The Eclipse Jobs API"
+			href="html/jface/jobs-api.html" />
+		<topic
+			label="Mutatis mutandis - Using Preference Pages as Property Pages"
+			href="html/jface/overlay-pages.html" />
+		<topic label="Take control of your properties"
+			href="html/jface/properties-view.html" />
+		<topic
+			label="Building and delivering a table editor with SWT/JFace"
+			href="html/jface/table_viewer.html" />
+		<topic label="How to use the JFace Tree Viewer"
+			href="html/jface/TreeViewerArticle.htm" />
+	</topic>
+
+	<topic label="Team">
+		<topic label="Branching with Eclipse and CVS"
+			href="html/team/eclipse_branch.html" />
+	</topic>
+
+	<topic label="Update">
+		<topic label="How To Keep Up To Date"
+			href="html/update/keeping-up-to-date.html" />
+	</topic>
+
+	<topic label="Beyond the Eclipse Platform">
+		<topic label="Using Native Drag and Drop with GEF"
+			href="html/beyond/GEF-dnd.html" />
+		<topic label="Display a UML Diagram using Draw2D"
+			href="html/beyond/GEF-Draw2d.html" />
+		<topic label="Using GEF with EMF"
+			href="html/beyond/gef-emf.html" />
+		<topic label="JET Tutorial Part 1 (Introduction to JET)"
+			href="html/beyond/jet_tutorial1.html" />
+		<topic label="JET Tutorial Part 2 (Write Code that Writes Code)"
+			href="html/beyond/jet_tutorial2.html" />
+		<topic label="Using EMF" href="html/beyond/using-emf.html" />
+		<topic label="Modeling Rule-Based Systems with EMF"
+			href="html/beyond/article.html" />
+		<topic
+			label="Building a Database Schema Diagram Editor with GEF"
+			href="html/beyond/gef-schema-editor.html" />
+		<topic label="EMF goes RCP" href="html/beyond/rcp.html" />
+		<topic labeL="A Shape Diagram Editor"
+			href="html/beyond/shape.html" />
+	</topic>
+
+
+
+</toc>

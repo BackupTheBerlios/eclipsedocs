@@ -1,0 +1,815 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document"><title>Mutatis mutandis - Using Preference Pages as Property Pages</title>
+
+<link rel="stylesheet" href="overlay-pages_files/default_style.css"></head>
+
+<body link="#0000ff" vlink="#800080">
+<div align="right">&nbsp; <font face="Times New Roman, Times, serif" size="2">Copyright 
+  © 2003 Berthold Daum.</font> 
+  <table border="0" cellpadding="2" cellspacing="0" width="100%">
+    <tbody><tr> 
+      <td colspan="2" align="left" bgcolor="#0080c0" valign="top"><b><font face="Arial,Helvetica"><font color="#ffffff">&nbsp;Eclipse 
+        Corner Article</font></font></b></td>
+    </tr>
+  </tbody></table>
+</div>
+<div align="left"> 
+  <h1><img src="overlay-pages_files/Idea.jpg" align="middle" height="86" width="120"></h1>
+</div>
+<p>&nbsp;</p>
+
+<h1 align="center">Mutatis mutandis - Using Preference Pages as Property Pages</h1>
+
+<blockquote>
+<b>Summary</b>
+
+<br>
+A common problem in the implementation of applications is the implementation of
+project-specific properties that override workbench-wide preferences on project or file level. The
+naive approach is to implement these pages from scratch. However, writing the
+same code twice is a boring task and leads to increased maintenance efforts. In
+this article we show how existing preferences pages (with or without field
+editors) can be easily converted into pages that can act as both preference and
+property pages. We demonstrate this by implementing the abstract class <code> FieldEditorOverlayPage</code>
+providing the necessary functionality. 
+  <p><b>Berthold Daum, bdaum industrial communications</b> <br>
+    October 24, 2003 </p>
+</blockquote>
+
+<hr width="100%">
+<h2>The problem</h2>
+<p>Implementing <i>Preference Pages</i> for Eclipse plug-ins is not a difficult 
+  task, especially if you use field editors. Such preference pages are usually 
+  implemented as subclasses of <code>org.eclipse.jface.preference.PreferencePage</code> 
+  and <code>org.eclipse.jface.preference.FieldEditorPreferencePage</code>. There 
+  are already two excellent articles on <i> Eclipse Corner</i> dealing with this 
+  subject: <a href="http://www.eclipse.org/articles/Article-Preferences/preferences.htm">Preferences in the 
+  Eclipse Workbench UI</a> by Tod Creasey and <a href="http://www.eclipse.org/articles/Article-Field-Editors/field_editors.html">Simplifying 
+  Preference Pages with Field Editors</a> by Ryan Cooper. In this article I will 
+  not go into details with the implementation of preference pages but assume that 
+  you are already fairly familiar with standard implementation techniques of such 
+  pages.</p>
+<p>The problem that I want to discuss here begins after you already have implemented
+preference pages for your plug-in. At some stage you notice that some or all of your plug-in
+preferences should rather be project specific or even file specific. The usual
+way to implement such project or file specific settings are <i>Property Pages</i>,
+which usually are subclasses of <code>org.eclipse.ui.dialogs.PropertyPage</code>.
+The Eclipse workbench already contains some examples of how property
+pages are used to override workbench settings on project level. One
+example are the <i> Java
+Compiler</i> settings. These settings can be controlled in the workbench
+preferences but can be overridden for each
+Java project separately by project specific property pages.&nbsp;</p>
+<table border="0">
+  <tbody><tr>
+    <td width="50%"><img src="overlay-pages_files/PreferencePage.GIF" border="0" height="380" width="441">
+      <p><i>The Java compiler settings in the workbench preferences</i>
+      </p><p><i>&nbsp;</i></p></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="overlay-pages_files/PropertyPage.GIF" border="0" height="355" width="440">
+      <p><i>The Java compiler settings as a property page of a Java project</i></p></td>
+  </tr>
+</tbody></table>
+<p>As we see, both preference page and property page look, in fact,
+very similar. There are some differences, however,
+at the top of the page. Instead of the page description, the property
+page
+contains two radio buttons for toggling between workbench settings and
+project settings. It also features a button for direct access to the
+corresponding workbench preference page. But its main body (in this
+case the
+tabbed notebook) is identical with the main body of the corresponding
+preference
+page.</p>
+<h2>Possible solutions</h2>
+<p>An obvious solution to this problem is to implement both pages from scratch.
+However, since the main body of the both pages is identical, this would result
+in a large portion of duplicated code, code that is subject to later maintenance
+and thus increases maintenance costs. After all, object-oriented programming is
+about reuse, isn't it?</p>
+<p>Well, why don't we factor out the main body of both pages into a separate
+class? This is actually the way in which both pages shown above are implemented.
+(The tabbed notebook is implemented in JDT class <code>CompilerConfigurationBlock</code>.)
+But this technique is not trivial. What I did not tell you is that preference
+pages and property pages are based on different data models. Workbench preferences
+are usually stored in plug-in specific but workbench-wide preference stores. Properties,
+in contrast, are stored as resource related properties. The interface <code>org.eclipse.core.resources.IResource</code>
+provides the necessary access method. When a resource is deleted, also its
+properties cease to exist. This different way of data management would require
+us to implement two variants of access routines, if we want to use preference
+pages in the role of property pages. For property pages we would need to direct all field accesses
+to the respective resource (project or file), for preference pages we would need
+to direct all field accesses to the plug-in specific preference store. Unfortunately, this
+strategy is not possible for preference pages utilizing field editors. Field
+editors internally always access a preference store - we cannot tell them to
+access resource properties instead. So we would need to re-implement the whole
+property page - replacing the field editors with standard SWT widgets! Not very nice.</p>
+<p>Fortunately, there is another solution and it works for field editors, too.
+To get to this solution we have to look at the inheritance trees of both field
+editor preference pages and property pages. (We will deal with the problem of
+field editor preferences pages first and will discuss "normal"
+preference pages later.)</p>
+<table border="0">
+  <tbody><tr>
+    <td valign="top" width="50%"><img src="overlay-pages_files/FieldEditorPreferenceHierarchy.GIF" border="0" height="169" width="225"></td>
+    <td valign="top" width="50%"><img src="overlay-pages_files/PropertyHierarchy.GIF" border="0" height="181" width="220"></td>
+  </tr>
+</tbody></table>
+<p>Both types are extensions of the abstract class <code>PreferencePage</code>.
+The class <code>FieldEditorPreferencePage</code> implements, in addition, the
+interface <code>IPropertyChangeListener</code>, while the class <code>PropertyPage</code>
+additionally implements the interface <code>IWorkbenchPropertyPage</code>. Since
+the extension from <code>PreferencePage</code> to <code>PropertyPage</code> is
+minimal (the implementation of <code>IWorkbenchPropertyPage</code> is
+trivial), it makes sense to base our solution on class <code>FieldEditorPreferencePage</code>
+and simply add the implementation of <code>IWorkbenchPropertyPage</code>.</p>
+<p>But how do we deal with the problem of different data models for property
+pages and preference pages? Since field editors can only access preference
+stores, we simply create a temporary preference store (which we call <i>overlay store</i>
+within this article)
+when a property page is initialized. We implement this store by extending class <code>PreferenceStore</code>
+but provide different semantics to its access methods. In particular, when
+fetching a value from the store, we look into the resource properties first if
+we can find an identically named value there. Only if such a value is not found,
+we refer to the underlying workbench preference store. The <code>save()</code>
+methods of this store have different semantics, too: they must store the values
+contained in the overlay store into the resource properties instead of saving them as preferences. So,
+our field editors have only to deal with a preference store and are perfectly
+happy.</p>
+<h2>Implementing class PropertyStore</h2>
+<p>The class <code> PropertyStore</code> implements the overlay store and extends the class
+<code>PreferenceStore</code>. Each instance of <code>
+PropertyStore</code> represents the properties of a specific resource in context
+of a specific
+property page but as an incarnation of a property store. Because the store is
+resource and page specific, we pass the <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+resource and a <img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">
+page identification in the constructor:</p>
+<pre><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">class</font></b> PropertyStore <b><font color="#7f0055">extends</font></b> PreferenceStore {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">private</font></b> IResource resource;
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">private</font></b> IPreferenceStore workbenchStore;
+<img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">private</font></b> String pageId;</pre>
+<pre>	  <b><font color="#7f0055">public</font></b> PropertyStore(IResource resource, 
+                               IPreferenceStore workbenchStore, 
+                               String pageId) {
+	    <font color="#7f0055"><b>this</b></font>.resource = resource;
+	    <b><font color="#7f0055">this</font></b>.workbenchStore = workbenchStore;
+	    <b><font color="#7f0055">this</font></b>.pageId = pageId;
+	}</pre>
+<p>We also pass the underlying <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+workbench preference store. When a preference value is not available as a
+resource property value, we will route accesses through to this
+store.</p>
+<h5>Getters and Setters</h5>
+<p>Now, let's first discuss the <code>get...()</code> accessors. The class <code>PreferenceStore</code>
+has an awful lot of them, one for each primitive Java type and one for <code>java.lang.String</code>. Here, we show only
+the accessor for type <code>String</code> but leave the others to your
+imagination. Let's start with the accessor for the default values:</p>
+<pre><b><font color="#7f0055">	public</font></b> String getDefaultString(String name) {
+	  <b><font color="#7f0055">return</font></b> workbenchStore.getDefaultString(name);
+	}</pre>
+<p>Well, that was easy enough. Because we don't store any default values in <code>PropertyStore</code>
+we just fetch the default values from the workbench preference store. Next are
+the accessors for non-default values:</p>
+<pre><b><font color="#7f0055">	public</font></b> String getString(String name) {
+	  insertValue(name);
+	  <font color="#7f0055"><b>return</b></font> <b><font color="#7f0055">super</font></b>.getString(name);
+	}</pre>
+<p>That seems easy enough, too, but what's in <code>insertValue()</code> ?</p>
+<pre>	<b><font color="#7f0055">private</font></b> <b><font color="#7f0055">boolean</font></b> inserting = <b><font color="#7f0055">false</font></b>;</pre>
+<pre><b><font color="#7f0055">	private</font></b> <b><font color="#7f0055">synchronized</font></b> <b><font color="#7f0055">void</font></b> insertValue(String name) {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">if</font></b> (inserting)
+	    <b><font color="#7f0055">return</font></b>;
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">if</font></b> (<b><font color="#7f0055">super</font></b>.contains(name))
+	    <b><font color="#7f0055">return</font></b>;
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	  inserting = <b><font color="#7f0055">true</font></b>;
+	  String prop = <b><font color="#7f0055">null</font></b>;
+	  <b><font color="#7f0055">try</font></b> {
+<img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">	    prop = getProperty(name);
+	  } <b><font color="#7f0055">catch</font></b> (CoreException e) {
+	  }
+	  <font color="#7f0055"><b>if</b></font> (prop == <b><font color="#7f0055">null</font></b>)
+<img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24">	    prop = workbenchStore.getString(name);
+	  <font color="#7f0055"><b>if</b></font> (prop != <b><font color="#7f0055">null</font></b>)
+<img src="overlay-pages_files/tag_5.gif" align="middle" height="13" width="24">	    setValue(name, prop);
+	  inserting = <b><font color="#7f0055">false</font></b>;
+	}</pre>
+<pre><b><font color="#7f0055">	private</font></b> String getProperty(String name) <b><font color="#7f0055">
+                              throws</font></b> CoreException {
+<img src="overlay-pages_files/tag_6.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">return</font></b> resource.getPersistentProperty(<b><font color="#7f0055">
+                          new</font></b> QualifiedName(pageId, name));
+	}</pre>
+<p>Not easy at all! It starts with a synchronized method and a <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+semaphore (<code>inserting</code>). This is necessary to avoid recursions.
+Method calls inside the <code>insertValue()</code> body internally call <code>getString()</code>
+which would lead to unlimited recursion and a stack overflow. The semaphore
+inhibits just this. To make this logic thread safe we have declared this method
+as synchronized.</p>
+<p>After we have made sure that this is not a recursive call we first look if the value is already stored in the <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+ local store instance. If yes, we do
+nothing. If not, we try to <img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">
+read a property with the same name. We always <img src="overlay-pages_files/tag_6.gif" align="middle" height="13" width="24">
+ qualify the names of properties with the page identification to avoid name clashes between
+properties from different property pages. If such a property value does not
+exist, we get the value from the <img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24">
+workbench preference store. Then we <img src="overlay-pages_files/tag_5.gif" align="middle" height="13" width="24">
+cache this value in the local store.&nbsp;Sooner or later, the value of all
+fields in a given page will end up in this local core: all field editors will
+call a <code>get...()</code> method in order to display a value on the
+page.&nbsp;</p>
+<p>What about the corresponding <code>set...() </code>methods? Fortunately, we
+don't have to override these methods because all changes are applied directly to
+the local store. However, a few other <code>PreferenceStore</code> methods need
+consideration.</p>
+<h5>More methods</h5>
+<p>In particular, we have to modify the methods <code>contains()</code>, <code>isDefault()</code>
+and <code>setToDefault()</code>. Let's start with method <code>contains()</code>:</p>
+<pre><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">boolean</font></b> contains(String name) {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">return</font></b> workbenchStore.contains(name);
+	}</pre>
+<p>Here, we just <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24"> delegate to the workbench preference store assuming that
+the property page is an exact replica of the preference page.</p>
+<p>Default values need a bit more attention. Above, we had simply delegated <code>getDefault...()</code>
+calls to the workbench preference store. But what if we want to reset a
+property to its default value? Standard preference stores internally contain two
+sets of properties: one for the default values and one for the non-default
+values. The second set only contains a value if it is unequal to the default value.
+So, when a value is reset to its default value, it is sufficient to remove it
+from the set of non-default values. In our case, however, we need a different
+implementation. We must explicitly <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+store property values that equal the default value. So we are able to set
+resource level properties to their default while on workbench level they still
+have a non-default value:</p>
+<pre><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">void</font></b> setToDefault(String name) {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	    setValue(name, getDefaultString(name));
+	}</pre>
+<p>This has implications for the method <code>isDefault()</code>. The standard
+implementation just tests if the specified property name is contained in the set
+of non-default values. In our case, however, this is not sufficient because this
+value set may contain default values, too. We must therefore explicitly compare <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+ non-default values with <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+default values:</p>
+<font>
+</font><pre><font><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">boolean</font></b> isDefault(String name) {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	  String defaultValue = getDefaultString(name);
+	  <font color="#7f0055"><b>if</b></font> (defaultValue == <b><font color="#7f0055">null</font></b>) <b><font color="#7f0055">return</font></b> <b><font color="#7f0055">false</font></b>;
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	  <font color="#7f0055"><b>return</b></font> defaultValue.equals(getString(name));
+	}</font></pre>
+<h5><font>Updating Resource Properties</font></h5>
+<p><font>What remains to do is overriding both <code>save()</code>
+ methods of class <code>PreferenceStore</code>. In contrast to the standard save operation we write all
+cached values to
+the resource properties:</font></p>
+<pre><font><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">void</font></b> save() <b><font color="#7f0055">throws</font></b> IOException {
+	  writeProperties();
+	}</font></pre>
+<pre><font><font color="#7f0055">	<b>public</b></font> <b><font color="#7f0055">void</font></b> save(OutputStream out, String header) <b><font color="#7f0055">
+                                         throws</font></b> IOException {
+	  writeProperties();
+	}</font></pre>
+<pre><font><font color="#7f0055">	<b>private</b></font> <b><font color="#7f0055">void</font></b> writeProperties() <b><font color="#7f0055">throws</font></b> IOException {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	  String[] preferences = <b><font color="#7f0055">super</font></b>.preferenceNames();
+	  <b><font color="#7f0055">for</font></b> (<b><font color="#7f0055">int</font></b> i = 0; i &lt; preferences.length; i++) {
+	    String name = preferences[i];
+	    <font color="#7f0055"><b>try</b></font> {
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	      setProperty(name, getString(name));
+	    } <b><font color="#7f0055">catch</font></b> (CoreException e) {
+	      <b><font color="#7f0055">throw</font></b> <b><font color="#7f0055">new</font></b> IOException(<font color="#2a00ff">
+                    "Cannot write resource property "</font> + name);
+	    }
+	  }
+	}</font></pre>
+<pre><font><b><font color="#7f0055">	private</font></b> <b><font color="#7f0055">void</font></b> setProperty(String name, String value) <b><font color="#7f0055">
+                                         throws</font></b> CoreException {
+<img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">	  resource.setPersistentProperty(<b><font color="#7f0055">
+                       new</font></b> QualifiedName(pageId, name), value);
+	}</font></pre>
+<p><font>Here, we first get the <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+ names of all values in the local preference store. Then we <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+ write each of them into the resource properties as shown above. Again, we need to <img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">
+ qualify the property name with the page identification.</font></p>
+<p><font>We are now done with the implementation of class <code>PropertyStore</code>
+and turn our attention to GUI issues.</font></p>
+<h2><font>Implementing class FieldEditorOverlayPage</font></h2>
+<p><font>The class <code>FieldEditorOverlayPage</code> can act as a common superclass for all field editor preference pages that
+also
+want to behave as property pages.</font></p>
+<h5><font>A place in the type hierarchy</font></h5>
+<p><font> As we have already discussed above this
+class <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24"> extends class <code>FieldEditorPreferencePage</code> and additionally
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24"> implements <code>IWorkbenchPropertyPage</code>.
+We
+<img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24"> replicate all constructors of class <code>FieldEditorPreferencePage</code> but
+<img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24">	     save the image passed in
+the third constructor for later use:</font></p>
+<pre><font><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">abstract</font></b> <b><font color="#7f0055">class</font></b> FieldEditorOverlayPage
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	                <font color="#7f0055"><b>extends</b></font> FieldEditorPreferencePage
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">                     <b><font color="#7f0055">implements</font></b> IWorkbenchPropertyPage</font></pre>
+<pre><font><img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24"><b><font color="#7f0055">	public</font></b> FieldEditorOverlayPage(<b><font color="#7f0055">int</font></b> style) {
+	  <b><font color="#7f0055">super</font></b>(style);
+	}</font></pre>
+<pre><font><b><font color="#7f0055">	public</font></b> FieldEditorOverlayPage(String title, <b><font color="#7f0055">int</font></b> style) {
+	  <b><font color="#7f0055">super</font></b>(title, style);
+	}</font></pre>
+<pre><font><b><font color="#7f0055">	private</font></b> ImageDescriptor image;</font></pre>
+<pre><font><b><font color="#7f0055">	public</font></b> FieldEditorOverlayPage(String title, 
+                                      ImageDescriptor image, <b><font color="#7f0055">
+                                      int</font></b> style) {
+	  <b><font color="#7f0055">super</font></b>(title, image, style);
+<img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">this</font></b>.image = image;
+	}</font></pre>
+<p><font>The implementation of interface <code>IWorkbenchPropertyPage</code>  is
+trivial, indeed:</font></p>
+<pre><font><img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	<b><font color="#7f0055">private</font></b> IAdaptable element;</font></pre>
+<pre><font><img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	<font color="#7f0055"><b>public</b></font> <b><font color="#7f0055">void</font></b> setElement(IAdaptable element) {
+	  <b><font color="#7f0055">this</font></b>.element = element;
+      	}</font></pre>
+<pre><font>   	<b><font color="#7f0055">public</font></b> IAdaptable getElement() {
+	  <font color="#7f0055"><b>return</b></font> element;
+      	}</font></pre>
+<p><font>The method <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+<code>setElement()</code> is called when a property page is opened. In our
+case, when the property page is called on a project, folder, or file, the <code>
+IAdaptable</code> that is passed as an argument is actually of type <code>IResource</code>.
+We simply store this element in an <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+ instance variable. Obviously, when this variable is not <code>null</code>, the
+current instance of <code>FieldEditorOverlayPage</code>
+represents a property page, otherwise a preference page. We express this fact in
+the following method:</font></p>
+<pre><font><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">boolean</font></b> isPropertyPage() {
+	  <b><font color="#7f0055">return</font></b> element != <b><font color="#7f0055">null</font></b>;
+	}</font></pre>
+<p><font>We can use this method, for example, in subclasses that want to vary the page
+content depending on if it is a property page or a preference page.</font></p>
+<h5><font>Additional GUI elements</font></h5>
+<p><font>Also the GUI elements of class <code>FieldEditorOverlayPage</code> are
+variable. If the page instance represents a property page, we want the button
+group for project/workbench selection at the top. If it is a preference page, we
+don't. Depending on the state of these buttons we must enable or
+disable the field editors, too.</font></p>
+<p><font>Let's start with this button group. To add these buttons to a property page we
+extend the method <code>createContents()</code>:</font></p>
+<pre><font><b><font color="#7f0055">	public static</font></b> <b><font color="#7f0055">final</font></b> String USEPROJECTSETTINGS = <font color="#2a00ff">
+                                     "useProjectSettings"</font>;</font></pre>
+<pre><font><b><font color="#7f0055">	private</font></b> Button useWorkspaceSettingsButton, 
+	               useProjectSettingsButton,
+	               configureButton;</font></pre>
+<pre><font><b><font color="#7f0055">	protected</font></b> Control createContents(Composite parent) {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	  <font color="#7f0055"><b>if</b></font> (isPropertyPage())
+	    createSelectionGroup(parent);
+	  <font color="#7f0055"><b>return</b></font> <b><font color="#7f0055">super</font></b>.createContents(parent);
+	}</font></pre>
+<pre><font><b><font color="#7f0055">	private</font></b> void createSelectionGroup(Composite parent) {
+	  Composite comp = <b><font color="#7f0055">new</font></b> Composite(parent, SWT.NONE);
+	  GridLayout layout = <b><font color="#7f0055">new</font></b> GridLayout(2, <b><font color="#7f0055">false</font></b>);
+	  layout.marginHeight = 0;
+	  layout.marginWidth = 0;
+	  comp.setLayoutData(<b><font color="#7f0055">new</font></b> GridData(GridData.FILL_HORIZONTAL));
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	  Composite radioGroup = <b><font color="#7f0055">new</font></b> Composite(comp, SWT.NONE);
+	  radioGroup.setLayout(<b><font color="#7f0055">new</font></b> GridLayout());
+	  radioGroup.setLayoutData(<b><font color="#7f0055">new</font></b> GridData(GridData.FILL_HORIZONTAL));
+	  useWorkspaceSettingsButton =
+	           createRadioButton(radioGroup, <font color="#2a00ff">"Use workspace settings"</font>);
+	  useProjectSettingsButton =
+	           createRadioButton(radioGroup, <font color="#2a00ff">"Use project settings"</font>);
+<img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">	  configureButton = <b><font color="#7f0055">new</font></b> Button(comp, SWT.PUSH);
+	  configureButton.setText(<font color="#2a00ff">"Configure Workspace Settings ..."</font>);
+	  configureButton.addSelectionListener(<b><font color="#7f0055">new</font></b> SelectionAdapter() {
+	    <b><font color="#7f0055">public</font></b> <b><font color="#7f0055">void</font></b> widgetSelected(SelectionEvent e) {
+<img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24">	      configureWorkspaceSettings();
+	    }
+	  });
+<b><font color="#7f0055">	  try</font></b> {
+<img src="overlay-pages_files/tag_5.gif" align="middle" height="13" width="24">	    String use = ((IResource) element).getPersistentProperty(
+	                   <font color="#7f0055"><b>new</b></font> QualifiedName(pageId, USEPROJECTSETTINGS));
+<img src="overlay-pages_files/tag_6.gif" align="middle" height="13" width="24">	    <b><font color="#7f0055">if</font></b> ("true".equals(use)) {
+	      useProjectSettingsButton.setSelection(<b><font color="#7f0055">true</font></b>);
+	      configureButton.setEnabled(<b><font color="#7f0055">false</font></b>);
+	    } <b><font color="#7f0055">else
+</font></b>	      useWorkspaceSettingsButton.setSelection(<b><font color="#7f0055">true</font></b>);
+	  } <b><font color="#7f0055">catch</font></b> (CoreException e) {
+	    useWorkspaceSettingsButton.setSelection(<b><font color="#7f0055">true</font></b>);
+	  }
+	}</font></pre>
+<p><font>This code is straightforward. If the current instance is a <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+property page, we create a group of <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+two radio buttons and a <img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">
+push button. When this button is pressed,
+the <img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24"> method <code>configureWorkspaceSettings()</code>
+ is called for configuring the corresponding workspace settings. (We will discuss this method later.)&nbsp;</font></p>
+<p><font>After the controls have been created they are <img src="overlay-pages_files/tag_6.gif" align="middle" height="13" width="24">
+initialized. To do so we <img src="overlay-pages_files/tag_5.gif" align="middle" height="13" width="24">
+fetch the resource property <code>USEPROJECTSETTINGS</code>.
+Because this setting may be different for each single property page, we qualify
+the name of this property with the page identification.</font></p>
+<p><font>Both radio buttons are created via the convenience method <code>createRadioButton()</code>:</font></p>
+<pre><font><b><font color="#7f0055">	private</font></b> Button createRadioButton(Composite parent, String label) {
+	  <font color="#7f0055"><b>final</b></font> Button button = <b><font color="#7f0055">new</font></b> Button(parent, SWT.RADIO);
+	  button.setText(label);
+	  button.addSelectionListener(<b><font color="#7f0055">new</font></b> SelectionAdapter() {
+	    <b><font color="#7f0055">public</font></b> <b><font color="#7f0055">void</font></b> widgetSelected(SelectionEvent e) {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	      configureButton.setEnabled(button == useWorkspaceSettingsButton);
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	      updateFieldEditors();
+	    }
+	  });
+	  <b><font color="#7f0055">return</font></b> button;
+	}</font></pre>
+<p><font>When a radio button is pressed, we <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+enable or disable
+the button for the workbench configuration (enabled when we use the workbench
+settings), and we <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24"> enable or disable the field editors (disabled when the
+workbench settings are activated).&nbsp;</font></p>
+<p><font> However, this confronts us with a problem. We have to know
+the page's field editors. Our parent class <code>FieldEditorPreferencePage</code>
+has this knowledge, but unfortunately it keeps this knowledge close to itself.
+We must therefore keep track of the field editor ourselves. To do so, we
+override the method <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+<code>addField()</code> and add each field editor added to the page to a <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+list:</font></p>
+<pre><font><img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24"><b><font color="#7f0055">	</font><font color="#7f0055">private</font></b> List editors = <b><font color="#7f0055">new</font></b> ArrayList();</font></pre>
+<pre><font><img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24"><b><font color="#7f0055">	protected</font></b> <b><font color="#7f0055">void</font></b> addField(FieldEditor editor) {
+	  editors.add(editor);
+	  <font color="#7f0055"><b>super</b></font>.addField(editor);
+	}</font></pre>
+<p><font>Now, we can implement the method <code>updateFieldEditors()</code>:</font></p>
+<pre><font><b><font color="#7f0055">	private</font></b> <b><font color="#7f0055">void</font></b> updateFieldEditors() {
+	  <font color="#7f0055"><b>boolean</b></font> enabled = useProjectSettingsButton.getSelection();
+	  updateFieldEditors(enabled);
+	}</font></pre>
+<pre><font><b><font color="#7f0055">	protected</font></b> <b><font color="#7f0055">void</font></b> updateFieldEditors(<b><font color="#7f0055">boolean</font></b> enabled) {
+	  Composite parent = getFieldEditorParent();
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	  Iterator it = editors.iterator();
+	  <font color="#7f0055"><b>while</b></font> (it.hasNext()) {
+	    FieldEditor editor = (FieldEditor) it.next();
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	    editor.setEnabled(enabled, parent);
+	  }
+	}</font></pre>
+<p><font>We simply <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24"> 
+iterate through the list of field editors and
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+ tell each field editor if it is enabled or not. Subclasses may override this
+method if special treatment is required. This may be the case when the
+enablement of field editors depends on the state of other field editors or on
+the current state of the application.</font></p>
+<h5><font>Modifying the access layer</font></h5>
+<p><font>We have nearly completed the GUI part of class <code>FieldEditorOverlayPage</code>.
+We only must enable or disable the field editors appropriately after they have
+been created. The best place to do this is the method <code>createControl()</code>
+where we <img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24"> call <code>updateFieldEditors()</code>
+after the <img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24"> complete
+page content has been created:</font></p>
+<pre><font><b><font color="#7f0055">	private</font></b> IPreferenceStore overlayStore;</font></pre>
+<pre><font><b><font color="#7f0055">	private</font></b> String pageId;</font></pre>
+<pre><font><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">void</font></b> createControl(Composite parent) {
+	  <b><font color="#7f0055">if</font></b> (isPropertyPage()) {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	    pageId = getPageId();
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	    overlayStore = <b><font color="#7f0055">new</font></b> PropertyStore((IResource) getElement(), <b><font color="#7f0055">
+                                             super</font></b>.getPreferenceStore(), 
+                                             pageId);
+	  }
+<img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">	  <font color="#7f0055"><b>super</b></font>.createControl(parent);
+	  <b><font color="#7f0055">if</font></b> (isPropertyPage())
+<img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24">	    updateFieldEditors();
+	}</font></pre>
+<pre><font><img src="overlay-pages_files/tag_5.gif" align="middle" height="13" width="24"><b><font color="#7f0055">	protected</font></b> <b><font color="#7f0055">abstract</font></b> String getPageId();</font></pre>
+<p><font>The method <code>createControl()</code> is also the best place to <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+create an instance of class <code>PropertyStore</code> (see above). This
+instance will act as our local overlay store. This <code>PropertyStore</code>
+instance is supplied with a <code>pageId</code> used for qualifying property
+names. We <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24"> obtain
+this value via the <img src="overlay-pages_files/tag_5.gif" align="middle" height="13" width="24">
+method <code>getPageId()</code>. As this method is abstract, subclasses of <code>FieldEditorOverlayPage</code>
+are required to implement it.</font></p>
+<p><font>What remains to do is to inform clients about our overlay store. We do this
+by overriding the method <code>getPreferenceStore()</code>:</font></p>
+<pre><font><b><font color="#7f0055">	public</font></b> IPreferenceStore getPreferenceStore() {
+	  <b><font color="#7f0055">if</font></b> (isPropertyPage())
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	    <b><font color="#7f0055">return</font></b> overlayStore;
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">return</font></b> <b><font color="#7f0055">super</font></b>.getPreferenceStore();
+	}</font></pre>
+<p><font>If the page is a property page we return the <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+overlay store, otherwise we just return the <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+standard preference store. All clients that can work with preference stores
+(such as field editors) will be happy.</font></p>
+<h5><font>Handling button events</font></h5>
+<p><font>The button group from above, needs some special treatment when the <i>OK</i>
+button or the <i>Restore Defaults</i> button is pressed. When the <i>OK</i>
+button is pressed, we need to save the selection state of the radio buttons, and
+when the <i>Restore Defaults</i> button is pressed, we need to set the selection
+state of these buttons:</font></p>
+<p><font>To implement this <i> OK</i> button behavior, we override the method <code>performOk()</code>.
+Pay close attention here because things are getting a bit tricky:</font></p>
+<pre><font><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">boolean</font></b> performOk() {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">boolean</font></b> result = <b><font color="#7f0055">super</font></b>.performOk();
+	  <b><font color="#7f0055">if</font></b> (result &amp;&amp; isPropertyPage()) {
+<font color="#3f7f5f">	    </font>IResource resource = (IResource) element;
+	    <b><font color="#7f0055">try</font></b> {
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	      String value = (useProjectSettingsButton.getSelection()) ? 
+                             TRUE : FALSE;
+	      resource.setPersistentProperty(<font color="#7f0055"><b>
+                    new</b></font> QualifiedName(pageId, USEPROJECTSETTINGS), value);
+            } <b><font color="#7f0055">catch</font></b> (CoreException e) {
+            }
+	  }
+	  <font color="#7f0055"><b>return</b></font> result;
+	}</font></pre>
+<p><font>In method <code>performOk()</code> we first <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+execute the <code>performOk()</code> method of the super class, then save <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+ the state of the radio buttons into a resource property.</font></p>
+<pre><font><b><font color="#7f0055">	protected</font></b> <b><font color="#7f0055">void</font></b> performDefaults() {
+	  <b><font color="#7f0055">if</font></b> (isPropertyPage()) {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	    useWorkspaceSettingsButton.setSelection(<b><font color="#7f0055">true</font></b>);
+	    useProjectSettingsButton.setSelection(<b><font color="#7f0055">false</font></b>);
+	    configureButton.setEnabled(<b><font color="#7f0055">true</font></b>);
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	    updateFieldEditors();
+	  }
+	  <font color="#7f0055"><b>super</b></font>.performDefaults();
+	}</font></pre>
+<p><font>Here, we
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24"> reset all buttons
+to <i>Use workspace settings</i> and <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+invoke method <code>updateFieldEditors()</code> to disable the field editors,
+too.</font></p>
+<p><font>To conclude the definition of this class, we implement
+the invocation of the corresponding workbench preference page when the <i>Configure
+Workbench Settings...</i> button is pressed. This is done in method <code>configureWorkspaceSettings()</code>:</font></p>
+<pre><font><b><font color="#7f0055">	protected</font></b> <b><font color="#7f0055">void</font></b> configureWorkspaceSettings() {
+	  <font color="#7f0055"><b>try</b></font> {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	    IPreferencePage page = 
+                   (IPreferencePage) <b><font color="#7f0055">this</font></b>.getClass().newInstance();
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	    page.setTitle(getTitle());
+	    page.setImageDescriptor(image);
+<img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">	    showPreferencePage(pageId, page);
+	  } <b><font color="#7f0055">catch</font></b> (InstantiationException e) {
+	    e.printStackTrace();
+	  } <b><font color="#7f0055">catch</font></b> (IllegalAccessException e) {
+	    e.printStackTrace();
+	  }
+	}</font></pre>
+<p><font>This method first <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+ creates a sibling of the current instance, <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+ then completes its definition with title and image (remember, we had saved the
+required <code>ImageDescriptor</code> instance in one of the constructors), and <img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">
+calls method <code>showPreferencePage()</code> on
+this new page:</font></p>
+<pre><font><b><font color="#7f0055">	protected</font></b> <b><font color="#7f0055">void</font></b> showPreferencePage(String id, IPreferencePage page) {
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">final</font></b> IPreferenceNode targetNode = <b><font color="#7f0055">new</font></b> PreferenceNode(id, page);
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	  PreferenceManager manager = <b><font color="#7f0055">new</font></b> PreferenceManager();
+	  manager.addToRoot(targetNode);
+<img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">	  <font color="#7f0055"><b>final</b></font> PreferenceDialog dialog = <b><font color="#7f0055">
+                new</font></b> PreferenceDialog(getControl().getShell(), manager);
+	  BusyIndicator.showWhile(getControl().getDisplay(), <b><font color="#7f0055">new</font></b> Runnable() {
+	    <b><font color="#7f0055">public</font></b> <b><font color="#7f0055">void</font></b> run() {
+<img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24">	      dialog.create();
+	      dialog.setMessage(targetNode.getLabelText());
+<img src="overlay-pages_files/tag_5.gif" align="middle" height="13" width="24">	      dialog.open();
+	    }
+	  });
+	}</font></pre>
+<p><font>The code for method <code>showPreferencePage()</code> is actually pinched from an existing
+workbench component (to be precise: from the property page implementation for the
+Java compiler settings). It <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+ creates a solitary preference node, <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+ adds it as the root object to a new preference manager, then constructs a <img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24"> 
+new
+preference dialog with this manager. This dialog is then <img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24">
+ created and <img src="overlay-pages_files/tag_5.gif" align="middle" height="13" width="24"> opened.</font></p>
+<p><font>This concludes the definition of class <code>FieldEditorOverlayPage</code>.</font></p>
+<h2><font>Using class FieldEditorOverlayPage</font></h2>
+<p><font>Using (i.e. subclassing) this class is very simple. Let us assume that we
+already have implemented a subclass of class <code>FieldEditorPreferencePage</code>.
+All what we have to do is to:</font></p>
+<ol>
+<font>  <li>modify the <code>extends</code> declaration of this subclass (exchange <code>FieldEditorPreferencePage</code>
+    against <code>FieldEditorOverlayPage</code>).</li>
+  <li>provide an implementation of method <code>getPageId()</code>.</li>
+  <li>optionally we may implement layout variations depending on the page type
+    (preference page or property page).</li>
+</font></ol>
+<p><font>Afterwards we can use this subclass in both roles: as a property page and as
+a preference page.</font></p>
+<p><font>Let us look at an example. Here is the original field editor preference page:</font></p>
+<pre><font><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">class</font></b> DefaultSpellCheckerPreferencePage <b><font color="#7f0055">
+	       extends</font></b> FieldEditorPreferencePage <b><font color="#7f0055">
+               implements</font></b> IWorkbenchPreferencePage {</font></pre>
+<pre><font>	  <font color="#7f0055"><b>public</b></font> DefaultSpellCheckerPreferencePage() {
+	    <b><font color="#7f0055">super</font></b>(GRID);
+	  }</font></pre>
+<pre><font><b><font color="#7f0055">	  public</font></b> IPreferenceStore doGetPreferenceStore() {
+	    <b><font color="#7f0055">return</font></b> SpellCheckerPlugin.getDefault().getPreferenceStore();
+	  }</font></pre>
+<pre><font><b><font color="#7f0055">	  public</font></b> <b><font color="#7f0055">void</font></b> init(IWorkbench workbench) {
+	    setDescription(<font color="#2a00ff">"All changes will take effect ..."</font>);
+	  }</font></pre>
+<pre><font><b><font color="#7f0055">	  public</font></b> <b><font color="#7f0055">void</font></b> createFieldEditors() {
+	    Composite composite = getFieldEditorParent();
+	    addField(<b><font color="#7f0055">new</font></b> IntegerFieldEditor(
+	       Configuration.SPELL_THRESHOLD,
+	       <font color="#2a00ff">"Spell &amp;Threshold"</font>,
+	       composite));
+	    addField(<b><font color="#7f0055">new</font></b> BooleanFieldEditor(
+	       Configuration.SPELL_IGNOREDIGITWORDS,
+	       <font color="#2a00ff">"&amp;Ignore Numbers"</font>,
+	       composite));
+	    ...
+	    addField(<b><font color="#7f0055">new</font></b> BooleanFieldEditor(
+	       SpellCheckerPreferences.CHECKWHILETYPING,
+	       <font color="#2a00ff">"Check &amp;while Typing"</font>,
+	       composite));
+	    ...
+	  }
+	}</font></pre>
+<p><font>And this is how we have to modify this class to be able using it as
+both a preference page and a property page. We have printed these changes in bold
+type:</font></p>
+<pre><font><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">class</font></b> DefaultSpellCheckerPreferencePage <b><font color="#7f0055">
+	       extends</font></b> <b>FieldEditorOverlayPage</b> <b><font color="#7f0055">
+               implements</font></b> IWorkbenchPreferencePage {</font></pre>
+<pre><font>	  <font color="#7f0055"><b>public</b></font> DefaultSpellCheckerPreferencePage() {
+	    <b><font color="#7f0055">super</font></b>(GRID);
+	  }</font></pre>
+<pre><font><b><font color="#7f0055">	  public</font></b> IPreferenceStore doGetPreferenceStore() {
+	    <b><font color="#7f0055">return</font></b> SpellCheckerPlugin.getDefault().getPreferenceStore();
+	  }</font></pre>
+<pre><font><b><font color="#7f0055">	  public</font></b> <b><font color="#7f0055">void</font></b> init(IWorkbench workbench) {
+	    setDescription(<font color="#2a00ff">"All changes will take effect ..."</font>);
+	  }</font></pre>
+<pre><font><b><font color="#7f0055">	  protected</font> String getPageId() {
+</b><img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24"><b>	    <font color="#7f0055">return</font> "com.bdaum.SpellChecker.preferences.defaultPreferences";
+	  }</b></font></pre>
+<pre><font><b><font color="#7f0055">	  public</font></b> <b><font color="#7f0055">void</font></b> createFieldEditors() {
+	    Composite composite = getFieldEditorParent();
+	    addField(<b><font color="#7f0055">new</font></b> IntegerFieldEditor(
+	       Configuration.SPELL_THRESHOLD,
+	       <font color="#2a00ff">"Spell &amp;Threshold"</font>,
+	       composite));
+	    addField(<b><font color="#7f0055">new</font></b> BooleanFieldEditor(
+	       Configuration.SPELL_IGNOREDIGITWORDS,
+	       <font color="#2a00ff">"&amp;Ignore Numbers"</font>,
+	       composite));
+	    ...
+	    <b><font color="#7f0055">if</font> (!isPropertyPage()) {</b>
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	      addField(<b><font color="#7f0055">new</font></b> BooleanFieldEditor(
+	         SpellCheckerPreferences.CHECKWHILETYPING,
+	         <font color="#2a00ff">"Check &amp;while Typing"</font>,
+	         composite));
+	      ...
+	    <b>}</b></font></pre>
+<p><font>Note, that we display the <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+last field editor only in preference pages, not in property pages.</font></p>
+<p><font>In the plug-in manifest file <code>plugin.xml</code> the
+necessary declarations could look like this:</font></p>
+<pre><font><img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24"><font color="#000080">	&lt;extension id=</font><font color="#008000">"com.bdaum.aoModeling.preferences"</font><font color="#000080">
+</font>		   <font color="#000080">name=</font><font color="#008000">"SpellChecker Preferences"
+</font>	           <font color="#000080">point=</font><font color="#008000">"org.eclipse.ui.preferencePages"</font><font color="#000080">&gt;
+</font>	  <font color="#000080">&lt;page name=</font><font color="#008000">"Spelling" </font><font color="#000080">class=</font><font color="#008000">
+</font><img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24"><font color="#008000">   "com.bdaum.SpellChecker.preferences.DefaultSpellCheckerPreferencePage"
+</font><img src="overlay-pages_files/tag_5.gif" align="middle" height="13" width="24">	        <font color="#000080">id= </font><font color="#008000">"com.bdaum.SpellChecker.preferences.defaultPreferences"</font><font color="#000080">&gt;
+</font>	  <font color="#000080">&lt;/page&gt;
+</font>	<font color="#000080">&lt;/extension&gt;</font></font></pre>
+<pre><font><font color="#000080">	&lt;extension id=</font><font color="#008000">"com.bdaum.aoModeling.properties"
+</font>		   <font color="#000080">name=</font><font color="#008000">"SpellChecker Properties"
+</font>	           <font color="#000080">point=</font><font color="#008000">"org.eclipse.ui.propertyPages"</font><font color="#000080">&gt;
+</font><img src="overlay-pages_files/tag_6.gif" align="middle" height="13" width="24">	  <font color="#000080">&lt;page objectClass=</font><font color="#008000">"org.eclipse.core.resources.IProject"
+</font>	        <font color="#000080">adaptable=</font><font color="#008000">"true"
+</font>	        <font color="#000080">name=</font><font color="#008000">"Spell Default" </font><font color="#000080">class=</font><font color="#008000">
+</font><img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24"><font color="#008000">   "com.bdaum.SpellChecker.preferences.DefaultSpellCheckerPreferencePage"
+</font><img src="overlay-pages_files/tag_7.gif" align="middle" height="13" width="24">	        <font color="#000080">id=</font><font color="#008000">"com.bdaum.SpellChecker.propertyPage.project"</font><font color="#000080">&gt;
+</font>	  <font color="#000080">&lt;/page&gt;
+</font>	<font color="#000080">&lt;/extension&gt;</font></font></pre>
+<p><font>Note, that the page identification returned by <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">
+ method <code>getPageId()</code> matches the <img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">
+page identification specified in the preference page extension point. Note also, that we used the same
+<img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24"> page implementation in both
+<img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24"> the preference page extension point and
+<img src="overlay-pages_files/tag_6.gif" align="middle" height="13" width="24"> the property page extension point.
+(The <img src="overlay-pages_files/tag_7.gif" align="middle" height="13" width="24">
+ identification of the property page actually may differ from the <img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">
+preference page id.)</font></p>
+<table border="0">
+  <tbody><tr>
+    <td valign="top" width="50%"><img src="overlay-pages_files/spellPreferences.GIF" border="0" height="383" width="452">
+      <p><i>Preferences page for a spell checker plug-in</i>
+      </p><p><i>&nbsp;</i></p></td>
+  </tr>
+  <tr>
+    <td valign="top" width="50%"><img src="overlay-pages_files/spellProperties.GIF" border="0" height="365" width="452">
+      <p><i>Corresponding properties page for the same plug-in. The last group
+      of widgets&nbsp;<br>
+        is deliberately suppressed for property pages by this page implementation.</i></p></td>
+  </tr>
+</tbody></table>
+<h2><font>Retrieving overlayed preference values</font></h2>
+<p><font>Reading such overlayed preference values is a multi-stage process. First we
+must <img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24"> interrogate
+the resource, if this property page uses the project settings or the workbench
+settings. If it uses the project settings, we must <img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">
+read the value from the resource properties, if not we fall back to the <img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">
+values defined in the workbench preference store. Here again, we have to <img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24">
+qualify the field name with the page identification when we access the resource
+properties.</font></p>
+<pre><font><b><font color="#7f0055">	public</font></b> <b><font color="#7f0055">static</font></b> String getOverlayedPreferenceValue(
+                                             IPreferenceStore store, 
+                                             IResource resource, 
+                                             String pageId, 
+                                             String name) {
+	  IProject project = resource.getProject();
+	  String value = <b><font color="#7f0055">null</font></b>;
+<img src="overlay-pages_files/tag_1.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">if</font></b> (useProjectSettings(project, pageId)) {
+<img src="overlay-pages_files/tag_2.gif" align="middle" height="13" width="24">	    value = getProperty(resource, pageId, key);
+	  }
+	  <font color="#7f0055"><b>if</b></font> (value != <b><font color="#7f0055">null</font></b>)
+	    <b><font color="#7f0055">return</font></b> value;
+<img src="overlay-pages_files/tag_3.gif" align="middle" height="13" width="24">	  <b><font color="#7f0055">return</font></b> store.getString(key);
+	}</font></pre>
+<pre><font><b><font color="#7f0055">	private</font></b> <b><font color="#7f0055">static</font></b> <b><font color="#7f0055">boolean</font></b> useProjectSettings(IResource resource, 
+                                                  String pageId) {
+	  String use = getProperty(
+                             resource, 
+                             pageId, 
+                             FieldEditorOverlayPage.USEPROJECTSETTINGS);
+	  <font color="#7f0055"><b>return</b></font> <font color="#2a00ff">"true"</font>.equals(use);
+	}</font></pre>
+<pre><font><b><font color="#7f0055">	private</font></b> <b><font color="#7f0055">static</font></b> String getProperty(IResource resource, 
+                                          String pageId, 
+                                          String key) {
+	  <font color="#7f0055"><b>try</b></font> {
+<img src="overlay-pages_files/tag_4.gif" align="middle" height="13" width="24">	    <font color="#7f0055"><b>return</b></font> resource.getPersistentProperty(<b><font color="#7f0055">
+                             new</font></b> QualifiedName(pageId, key));
+	  } <b><font color="#7f0055">catch</font></b> (CoreException e) {
+	  }
+	  <b><font color="#7f0055">return</font></b> <b><font color="#7f0055">null</font></b>;
+	}</font></pre>
+<h2><font>Technology transfer</font></h2>
+<p><font>What works well for field editor preferences should also work for
+"normal" preference pages. However, some things are different when
+creating the class <code>OverlayPage</code>, since we now extend a <code>PreferencePage</code>
+and not a <code>FieldEditorPreferencePage</code>:</font></p>
+<ol>
+<font>  <li>We can directly extend the class <code>PropertyPage</code> because
+    this class is a subclass of <code>PreferencePage</code>. This saves us from
+    implementing the interface <code>IWorkbenchPropertyPage</code> with its <code>getElement()</code>
+    and <code>setElement()</code> methods.<br>
+  </li>
+  <li>We need to modify the constructors (no <code>style</code>
+    parameter required).<br>
+  </li>
+  <li>We need a different implementation for method <code>createContents()</code>.
+    Since <code>PreferencePage</code> only defines this method as an abstract
+    method, we need to implement it from scratch. We do so by creating two
+    containers in the parent composite: One for our own button group and one for
+    the contents created by subclasses. We return this second container as the
+    method's result.<br>
+  </li>
+  <li>There is no <code>addField()</code> method that we can override to
+    keep track of field editors. In fact, there are no field editors at all.
+    Consequently, we cannot rely on the knowledge encapsulated in the field
+    editors. Therefore, we drop the methods <code>addField()</code> and <code>updateFieldEditors()</code>.
+    Instead, we implement a method <code>setControlsEnabled()</code>. This
+    method walks through the whole tree of child controls created by subclasses
+    enabling or disabling them. (We spare tabbed notebooks and the like to allow
+    for user navigation.) Again, subclasses may want to override this method
+    when the enablement of controls depends on the state of other controls or on
+    the state of the application.<br>
+  </li>
+  <li>Subclasses must play it safe: If they
+    override method <code>performOk()</code> they must invoke <code>super.performOk()</code>;
+    and the implementation of <code>createContents()</code> must invoke <code>super.createContents()</code>
+    and use the composite returned by this method as container for all controls
+    created in the subclass.</li>
+</font></ol>
+<p><font>At this point we leave it with these hints. For implementation details please 
+  see class <code>OverlayPage</code> in the <a href="http://www.eclipse.org/articles/Article-Mutatis-mutandis/overlayPages.zip"> source 
+  code zip</a>.</font></p>
+<h2><font>Summary</font></h2>
+<p><font>We have implemented two abstract classes <code>FieldEditorOverlayPage</code>
+and <code>OverlayPage</code>. Subclasses extending these classes can act as both
+preference pages and property pages leading to an improved application
+consistency and lower maintenance cost. With only minimal modifications, already
+existing preference pages can be made by extending&nbsp; <code>FieldEditorOverlayPage</code>
+or <code>OverlayPage</code> and can then be reused in the role of property
+pages. We achieved this by implementing an abstract access layer in form of
+class <code>PropertyStore</code> that encapsulates the properties of a resource
+but behaves as a preference store. In addition, both classes <code>FieldEditorOverlayPage</code>
+and <code>OverlayPage</code> provide the additional GUI elements required by
+property pages.</font></p>
+<h2><font>Source Code</font></h2>
+<p><font>To use these classes within your own plug-in, download the <a href="http://www.eclipse.org/articles/Article-Mutatis-mutandis/overlayPages.zip">source 
+  code zip</a> and import its contents of into the source folder of your Eclipse 
+  project.</font></p>
+
+<h2><font>About the author </font></h2>
+
+<p><font>Berthold Daum is an independent consultant and writer based in Germany. His 
+  best-selling book "Java Entwicklung mit Eclipse 2" (dpunkt verlag) 
+  will appear in an English version as "Eclipse 2 for Java Developers" 
+  in November 2003 (John Wiley &amp; Sons). </font></p>
+
+<p><font><small>Java and all Java-based trademarks and logos are trademarks or registered trademarks of Sun 
+Microsystems, Inc. in the United States, other countries, or both.</small></font></p>
+
+</body></html>
