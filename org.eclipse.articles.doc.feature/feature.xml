@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.articles.doc.feature"
       label="org.eclipse.articles.doc.feature"
-      version="1.0.1"
+      version="1.0.2"
       provider-name="EclipseDocs">
 
    <description>
@@ -19,14 +19,13 @@
 
    <url>
       <update label="EclipseDocs" url="http://eclipsedocs.berlios.de/site"/>
-      <discovery label="EclipseDocs update site." url="http://eclipsedocs.berlios.de/site"/>
    </url>
 
    <plugin
          id="org.eclipse.articles.doc"
          download-size="0"
          install-size="0"
-         version="1.0.1"
+         version="1.0.2"
          unpack="false"/>
 
 </feature>
