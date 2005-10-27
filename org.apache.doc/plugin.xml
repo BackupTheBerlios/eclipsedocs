@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="org.apache.doc"
+   name="Doc Plug-in"
+   version="1.0.0"
+   provider-name="EclipseDocs"
+   >
+
+    <requires>
+      <import plugin="org.eclipse.help"/>
+   </requires>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc file="toc.xml" primary="true"/>
+      <index path="org.apache.doc.index"/>
+   </extension>
+
+</plugin> 

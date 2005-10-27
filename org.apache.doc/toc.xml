@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toc SYSTEM "toc.dtd">
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Apache.org Manuals">
+
+	<topic label="Velocity">
+		<topic label="User Guide" href="html/velocity/user-guide.html" />
+		<topic label="Developer Guide" href="html/velocity/developer-guide.html" />
+		<topic label="VTL Reference Guide" href="html/velocity/vtl-reference-guide.html" />
+		<topic label="JavaDoc" href="html/velocity/api/index.html"></topic>
+	</topic>	
+	
+	<topic label="Apache Ant 1.6.3"
+		href="html/ant163/manual/index.html">
+		<topic label="Introduction"
+			href="html/ant163/manual/intro.html" />
+		<topic label="Installing Ant"
+			href="html/ant163/manual/installlist.html">
+			<topic label="Getting Ant"
+				href="html/ant163/manual/install.html#getting">
+			</topic>
+			<topic label="System Requirements"
+				href="html/ant163/manual/install.html#sysrequirements">
+			</topic>
+			<topic label="Installing Ant"
+				href="html/ant163/manual/install.html#installing">
+			</topic>
+			<topic label="Building Ant"
+				href="html/ant163/manual/install.html#buildingant">
+			</topic>
+			<topic label="Library Dependencies"
+				href="html/ant163/manual/install.html#librarydependencies">
+			</topic>
+			<topic label="Platform Specific Issues"
+				href="html/ant163/manual/platform.html">
+			</topic>
+		</topic>
+		<topic label="Using Ant"
+			href="html/ant163/manual/usinglist.html">
+			<topic label="Writing a Simple Buildfile"
+				href="html/ant163/manual/using.html#buildfile">
+			</topic>
+			<topic label="Projects"
+				href="html/ant163/manual/using.html#projects">
+			</topic>
+			<topic label="Targets"
+				href="html/ant163/manual/using.html#targets">
+			</topic>
+			<topic label="Tasks"
+				href="html/ant163/manual/using.html#tasks">
+			</topic>
+			<topic label="Properties"
+				href="html/ant163/manual/using.html#properties">
+			</topic>
+			<topic label="Built-in Properties"
+				href="html/ant163/manual/using.html#built-in-props">
+			</topic>
+			<topic label="Example Buildfile"
+				href="html/ant163/manual/using.html#example">
+			</topic>
+			<topic label="Token Filters"
+				href="html/ant163/manual/using.html#filters">
+			</topic>
+			<topic label="Path-like Structures"
+				href="html/ant163/manual/using.html#path">
+			</topic>
+			<topic label="Command-line Arguments"
+				href="html/ant163/manual/using.html#arg">
+			</topic>
+			<topic label="References"
+				href="html/ant163/manual/using.html#references">
+			</topic>
+		</topic>
+		<topic label="Running Ant"
+			href="html/ant163/manual/runninglist.html">
+			<topic label="Command Line"
+				href="html/ant163/manual/running.html#commandline">
+			</topic>
+			<topic label="Options"
+				href="html/ant163/manual/running.html#options">
+			</topic>
+			<topic label="Library Directories"
+				href="html/ant163/manual/running.html#libs">
+			</topic>
+			<topic label="Files"
+				href="html/ant163/manual/running.html#files">
+			</topic>
+			<topic label="Environment Variables"
+				href="html/ant163/manual/running.html#envvars">
+			</topic>
+			<topic label="Java System Properties"
+				href="html/ant163/manual/running.html#sysprops">
+			</topic>
+			<topic label="Cygwin Users"
+				href="html/ant163/manual/running.html#cygwin">
+			</topic>
+			<topic label="OS/2 Users"
+				href="html/ant163/manual/running.html#os2">
+			</topic>
+			<topic label="Running Ant via Java"
+				href="html/ant163/manual/running.html#viajava">
+			</topic>
+		</topic>
+		<topic label="Ant Tasks"
+			href="html/ant163/manual/anttaskslist.html">
+			<topic label="Overview of Ant Tasks"
+				href="html/ant163/manual/tasksoverview.html">
+			</topic>
+			<topic label="Core Tasks">
+				<topic label="Ant"
+					href="html/ant163/manual/CoreTasks/ant.html" />
+				<topic label="AntCall"
+					href="html/ant163/manual/CoreTasks/antcall.html" />
+				<topic label="AntStructure"
+					href="html/ant163/manual/CoreTasks/antstructure.html" />
+				<topic label="Apply/ExecOn"
+					href="html/ant163/manual/CoreTasks/apply.html" />
+				<topic label="Available"
+					href="html/ant163/manual/CoreTasks/available.html" />
+				<topic label="Basename"
+					href="html/ant163/manual/CoreTasks/basename.html" />
+				<topic label="BuildNumber"
+					href="html/ant163/manual/CoreTasks/buildnumber.html" />
+				<topic label="BUnzip2"
+					href="html/ant163/manual/CoreTasks/unpack.html" />
+				<topic label="BZip2"
+					href="html/ant163/manual/CoreTasks/pack.html" />
+				<topic label="Checksum"
+					href="html/ant163/manual/CoreTasks/checksum.html" />
+				<topic label="Chmod"
+					href="html/ant163/manual/CoreTasks/chmod.html" />
+				<topic label="Concat"
+					href="html/ant163/manual/CoreTasks/concat.html" />
+				<topic label="Condition"
+					href="html/ant163/manual/CoreTasks/condition.html" />
+				<topic label="Supported Conditions"
+					href="html/ant163/manual/CoreTasks/conditions.html" />
+				<topic label="Copy"
+					href="html/ant163/manual/CoreTasks/copy.html" />
+				<topic label="Copydir"
+					href="html/ant163/manual/CoreTasks/copydir.html" />
+				<topic label="Copyfile"
+					href="html/ant163/manual/CoreTasks/copyfile.html" />
+				<topic label="Cvs"
+					href="html/ant163/manual/CoreTasks/cvs.html" />
+				<topic label="CvsChangeLog"
+					href="html/ant163/manual/CoreTasks/changelog.html" />
+				<topic label="CvsVersion"
+					href="html/ant163/manual/CoreTasks/cvsversion.html" />
+				<topic label="Checksum"
+					href="html/ant163/manual/CoreTasks/checksum.html" />
+				<topic label="CvsPass"
+					href="html/ant163/manual/CoreTasks/cvspass.html" />
+				<topic label="CvsTagDiff"
+					href="html/ant163/manual/CoreTasks/cvstagdiff.html" />
+				<topic label="DefaultExcludes"
+					href="html/ant163/manual/CoreTasks/defaultexcludes.html" />
+				<topic label="Delete"
+					href="html/ant163/manual/CoreTasks/delete.html" />
+				<topic label="Deltree"
+					href="html/ant163/manual/CoreTasks/deltree.html" />
+				<topic label="Dependset"
+					href="html/ant163/manual/CoreTasks/dependset.html" />
+				<topic label="Dirname"
+					href="html/ant163/manual/CoreTasks/dirname.html" />
+				<topic label="Ear"
+					href="html/ant163/manual/CoreTasks/ear.html" />
+				<topic label="Echo"
+					href="html/ant163/manual/CoreTasks/echo.html" />
+				<topic label="Exec"
+					href="html/ant163/manual/CoreTasks/exec.html" />
+				<topic label="Fail"
+					href="html/ant163/manual/CoreTasks/fail.html" />
+				<topic label="Filter"
+					href="html/ant163/manual/CoreTasks/filter.html" />
+				<topic label="FixCRLF"
+					href="html/ant163/manual/CoreTasks/fixcrlf.html" />
+				<topic label="GenKey"
+					href="html/ant163/manual/CoreTasks/genkey.html" />
+				<topic label="Get"
+					href="html/ant163/manual/CoreTasks/get.html" />
+				<topic label="GUnzip"
+					href="html/ant163/manual/CoreTasks/unpack.html" />
+				<topic label="GZip"
+					href="html/ant163/manual/CoreTasks/pack.html" />
+				<topic label="Import"
+					href="html/ant163/manual/CoreTasks/import.html" />
+				<topic label="Input"
+					href="html/ant163/manual/CoreTasks/input.html" />
+				<topic label="Jar"
+					href="html/ant163/manual/CoreTasks/jar.html" />
+				<topic label="Java"
+					href="html/ant163/manual/CoreTasks/java.html" />
+				<topic label="Javac"
+					href="html/ant163/manual/CoreTasks/javac.html" />
+				<topic label="Javadoc/JavaDoc2"
+					href="html/ant163/manual/CoreTasks/javadoc.html" />
+				<topic label="Length"
+					href="html/ant163/manual/CoreTasks/length.html" />
+				<topic label="LoadFile"
+					href="html/ant163/manual/CoreTasks/loadfile.html" />
+				<topic label="LoadProperties"
+					href="html/ant163/manual/CoreTasks/loadproperties.html" />
+				<topic label="Mail"
+					href="html/ant163/manual/CoreTasks/mail.html" />
+				<topic label="MacroDef"
+					href="html/ant163/manual/CoreTasks/macrodef.html" />
+				<topic label="Manifest"
+					href="html/ant163/manual/CoreTasks/manifest.html" />
+				<topic label="Mkdir"
+					href="html/ant163/manual/CoreTasks/mkdir.html" />
+				<topic label="Move"
+					href="html/ant163/manual/CoreTasks/move.html" />
+				<topic label="Nice"
+					href="html/ant163/manual/CoreTasks/nice.html" />
+				<topic label="Parallel"
+					href="html/ant163/manual/CoreTasks/parallel.html" />
+				<topic label="Patch"
+					href="html/ant163/manual/CoreTasks/patch.html" />
+				<topic label="PathConvert"
+					href="html/ant163/manual/CoreTasks/pathconvert.html" />
+				<topic label="PreSetDef"
+					href="html/ant163/manual/CoreTasks/presetdef.html" />
+				<topic label="Property"
+					href="html/ant163/manual/CoreTasks/property.html" />
+				<topic label="Record"
+					href="html/ant163/manual/CoreTasks/record.html" />
+				<topic label="Rename"
+					href="html/ant163/manual/CoreTasks/rename.html" />
+				<topic label="Replace"
+					href="html/ant163/manual/CoreTasks/replace.html" />
+				<topic label="Rmic"
+					href="html/ant163/manual/CoreTasks/rmic.html" />
+				<topic label="Sequential"
+					href="html/ant163/manual/CoreTasks/sequential.html" />
+				<topic label="SignJar"
+					href="html/ant163/manual/CoreTasks/signjar.html" />
+				<topic label="Sleep"
+					href="html/ant163/manual/CoreTasks/sleep.html" />
+				<topic label="Sql"
+					href="html/ant163/manual/CoreTasks/sql.html" />
+				<topic label="Style"
+					href="html/ant163/manual/CoreTasks/style.html" />
+				<topic label="Subant"
+					href="html/ant163/manual/CoreTasks/subant.html" />
+				<topic label="Sync"
+					href="html/ant163/manual/CoreTasks/sync.html" />
+				<topic label="Tar"
+					href="html/ant163/manual/CoreTasks/tar.html" />
+				<topic label="Taskdef"
+					href="html/ant163/manual/CoreTasks/taskdef.html" />
+				<topic label="Tempfile"
+					href="html/ant163/manual/CoreTasks/tempfile.html" />
+				<topic label="Touch"
+					href="html/ant163/manual/CoreTasks/touch.html" />
+				<topic label="TStamp"
+					href="html/ant163/manual/CoreTasks/tstamp.html" />
+				<topic label="Typedef"
+					href="html/ant163/manual/CoreTasks/typedef.html" />
+				<topic label="Unjar"
+					href="html/ant163/manual/CoreTasks/unzip.html" />
+				<topic label="Untar"
+					href="html/ant163/manual/CoreTasks/unzip.html" />
+				<topic label="Unwar"
+					href="html/ant163/manual/CoreTasks/unzip.html" />
+				<topic label="Unzip"
+					href="html/ant163/manual/CoreTasks/unzip.html" />
+				<topic label="Uptodate"
+					href="html/ant163/manual/CoreTasks/uptodate.html" />
+				<topic label="Waitfor"
+					href="html/ant163/manual/CoreTasks/waitfor.html" />
+				<topic label="War"
+					href="html/ant163/manual/CoreTasks/war.html" />
+				<topic label="WhichResource"
+					href="html/ant163/manual/CoreTasks/whichresource.html" />
+				<topic label="XmlProperty"
+					href="html/ant163/manual/CoreTasks/xmlproperty.html" />
+				<topic label="Xslt"
+					href="html/ant163/manual/CoreTasks/style.html" />
+				<topic label="Zip"
+					href="html/ant163/manual/CoreTasks/zip.html" />
+			</topic>
+			<topic label="Optional Tasks">
+				<topic label=".NET Tasks"
+					href="html/ant163/manual/OptionalTasks/dotnet.html" />
+				<topic label="ANTLR"
+					href="html/ant163/manual/OptionalTasks/antlr.html" />
+				<topic label="Attrib"
+					href="html/ant163/manual/OptionalTasks/attrib.html" />
+				<topic label="Cab"
+					href="html/ant163/manual/OptionalTasks/cab.html" />
+				<topic label="Chgrp"
+					href="html/ant163/manual/OptionalTasks/chgrp.html" />
+				<topic label="Chown"
+					href="html/ant163/manual/OptionalTasks/chown.html" />
+				<topic label="Clearcase Tasks"
+					href="html/ant163/manual/OptionalTasks/clearcase.html" />
+				<topic label="Continuus/Synergy Tasks"
+					href="html/ant163/manual/OptionalTasks/ccm.html" />
+				<topic label="Depend"
+					href="html/ant163/manual/OptionalTasks/depend.html" />
+				<topic label="EJB Tasks"
+					href="html/ant163/manual/OptionalTasks/ejb.html" />
+				<topic label="Echoproperties"
+					href="html/ant163/manual/OptionalTasks/echoproperties.html" />
+				<topic label="FTP"
+					href="html/ant163/manual/OptionalTasks/ftp.html" />
+				<topic label="IContract"
+					href="html/ant163/manual/OptionalTasks/icontract.html" />
+				<topic label="Image"
+					href="html/ant163/manual/OptionalTasks/image.html" />
+				<topic label="Jarlib-available"
+					href="html/ant163/manual/OptionalTasks/jarlib-available.html" />
+				<topic label="Jarlib-display"
+					href="html/ant163/manual/OptionalTasks/jarlib-display.html" />
+				<topic label="Jarlib-manifest"
+					href="html/ant163/manual/OptionalTasks/jarlib-manifest.html" />
+				<topic label="Jarlib-resolve"
+					href="html/ant163/manual/OptionalTasks/jarlib-resolve.html" />
+				<topic label="JavaCC"
+					href="html/ant163/manual/OptionalTasks/javacc.html" />
+				<topic label="Javah"
+					href="html/ant163/manual/OptionalTasks/javah.html" />
+				<topic label="Jspc"
+					href="html/ant163/manual/OptionalTasks/jspc.html" />
+				<topic label="JDepend"
+					href="html/ant163/manual/OptionalTasks/jdepend.html" />
+				<topic label="JJDoc"
+					href="html/ant163/manual/OptionalTasks/jjdoc.html" />
+				<topic label="JJTree"
+					href="html/ant163/manual/OptionalTasks/jjtree.html" />
+				<topic label="Jlink"
+					href="html/ant163/manual/OptionalTasks/jlink.html" />
+				<topic label="JProbe Coverage"
+					href="html/ant163/manual/OptionalTasks/jpcoverage.html" />
+				<topic label="JUnit"
+					href="html/ant163/manual/OptionalTasks/junit.html" />
+				<topic label="JUnitReport"
+					href="html/ant163/manual/OptionalTasks/junitreport.html" />
+				<topic label="Metamata Metrics"
+					href="html/ant163/manual/OptionalTasks/mmetrics.html" />
+				<topic label="Metamata Audit"
+					href="html/ant163/manual/OptionalTasks/maudit.html" />
+				<topic label="MimeMail"
+					href="html/ant163/manual/OptionalTasks/mimemail.html" />
+				<topic label="MParse"
+					href="html/ant163/manual/OptionalTasks/mparse.html" />
+				<topic label="Native2Ascii"
+					href="html/ant163/manual/OptionalTasks/native2ascii.html" />
+				<topic label="NetRexxC"
+					href="html/ant163/manual/OptionalTasks/netrexxc.html" />
+				<topic label="Perforce Tasks"
+					href="html/ant163/manual/OptionalTasks/perforce.html" />
+				<topic label="PropertyFile"
+					href="html/ant163/manual/OptionalTasks/propertyfile.html" />
+				<topic label="Pvcs"
+					href="html/ant163/manual/OptionalTasks/pvcstask.html" />
+				<topic label="RenameExtensions"
+					href="html/ant163/manual/OptionalTasks/renameextensions.html" />
+				<topic label="ReplaceRegExp"
+					href="html/ant163/manual/OptionalTasks/replaceregexp.html" />
+				<topic label="RExec"
+					href="html/ant163/manual/OptionalTasks/rexec.html" />
+				<topic label="Rpm"
+					href="html/ant163/manual/OptionalTasks/rpm.html" />
+				<topic label="ServerDeploy"
+					href="html/ant163/manual/OptionalTasks/serverdeploy.html" />
+				<topic label="SetProxy"
+					href="html/ant163/manual/OptionalTasks/setproxy.html" />
+				<topic label="Scp"
+					href="html/ant163/manual/OptionalTasks/scp.html" />
+				<topic label="Script"
+					href="html/ant163/manual/OptionalTasks/script.html" />
+				<topic label="Scriptdef"
+					href="html/ant163/manual/OptionalTasks/scriptdef.html" />
+				<topic label="Sound"
+					href="html/ant163/manual/OptionalTasks/sound.html" />
+				<topic label="SourceOffSite"
+					href="html/ant163/manual/OptionalTasks/sos.html" />
+				<topic label="Splash"
+					href="html/ant163/manual/OptionalTasks/splash.html" />
+				<topic label="Sshexec"
+					href="html/ant163/manual/OptionalTasks/sshexec.html" />
+				<topic label="StarTeam Tasks"
+					href="html/ant163/manual/OptionalTasks/starteam.html" />
+				<topic label="Stylebook"
+					href="html/ant163/manual/OptionalTasks/stylebook.html" />
+				<topic label="Symlink"
+					href="html/ant163/manual/OptionalTasks/symlink.html" />
+				<topic label="Telnet"
+					href="html/ant163/manual/OptionalTasks/telnet.html" />
+				<topic label="Test"
+					href="html/ant163/manual/OptionalTasks/test.html" />
+				<topic label="Translate"
+					href="html/ant163/manual/OptionalTasks/translate.html" />
+				<topic label="Visual Age for Java"
+					href="html/ant163/manual/Integration/VAJAntTool.html#tasks" />
+				<topic label="Visual Age for Java"
+					href="html/ant163/manual/Integration/VAJAntTool.html#tasks" />
+				<topic label="Microsoft Visual SourceSafe"
+					href="html/ant163/manual/OptionalTasks/vss.html#tasks" />
+				<topic label="Weblogic JSP Compiler"
+					href="html/ant163/manual/OptionalTasks/wljspc.html" />
+				<topic label="XMLValidate"
+					href="html/ant163/manual/OptionalTasks/xmlvalidate.html" />
+			</topic>
+			<topic label="Library Dependencies"
+				href="html/ant163/manual/install.html#librarydependencies" />
+
+		</topic>
+		<topic label="Concepts and Types"
+			href="html/ant163/manual/conceptstypeslist.html">
+			<topic label="Concepts">
+				<topic label="build.sysclasspath"
+					href="html/ant163/manual/sysclasspath.html" />
+				<topic label="Common Attributes"
+					href="html/ant163/manual/CoreTasks/common.html">
+				</topic>
+			</topic>
+			<topic label="Core Types">
+				<topic label="Assertions Type"
+					href="html/ant163/manual/CoreTypes/assertions.html">
+				</topic>
+				<topic label="Description Type"
+					href="html/ant163/manual/CoreTypes/description.html">
+				</topic>
+				<topic label="Directory-based Tasks"
+					href="html/ant163/manual/dirtasks.html">
+				</topic>
+				<topic label="DirSet"
+					href="html/ant163/manual/CoreTypes/dirset.html">
+				</topic>
+				<topic label="FileList"
+					href="html/ant163/manual/CoreTypes/filelist.html">
+				</topic>
+				<topic label="FileSet"
+					href="html/ant163/manual/CoreTypes/fileset.html">
+				</topic>
+				<topic label="File Mappers"
+					href="html/ant163/manual/CoreTypes/mapper.html">
+				</topic>
+				<topic label="FilterChains and FilterReaders"
+					href="html/ant163/manual/CoreTypes/filterchain.html">
+				</topic>
+				<topic label="FilterSet"
+					href="html/ant163/manual/CoreTypes/filterset.html">
+				</topic>
+				<topic label="PatternSet"
+					href="html/ant163/manual/CoreTypes/patternset.html">
+				</topic>
+				<topic label="Path-like Structures"
+					href="html/ant163/manual/using.html#path">
+				</topic>
+				<topic label="Permissions"
+					href="html/ant163/manual/permissions.html">
+				</topic>
+				<topic label="PropertySet"
+					href="html/ant163/manual/propertyset.html">
+				</topic>
+				<topic label="I/O Redirectors"
+					href="html/ant163/manual/redirector.html">
+				</topic>
+				<topic label="Regexp"
+					href="html/ant163/manual/regexp.html">
+				</topic>
+				<topic label="Selectors"
+					href="html/ant163/manual/selectors.html">
+				</topic>
+				<topic label="XMLCatalog"
+					href="html/ant163/manual/xmlcatalog.html">
+				</topic>
+				<topic label="ZipFileSet"
+					href="html/ant163/manual/zipfileset.html">
+				</topic>
+			</topic>
+			<topic label="Optional Types">
+				<topic label="Class Fileset"
+					href="html/ant163/manual/OptionalTypes/classfileset.html">
+				</topic>
+				<topic label="Extension Package"
+					href="html/ant163/manual/OptionalTypes/extension.html">
+				</topic>
+				<topic label="Set of Extension Packages"
+					href="html/ant163/manual/OptionalTypes/extensionset.html">
+				</topic>
+			</topic>
+			<topic label="Namespace">
+				<topic label="Namespace Support"
+					href="html/ant163/manual/CoreTypes/namespace.html">
+				</topic>
+			</topic>
+			<topic label="Antlib">
+				<topic label="Antlib"
+					href="html/ant163/manual/CoreTypes/antlib.html">
+				</topic>
+				<topic label="Antlib Namespace"
+					href="html/ant163/manual/CoreTypes/antlib.html#antlibnamespace">
+				</topic>
+				<topic label="Current Namespace"
+					href="html/ant163/manual/CoreTypes/antlib.html#currentnamespace">
+				</topic>
+			</topic>
+			<topic label="Custom Components">
+				<topic label="Custom Components"
+					href="html/ant163/manual/CoreTypes/custom-programming.html">
+				</topic>
+				<topic label="Conditions"
+					href="html/ant163/manual/CoreTypes/custom-programming.html#customconditions">
+				</topic>
+				<topic label="Selectors"
+					href="html/ant163/manual/CoreTypes/custom-programming.html#customselectors">
+				</topic>
+				<topic label="FilterReaders"
+					href="html/ant163/manual/CoreTypes/custom-programming.html#filterreaders">
+				</topic>
+			</topic>
+		</topic>
+		<topic label="Loggers and Listeners"
+			href="html/ant163/manual/listeners.html" />
+		<topic label="Editor/IDE Integration"
+			href="html/ant163/manual/ide.html" />
+		<topic label="Developing with Ant">
+			<topic label="Ant in Anger"
+				href="html/ant163/ant_in_anger.html" />
+			<topic label="Ant Task Guidelines"
+				href="html/ant163/ant_task_guidelines.html" />
+			<topic label="Writing Your Own Tasks"
+				href="html/ant163/manual/develop.html#writingowntask" />
+			<topic label="Tasks Designed for Extension"
+				href="html/ant163/manual/base_task_classes.html" />
+			<topic label="Build Events"
+				href="html/ant163/manual/develop.html#buildevents" />
+			<topic label="Source Code Integration"
+				href="html/ant163/manual/develop.html#integration" />
+			<topic label="InputHandler"
+				href="html/ant163/manual/inputhandler.html" />
+			<topic label="Using Ant Tasks Outside of Ant"
+				href="html/ant163/manual/antexternal.html" />
+		</topic>
+		<topic label="Tutorials">
+			<topic label="Hello World with Ant"
+				href="html/ant163/manual/tutorial-HelloWorldWithAnt.html" />
+			<topic label="Writing Tasks"
+				href="html/ant163/manual/tutorial-writing-tasks.html" />
+			<topic label="Tasks using Properties, Filesets and Paths"
+				href="html/ant163/manual/tutorial-tasks-filesets-properties.html" />
+		</topic>
+		<topic label="Ant API" href="html/ant163/manual/api/index.html" />
+		<topic label="License" href="html/ant163/manual/LICENSE" />
+		<topic label="Feedback and Troubleshooting"
+			href="html/ant163/manual/feedback.html" />
+		<topic label="Authors" href="html/ant163/manual/credits.html" />
+	</topic>
+</toc>
