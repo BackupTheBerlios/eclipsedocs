@@ -175,8 +175,12 @@
 			label="Building a Database Schema Diagram Editor with GEF"
 			href="html/beyond/gef-schema-editor.html" />
 		<topic label="EMF goes RCP" href="html/beyond/rcp.html" />
-		<topic labeL="A Shape Diagram Editor"
+		<topic label="A Shape Diagram Editor"
 			href="html/beyond/shape.html" />
+		<topic label="Persisting EMF models with WTP"
+			href="html/beyond/persisting.html" />
+		<topic label="Plugging into SourceForge.net" href="html/beyond/sourceforge.html" />
+			
 	</topic>
 
 
