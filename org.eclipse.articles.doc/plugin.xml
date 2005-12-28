@@ -3,7 +3,7 @@
 <plugin
    id="org.eclipse.articles.doc"
    name="Eclipse Articles"
-   version="1.0.3"
+   version="1.0.4"
    provider-name="">
    <requires>
       <import plugin="org.eclipse.help"/>

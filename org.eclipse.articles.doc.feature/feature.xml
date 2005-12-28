@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.articles.doc.feature"
       label="org.eclipse.articles.doc.feature"
-      version="1.0.2"
+      version="1.0.4"
       provider-name="EclipseDocs">
 
    <description>
@@ -25,7 +25,7 @@
          id="org.eclipse.articles.doc"
          download-size="0"
          install-size="0"
-         version="1.0.2"
+         version="1.0.4"
          unpack="false"/>
 
 </feature>
