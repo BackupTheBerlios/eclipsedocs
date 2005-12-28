@@ -145,6 +145,9 @@
 			href="html/jface/table_viewer.html" />
 		<topic label="How to use the JFace Tree Viewer"
 			href="html/jface/TreeViewerArticle.htm" />
+		<topic label="Inside the Workbench - A guide to the workbench internals"
+			href="html/jface/workbench.html" />
+			
 	</topic>
 
 	<topic label="Team">
