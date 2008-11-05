@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>funcsynopsis</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="funcprototype.html" title="funcprototype" />
+<link rel="next" href="funcsynopsisinfo.html" title="funcsynopsisinfo" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="funcprototype" href="funcprototype.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="funcsynopsisinfo" href="funcsynopsisinfo.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.funcsynopsis" id="element.db.funcsynopsis"></a>
+<div>
+<div>
+<div>
+<h1 class="title">funcsynopsis</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>funcsynopsis — The syntax summary for a function definition</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>funcsynopsis&#160;<span class="cceq">::=</span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>Sequence of:
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>?&#160;<span class="pattern">(db.titleforbidden.info)</span></li>
+<li>One or more of:
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li><a href="funcprototype.html"><code class="sgmltag-element">funcprototype</code></a></li>
+<li><a href="funcsynopsisinfo.html"><code class="sgmltag-element">funcsynopsisinfo</code></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<p>Additional attributes:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>language</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>A <a href="funcsynopsis.html"><code class="sgmltag-element">funcsynopsis</code></a> contains the syntax summary of a function prototype or a set of function prototypes. The content model of this element was designed specifically to capture the semantics of most C-language function prototypes (for use in <acronym class="acronym">UNIX</acronym> reference pages).</p>
+<p>This is one of the few places where DocBook attempts to model as well as describe. Using <a href="funcsynopsis.html"><code class="sgmltag-element">funcsynopsis</code></a> for languages that are unrelated to C may prove difficult.</p>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e75596" id="d0e75596"></a>
+<h3>Processing expectations</h3>
+<p>For the most part, the processing application is expected to generate all of the parenthesis, semicolons, commas, and so on. required in the rendered synopsis. The exception to this rule is that the spacing and other punctuation inside a parameter that is a pointer to a function must be provided in the source markup.</p>
+<p>With sufficient author cooperation, it should be possible to markup a function synopsis with enough clarity so that a processing system can generate either <acronym class="acronym">K&amp;R</acronym>-style or <acronym class="acronym">ANSI</acronym>-style renderings.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attribute-descriptions" id="attribute-descriptions"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">language</span></dt>
+<dd>
+<p>Identifies the language (i.e. programming language) of the content.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="funcsynopsis.html"><code class="sgmltag-element">funcsynopsis</code></a>: <span class="simplelist"><a href="acknowledgements.html"><code class="sgmltag-element">acknowledgements</code></a>, <a href="annotation.html"><code class="sgmltag-element">annotation</code></a>, <a href="answer.html"><code class="sgmltag-element">answer</code></a>, <a href="appendix.html"><code class="sgmltag-element">appendix</code></a>, <a href="article.html"><code class=
+"sgmltag-element">article</code></a>, <a href="bibliodiv.html"><code class="sgmltag-element">bibliodiv</code></a>, <a href="bibliography.html"><code class="sgmltag-element">bibliography</code></a>, <a href="bibliolist.html"><code class="sgmltag-element">bibliolist</code></a>, <a href="blockquote.html"><code class="sgmltag-element">blockquote</code></a>, <a href="callout.html"><code class="sgmltag-element">callout</code></a>, <a href="calloutlist.html"><code class="sgmltag-element">calloutlist</code></a>,
+<a href="caption.html"><code class="sgmltag-element">caption</code></a>&#160;<span class="pattern">(db.caption)</span>, <a href="caution.html"><code class="sgmltag-element">caution</code></a>, <a href="chapter.html"><code class="sgmltag-element">chapter</code></a>, <a href="colophon.html"><code class="sgmltag-element">colophon</code></a>, <a href="constraintdef.html"><code class="sgmltag-element">constraintdef</code></a>, <a href="cover.html"><code class="sgmltag-element">cover</code></a>, <a href=
+"dedication.html"><code class="sgmltag-element">dedication</code></a>, <a href="entry.html"><code class="sgmltag-element">entry</code></a>, <a href="example.html"><code class="sgmltag-element">example</code></a>, <a href="figure.html"><code class="sgmltag-element">figure</code></a>, <a href="footnote.html"><code class="sgmltag-element">footnote</code></a>, <a href="glossary.html"><code class="sgmltag-element">glossary</code></a>, <a href="glossdef.html"><code class="sgmltag-element">glossdef</code></a>,
+<a href="glossdiv.html"><code class="sgmltag-element">glossdiv</code></a>, <a href="glosslist.html"><code class="sgmltag-element">glosslist</code></a>, <a href="html.fieldset.html"><code class="sgmltag-element">html:fieldset</code></a>, <a href="html.form.html"><code class="sgmltag-element">html:form</code></a>, <a href="important.html"><code class="sgmltag-element">important</code></a>, <a href="index.html"><code class="sgmltag-element">index</code></a>, <a href="indexdiv.html"><code class=
+"sgmltag-element">indexdiv</code></a>, <a href="informalexample.html"><code class="sgmltag-element">informalexample</code></a>, <a href="informalfigure.html"><code class="sgmltag-element">informalfigure</code></a>, <a href="itemizedlist.html"><code class="sgmltag-element">itemizedlist</code></a>, <a href="legalnotice.html"><code class="sgmltag-element">legalnotice</code></a>, <a href="listitem.html"><code class="sgmltag-element">listitem</code></a>, <a href="msgexplan.html"><code class=
+"sgmltag-element">msgexplan</code></a>, <a href="msgtext.html"><code class="sgmltag-element">msgtext</code></a>, <a href="note.html"><code class="sgmltag-element">note</code></a>, <a href="orderedlist.html"><code class="sgmltag-element">orderedlist</code></a>, <a href="para.html"><code class="sgmltag-element">para</code></a>, <a href="partintro.html"><code class="sgmltag-element">partintro</code></a>, <a href="preface.html"><code class="sgmltag-element">preface</code></a>, <a href=
+"procedure.html"><code class="sgmltag-element">procedure</code></a>, <a href="qandadiv.html"><code class="sgmltag-element">qandadiv</code></a>, <a href="qandaset.html"><code class="sgmltag-element">qandaset</code></a>, <a href="question.html"><code class="sgmltag-element">question</code></a>, <a href="refsect1.html"><code class="sgmltag-element">refsect1</code></a>, <a href="refsect2.html"><code class="sgmltag-element">refsect2</code></a>, <a href="refsect3.html"><code class=
+"sgmltag-element">refsect3</code></a>, <a href="refsection.html"><code class="sgmltag-element">refsection</code></a>, <a href="refsynopsisdiv.html"><code class="sgmltag-element">refsynopsisdiv</code></a>, <a href="revdescription.html"><code class="sgmltag-element">revdescription</code></a>, <a href="sect1.html"><code class="sgmltag-element">sect1</code></a>, <a href="sect2.html"><code class="sgmltag-element">sect2</code></a>, <a href="sect3.html"><code class="sgmltag-element">sect3</code></a>, <a href=
+"sect4.html"><code class="sgmltag-element">sect4</code></a>, <a href="sect5.html"><code class="sgmltag-element">sect5</code></a>, <a href="section.html"><code class="sgmltag-element">section</code></a>, <a href="setindex.html"><code class="sgmltag-element">setindex</code></a>, <a href="sidebar.html"><code class="sgmltag-element">sidebar</code></a>, <a href="simplesect.html"><code class="sgmltag-element">simplesect</code></a>, <a href="step.html"><code class="sgmltag-element">step</code></a>, <a href=
+"taskprerequisites.html"><code class="sgmltag-element">taskprerequisites</code></a>, <a href="taskrelated.html"><code class="sgmltag-element">taskrelated</code></a>, <a href="tasksummary.html"><code class="sgmltag-element">tasksummary</code></a>, <a href="html.td.html"><code class="sgmltag-element">td</code></a>, <a href="textobject.html"><code class="sgmltag-element">textobject</code></a>, <a href="html.th.html"><code class="sgmltag-element">th</code></a>, <a href="tip.html"><code class=
+"sgmltag-element">tip</code></a>, <a href="toc.html"><code class="sgmltag-element">toc</code></a>, <a href="tocdiv.html"><code class="sgmltag-element">tocdiv</code></a>, <a href="variablelist.html"><code class="sgmltag-element">variablelist</code></a>, <a href="warning.html"><code class="sgmltag-element">warning</code></a></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in funcsynopsis: <span class="simplelist"><a href="funcprototype.html"><code class="sgmltag-element">funcprototype</code></a>, <a href="funcsynopsisinfo.html"><code class="sgmltag-element">funcsynopsisinfo</code></a>, <a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titleforbidden.info)</span></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="seealso" id="seealso"></a>
+<h2>See Also</h2>
+<span class="simplelist"><a href="cmdsynopsis.html"><code class="sgmltag-element">cmdsynopsis</code></a>, <a href="synopsis.html"><code class="sgmltag-element">synopsis</code></a></span></div>
+<div class="refsection" lang="en" xml:lang="en"><a name="examples" id="examples"></a>
+<h2>Examples</h2>
+<p>There are two common presentation styles for function synopses, “K&amp;R” style and “ANSI” style.</p>
+<div class="refsection" lang="en" xml:lang="en"><a name="funcsynopsis.kr" id="funcsynopsis.kr"></a>
+<h3>K&amp;R Examples</h3>
+<pre class="programlisting">
+&lt;article xmlns='http://docbook.org/ns/docbook'&gt;
+&lt;title&gt;Example funcsynopsis&lt;/title&gt;
+
+&lt;funcsynopsis&gt;
+&lt;funcprototype&gt;
+  &lt;?dbhtml funcsynopsis-style='kr'?&gt;
+  &lt;funcdef&gt;int &lt;function&gt;max&lt;/function&gt;&lt;/funcdef&gt;
+  &lt;paramdef&gt;int &lt;parameter&gt;int1&lt;/parameter&gt;&lt;/paramdef&gt;
+  &lt;paramdef&gt;int &lt;parameter&gt;int2&lt;/parameter&gt;&lt;/paramdef&gt;
+&lt;/funcprototype&gt;
+&lt;/funcsynopsis&gt;
+
+&lt;/article&gt;
+</pre>
+<div class="example-output">
+<div class="funcsynopsis">
+<table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" style="padding-bottom: 1em">
+<tr>
+<td><code class="funcdef">int <b class="fsfunc">max</b>(</code></td>
+<td><var class="pdparam">int1</var>,</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>&#160;</td>
+<td><var class="pdparam">int2</var><code>)</code>;</td>
+<td>&#160;</td>
+</tr>
+</table>
+<table border="0" summary="Function argument synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code>int</code> &#160;</td>
+<td><code><var class="pdparam">int1</var>;</code></td>
+</tr>
+<tr>
+<td><code>int</code> &#160;</td>
+<td><code><var class="pdparam">int2</var>;</code></td>
+</tr>
+</table>
+</div>
+</div>
+<pre class="programlisting">
+&lt;article xmlns='http://docbook.org/ns/docbook'&gt;
+&lt;title&gt;Example funcsynopsis&lt;/title&gt;
+
+&lt;funcsynopsis&gt;
+&lt;funcsynopsisinfo&gt;
+#include &amp;lt;varargs.h&amp;gt;
+&lt;/funcsynopsisinfo&gt;
+&lt;funcprototype&gt;
+  &lt;?dbhtml funcsynopsis-style='kr'?&gt;
+  &lt;funcdef&gt;int &lt;function&gt;max&lt;/function&gt;&lt;/funcdef&gt;
+  &lt;varargs/&gt;
+&lt;/funcprototype&gt;
+&lt;/funcsynopsis&gt;
+
+&lt;/article&gt;
+</pre>
+<div class="example-output">
+<div class="funcsynopsis">
+<pre class="funcsynopsisinfo">
+#include &lt;varargs.h&gt;
+</pre>
+<table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" style="padding-bottom: 1em">
+<tr>
+<td><code class="funcdef">int <b class="fsfunc">max</b>(</code></td>
+<td>...<code>)</code>;</td>
+<td>&#160;</td>
+</tr>
+</table>
+</div>
+</div>
+<pre class="programlisting">
+&lt;article xmlns='http://docbook.org/ns/docbook'&gt;
+&lt;title&gt;Example funcsynopsis&lt;/title&gt;
+
+&lt;funcsynopsis&gt;
+&lt;funcprototype&gt;
+&lt;?dbhtml funcsynopsis-style='kr'?&gt;
+&lt;funcdef&gt;int &lt;function&gt;rand&lt;/function&gt;&lt;/funcdef&gt;
+  &lt;void/&gt;
+&lt;/funcprototype&gt;
+&lt;/funcsynopsis&gt;
+
+&lt;/article&gt;
+</pre>
+<div class="example-output">
+<div class="funcsynopsis">
+<table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" style="padding-bottom: 1em">
+<tr>
+<td><code class="funcdef">int <b class="fsfunc">rand</b>(</code></td>
+<td><code>)</code>;</td>
+<td>&#160;</td>
+</tr>
+</table>
+</div>
+</div>
+<pre class="programlisting">
+&lt;article xmlns='http://docbook.org/ns/docbook'&gt;
+&lt;title&gt;Example funcsynopsis&lt;/title&gt;
+
+&lt;funcsynopsis&gt;
+&lt;funcprototype&gt;
+  &lt;?dbhtml funcsynopsis-style='kr'?&gt;
+  &lt;funcdef&gt;void &lt;function&gt;qsort&lt;/function&gt;&lt;/funcdef&gt;
+    &lt;paramdef&gt;void *&lt;parameter&gt;dataptr&lt;/parameter&gt;[]&lt;/paramdef&gt;
+    &lt;paramdef&gt;int &lt;parameter&gt;left&lt;/parameter&gt;&lt;/paramdef&gt;
+    &lt;paramdef&gt;int &lt;parameter&gt;right&lt;/parameter&gt;&lt;/paramdef&gt;
+    &lt;paramdef&gt;int &lt;parameter&gt;(* comp)&lt;/parameter&gt;
+      &lt;funcparams&gt;void *, void *&lt;/funcparams&gt;&lt;/paramdef&gt;
+&lt;/funcprototype&gt;
+&lt;/funcsynopsis&gt;
+
+&lt;/article&gt;
+</pre>
+<div class="example-output">
+<div class="funcsynopsis">
+<table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" style="padding-bottom: 1em">
+<tr>
+<td><code class="funcdef">void <b class="fsfunc">qsort</b>(</code></td>
+<td><var class="pdparam">dataptr</var>,</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>&#160;</td>
+<td><var class="pdparam">left</var>,</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>&#160;</td>
+<td><var class="pdparam">right</var>,</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>&#160;</td>
+<td><var class="pdparam">(* comp)</var><code>)</code>;</td>
+<td>&#160;</td>
+</tr>
+</table>
+<table border="0" summary="Function argument synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code>void *</code>&#160;</td>
+<td><code><var class="pdparam">dataptr</var>;</code></td>
+</tr>
+<tr>
+<td><code>int</code> &#160;</td>
+<td><code><var class="pdparam">left</var>;</code></td>
+</tr>
+<tr>
+<td><code>int</code> &#160;</td>
+<td><code><var class="pdparam">right</var>;</code></td>
+</tr>
+<tr>
+<td><code>int</code> &#160;</td>
+<td><code><var class="pdparam">(* comp)</var></code>(void *, void *<code>)</code>;</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="funcsynopsis.ansi" id="funcsynopsis.ansi"></a>
+<h3>ANSI Examples</h3>
+<pre class="programlisting">
+&lt;article xmlns='http://docbook.org/ns/docbook'&gt;
+&lt;title&gt;Example funcsynopsis&lt;/title&gt;
+
+&lt;funcsynopsis&gt;
+&lt;funcprototype&gt;
+  &lt;?dbhtml funcsynopsis-style='ansi'?&gt;
+  &lt;funcdef&gt;int &lt;function&gt;max&lt;/function&gt;&lt;/funcdef&gt;
+  &lt;paramdef&gt;int &lt;parameter&gt;int1&lt;/parameter&gt;&lt;/paramdef&gt;
+  &lt;paramdef&gt;int &lt;parameter&gt;int2&lt;/parameter&gt;&lt;/paramdef&gt;
+&lt;/funcprototype&gt;
+&lt;/funcsynopsis&gt;
+
+&lt;/article&gt;
+</pre>
+<div class="example-output">
+<div class="funcsynopsis">
+<table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">int <b class="fsfunc">max</b>(</code></td>
+<td>int &#160;</td>
+<td><var class="pdparam">int1</var>,</td>
+</tr>
+<tr>
+<td>&#160;</td>
+<td>int &#160;</td>
+<td><var class="pdparam">int2</var><code>)</code>;</td>
+</tr>
+</table>
+</div>
+</div>
+<pre class="programlisting">
+&lt;article xmlns='http://docbook.org/ns/docbook'&gt;
+&lt;title&gt;Example funcsynopsis&lt;/title&gt;
+
+&lt;funcsynopsis&gt;
+&lt;funcsynopsisinfo&gt;
+#include &amp;lt;varargs.h&amp;gt;
+&lt;/funcsynopsisinfo&gt;
+&lt;funcprototype&gt;
+  &lt;?dbhtml funcsynopsis-style='ansi'?&gt;
+  &lt;funcdef&gt;int &lt;function&gt;max&lt;/function&gt;&lt;/funcdef&gt;
+  &lt;varargs/&gt;
+&lt;/funcprototype&gt;
+&lt;/funcsynopsis&gt;
+
+&lt;/article&gt;
+</pre>
+<div class="example-output">
+<div class="funcsynopsis">
+<pre class="funcsynopsisinfo">
+#include &lt;varargs.h&gt;
+</pre>
+<table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">int <b class="fsfunc">max</b>(</code></td>
+<td>...<code>)</code>;</td>
+<td>&#160;</td>
+</tr>
+</table>
+</div>
+</div>
+<pre class="programlisting">
+&lt;article xmlns='http://docbook.org/ns/docbook'&gt;
+&lt;title&gt;Example funcsynopsis&lt;/title&gt;
+
+&lt;funcsynopsis&gt;
+&lt;funcprototype&gt;
+&lt;?dbhtml funcsynopsis-style='ansi'?&gt;
+&lt;funcdef&gt;int &lt;function&gt;rand&lt;/function&gt;&lt;/funcdef&gt;
+  &lt;void/&gt;
+&lt;/funcprototype&gt;
+&lt;/funcsynopsis&gt;
+
+&lt;/article&gt;
+</pre>
+<div class="example-output">
+<div class="funcsynopsis">
+<table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">int <b class="fsfunc">rand</b>(</code></td>
+<td><code>void)</code>;</td>
+<td>&#160;</td>
+</tr>
+</table>
+</div>
+</div>
+<pre class="programlisting">
+&lt;article xmlns='http://docbook.org/ns/docbook'&gt;
+&lt;title&gt;Example funcsynopsis&lt;/title&gt;
+
+&lt;funcsynopsis&gt;
+&lt;funcprototype&gt;
+  &lt;?dbhtml funcsynopsis-style='ansi'?&gt;
+  &lt;funcdef&gt;void &lt;function&gt;qsort&lt;/function&gt;&lt;/funcdef&gt;
+    &lt;paramdef&gt;void *&lt;parameter&gt;dataptr&lt;/parameter&gt;[]&lt;/paramdef&gt;
+    &lt;paramdef&gt;int &lt;parameter&gt;left&lt;/parameter&gt;&lt;/paramdef&gt;
+    &lt;paramdef&gt;int &lt;parameter&gt;right&lt;/parameter&gt;&lt;/paramdef&gt;
+    &lt;paramdef&gt;int &lt;parameter&gt;(* comp)&lt;/parameter&gt;
+      &lt;funcparams&gt;void *, void *&lt;/funcparams&gt;&lt;/paramdef&gt;
+&lt;/funcprototype&gt;
+&lt;/funcsynopsis&gt;
+
+&lt;/article&gt;
+</pre>
+<div class="example-output">
+<div class="funcsynopsis">
+<table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0">
+<tr>
+<td><code class="funcdef">void <b class="fsfunc">qsort</b>(</code></td>
+<td>void *&#160;</td>
+<td><var class="pdparam">dataptr</var>,</td>
+</tr>
+<tr>
+<td>&#160;</td>
+<td>int &#160;</td>
+<td><var class="pdparam">left</var>,</td>
+</tr>
+<tr>
+<td>&#160;</td>
+<td>int &#160;</td>
+<td><var class="pdparam">right</var>,</td>
+</tr>
+<tr>
+<td>&#160;</td>
+<td>int &#160;</td>
+<td><var class="pdparam">(* comp)</var><code>(</code>void *, void *<code>)</code><code>)</code>;</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 04 Nov 2007.</p>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="funcprototype" href="funcprototype.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="funcsynopsisinfo" href="funcsynopsisinfo.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">funcprototype&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;funcsynopsisinfo</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

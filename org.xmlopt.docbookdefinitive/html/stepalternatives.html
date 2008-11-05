@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>stepalternatives</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="step.html" title="step" />
+<link rel="next" href="street.html" title="street" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="step" href="step.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="street" href="street.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.stepalternatives" id="element.db.stepalternatives"></a>
+<div>
+<div>
+<div>
+<h1 class="title">stepalternatives</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>stepalternatives — Alternative steps in a procedure</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>stepalternatives&#160;<span class="cceq">::=</span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>Sequence of:
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>?&#160;<span class="pattern">(db.titleforbidden.info)</span></li>
+<li>One or more of:
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li><a href="step.html"><code class="sgmltag-element">step</code></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<p>Additional attributes:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>performance (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“optional”</li>
+<li>“required”</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>Most <a href="step.html"><code class="sgmltag-element">step</code></a>s in a <a href="procedure.html"><code class="sgmltag-element">procedure</code></a> are sequential: do the first, then the second, then the third. Sometimes procedures provide an explicit ordering: do step 7 next.</p>
+<p>The <a href="stepalternatives.html"><code class="sgmltag-element">stepalternatives</code></a> element was added to support the semantics of alternative steps: perform exactly one of the following steps. The reader is presumably given some criteria for deciding which one to choose, but the significant difference is that only one of the steps is performed.</p>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e208145" id="d0e208145"></a>
+<h3>Processing expectations</h3>
+<p>Formatted as a displayed block.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attribute-descriptions" id="attribute-descriptions"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">performance</span></dt>
+<dd>
+<p>Specifies if the content is required or optional.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“optional”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The content describes an optional step or steps.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“required”</td>
+<td style="" align="left">
+<p>The content describes a required step or steps.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="stepalternatives.html"><code class="sgmltag-element">stepalternatives</code></a>: <span class="simplelist"><a href="step.html"><code class="sgmltag-element">step</code></a></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in stepalternatives: <span class="simplelist"><a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titleforbidden.info)</span>, <a href="step.html"><code class="sgmltag-element">step</code></a></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 22 Jul 2007.</p>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="step" href="step.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="street" href="street.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">step&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;street</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

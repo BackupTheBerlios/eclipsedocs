@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Getting Started with XML</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="part1.html" title="Part&#160;I.&#160;Introduction" />
+<link rel="previous" href="part1.html" title="Part&#160;I.&#160;Introduction" />
+<link rel="next" href="ch02.html" title="Creating DocBook Documents" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="Part&#160;I.&#160;Introduction" href="part1.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="Part&#160;I.&#160;Introduction" href="part1.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="Creating DocBook Documents" href="ch02.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="chapter" lang="en" xml:lang="en">
+<div>
+<div>
+<div><a name="ch-gsxml" id="ch-gsxml"></a>
+<div class="component-title">
+<h1 class="label">1</h1>
+<h1 class="title">Getting Started with <acronym class="acronym">XML</acronym></h1>
+</div>
+</div>
+<div>
+<p class="releaseinfo">$Revision: 1.1 $</p>
+</div>
+<div>
+<p class="pubdate">$Date: 2008/11/05 15:41:09 $</p>
+</div>
+</div>
+<hr xmlns:t="http://nwalsh.com/docbook/xsl/template/1.0" t:class="component-separator" /></div>
+<p><a class="indexterm" name="XMLgetstart" id="XMLgetstart"></a>This chapter used to provide a quick introduction to structured markup. If you're not already familiar with <acronym class="acronym">XML</acronym>, consult one of the many popular books on <acronym class="acronym">XML</acronym>.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="ch01-wheredocbook" id="ch01-wheredocbook"></a>How Does DocBook Fit In?</h2>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e463" id="d0e463"></a>DocBook is a very popular set of tags for describing books, articles, and other prose documents, particularly technical documentation. DocBook is an XML vocabulary normatively defined using RELAX NG and Schematron.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="s.shorthistory" id="s.shorthistory"></a>A Short DocBook History</h3>
+</div>
+</div>
+</div>
+<p>DocBook is more than 15 years old. It began in 1991 as a joint project of HaL Computer Systems and O'Reilly. Its popularity grew, and eventually it spawned its own maintenance organization, the Davenport Group. In mid-1998, it became a Technical Committee (<acronym class="acronym">TC</acronym>) of the Organization for the Advancement of Structured Information Standards (<acronym class="acronym">OASIS</acronym>).</p>
+<p>Starting with DocBook V5.0, DocBook is an XML vocabulary defined with RELAX NG and Schematron. But DocBook is older than any of those technologies. It was originally an <span class="emphasis"><em>SGML</em></span> vocabulary described with the standard <acronym class="acronym">SGML</acronym> Document Type Definition, or <acronym class="acronym">DTD</acronym>.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h4 class="title"><a name="s.history.haloreilly" id="s.history.haloreilly"></a>The HaL and O'Reilly era</h4>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e495" id="d0e495"></a><a class="indexterm" name="d0e498" id="d0e498"></a><a class="indexterm" name="d0e501" id="d0e501"></a>The DocBook <acronym class="acronym">DTD</acronym> was originally designed and implemented by HaL Computer Systems and O'Reilly &amp; Associates around 1991. It was developed primarily to facilitate the exchange of <acronym class="acronym">UNIX</acronym> documentation originally marked up in <span class="command"><strong>troff</strong></span>. Its
+design appears to have been based partly on input from <acronym class="acronym">SGML</acronym> interchange projects conducted by the Unix International and Open Software Foundation consortia.</p>
+<p><a class="indexterm" name="d0e520" id="d0e520"></a>When DocBook <acronym class="acronym">V1.1</acronym> was published, discussion about its revision and maintenance began in earnest in the Davenport Group, a forum created by O'Reilly for computer documentation producers. Version 1.2 was influenced strongly by Novell and Digital.</p>
+<p>In 1994, the Davenport Group became an officially chartered entity responsible for DocBook's maintenance. DocBook <acronym class="acronym">V1.2.2</acronym> was published simultaneously. The founding sponsors of this incarnation of Davenport include the following people:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>Jon Bosak, Novell</li>
+<li>Dale Dougherty, O'Reilly &amp; Associates</li>
+<li>Ralph Ferris, Fujitsu <acronym class="acronym">OSSI</acronym></li>
+<li>Dave Hollander, Hewlett-Packard</li>
+<li>Eve Maler, Digital Equipment Corporation</li>
+<li>Murray Maloney, <acronym class="acronym">SCO</acronym></li>
+<li>Conleth O'Connell, HaL Computer Systems</li>
+<li>Nancy Paisner, Hitachi Computer Products</li>
+<li>Mike Rogers, SunSoft</li>
+<li>Jean Tappan, Unisys</li>
+</ul>
+</div>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h4 class="title"><a name="s.history.davenport" id="s.history.davenport"></a>The Davenport era</h4>
+</div>
+</div>
+</div>
+<p>Under the auspices of the Davenport Group, the DocBook <acronym class="acronym">DTD</acronym> began to widen its scope. It was now being used by a much wider audience, and for new purposes, such as direct authoring with <acronym class="acronym">SGML</acronym>-aware tools, and publishing directly to paper. As the largest users of DocBook, Novell and Sun had a heavy influence on its design.</p>
+<p><a class="indexterm" name="d0e580" id="d0e580"></a>In order to help users manage change, the new Davenport charter established the following rules for DocBook releases:</p>
+<div class="itemizedlist">
+<ul type="disc">
+<li>
+<p>Minor versions (“<span class="quote">point releases</span>” such as <acronym class="acronym">V2.2</acronym>) could add to the markup model, but could not change it in a backward-incompatible way. For example, a new kind of list element could be added, but it would not be acceptable for the existing itemized-list model to start requiring two list items inside it instead of only one. Thus, any document conforming to version <em class="replaceable"><code>n</code></em>.0 would also conform to <em class=
+"replaceable"><code>n</code></em>.<em class="replaceable"><code>m</code></em>.</p>
+</li>
+<li>
+<p>Major versions (such as <acronym class="acronym">V3.0</acronym>) could both add to the markup model and make backward-incompatible changes. However, the changes would have to be announced in the last major release.</p>
+</li>
+<li>
+<p>Major-version introductions must be separated by at least a year.</p>
+</li>
+</ul>
+</div>
+<p><a class="indexterm" name="d0e615" id="d0e615"></a><a class="indexterm" name="d0e622" id="d0e622"></a><acronym class="acronym">V3.0</acronym> was released in January 1997. After that time, although DocBook's audience continued to grow, many of the Davenport Group stalwarts became involved in the <acronym class="acronym">XML</acronym> effort, and development slowed dramatically. The idea of creating an official <acronym class="acronym">XML</acronym>-compliant version of DocBook was discussed, but not
+implemented. (For more detailed information about DocBook <acronym class="acronym">V3.0</acronym> and plans for subsequent versions, see <a class="xref" href="appc.html" title="DocBook Versions">Appendix&#160;B, <i>DocBook Versions</i></a>.)</p>
+<p><a class="indexterm" name="d0e642" id="d0e642"></a>The sponsors wanted to close out Davenport in an orderly way to ensure that DocBook users would be supported. It was suggested that <acronym class="acronym">OASIS</acronym> become DocBook's new home. An <acronym class="acronym">OASIS</acronym> DocBook Technical Committee was formed in July, 1998, with Eduardo Gutentag of Sun Microsystems as chair.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h4 class="title"><a name="s.history.oasis" id="s.history.oasis"></a>The <acronym class="acronym">OASIS</acronym> era</h4>
+</div>
+</div>
+</div>
+<p>The <a class="link" href="http://www.oasis-open.org/docbook/" target="_top">DocBook Technical Commitee</a> is continuing the work started by the Davenport Group. The transition from Davenport to <acronym class="acronym">OASIS</acronym> was very smooth, in part because the core design team consists of essentially the same individuals (we all just changed hats).</p>
+<p>DocBook <acronym class="acronym">V3.1</acronym>, published in February 1999, was the first <acronym class="acronym">OASIS</acronym> release. It integrated a number of changes that had been “<span class="quote">in the wings</span>” for some time.</p>
+<p>In February of 2001, OASIS made DocBook SGML V4.1 and DocBook XML V4.1.2 <a class="link" href="http://lists.oasis-open.org/archives/members/200102/msg00000.html" target="_top">official OASIS Specifications</a>.</p>
+<p>In October, 2005, the DocBook Technical Committee released the first beta-test version of DocBook V5.0. Development of the DocBook V4.x series continued in parallel with the development of V5.0. In October, 2006, the DocBook Technical Committee released DocBook V4.5, likely the last release in the V4.x series.</p>
+<p>The official release of DocBook V5.0 is expected in August, 2007.</p>
+<p>FIXME: say more about the motivations for V5.x.</p>
+<p>The committee continues new DocBook development to ensure that the schema will continue to meet the needs of its users.</p>
+<a class="indexterm" name="d0e692" id="d0e692"></a></div>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="Part&#160;I.&#160;Introduction" href="part1.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="Creating DocBook Documents" href="ch02.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">Part&#160;I.&#160;Introduction&#160;</td>
+<td width="20%" align="center"><a title="Part&#160;I.&#160;Introduction" href="part1.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;Creating DocBook Documents</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

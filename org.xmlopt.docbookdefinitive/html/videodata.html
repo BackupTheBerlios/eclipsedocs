@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>videodata</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="varname.html" title="varname" />
+<link rel="next" href="videoobject.html" title="videoobject" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="varname" href="varname.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="videoobject" href="videoobject.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.videodata" id="element.db.videodata"></a>
+<div>
+<div>
+<div>
+<h1 class="title">videodata</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>videodata — Pointer to external video data</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>videodata&#160;<span class="cceq">::=</span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li><a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>?&#160;<span class="pattern">(db.titleforbidden.info)</span></li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a>.</p>
+<p>Additional attributes:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>align (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“center”</li>
+<li>“char”</li>
+<li>“justify”</li>
+<li>“left”</li>
+<li>“right”</li>
+</ul>
+</div>
+</li>
+<li>contentdepth</li>
+<li>contentwidth</li>
+<li>depth</li>
+<li><span class="emphasis"><em>Each of:</em></span>
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>format</li>
+<li><span class="emphasis"><em>Exactly one of:</em></span>
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li><span class="bold"><strong>fileref</strong></span> (anyURI)</li>
+<li><span class="bold"><strong>entityref</strong></span> (ENTITY)</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>scale (positiveInteger)</li>
+<li>scalefit (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“0”</li>
+<li>“1”</li>
+</ul>
+</div>
+</li>
+<li>valign (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“bottom”</li>
+<li>“middle”</li>
+<li>“top”</li>
+</ul>
+</div>
+</li>
+<li>width</li>
+</ul>
+</div>
+<p>Required attributes are shown in <span class="bold"><strong>bold</strong></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>This element points to an external entity containing video data.</p>
+<div class="refsection" lang="en" xml:lang="en"><a name="dbreproc.videodata" id="dbreproc.videodata"></a>
+<h3>Processing expectations</h3>
+<p>May be formatted inline or as a displayed block, depending on context. Rendering a video is usually accomplished by reserving a rectangular area on the display and “<span class="quote">running</span>” the video in that frame.</p>
+<p>There are two ways to provide content for <a href="videodata.html"><code class="sgmltag-element">videodata</code></a>: <code class="sgmltag-attribute">entityref</code> or <code class="sgmltag-attribute">fileref</code>. It is best to use only one of these methods. However, if multiple sources are provided, <code class="sgmltag-attribute">entityref</code> will be used in favor of <code class="sgmltag-attribute">fileref</code>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attribute-descriptions" id="attribute-descriptions"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a>.</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">align</span></dt>
+<dd>
+<p>Specifies the (horizontal) alignment of the video data</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“center”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Centered horizontally</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“char”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Aligned horizontally on the specified character</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“justify”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Fully justified (left and right margins or edges)</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“left”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Left aligned</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“right”</td>
+<td style="" align="left">
+<p>Right aligned</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">contentdepth</span></dt>
+<dd>
+<p>Specifies the depth of the content rectangle</p>
+</dd>
+<dt><span class="term">contentwidth</span></dt>
+<dd>
+<p>Specifies the width of the content rectangle</p>
+</dd>
+<dt><span class="term">depth</span></dt>
+<dd>
+<p>Specifies the depth of the element</p>
+</dd>
+<dt><span class="term">entityref</span></dt>
+<dd>
+<p>Identifies the location of the data by external identifier (entity name)</p>
+</dd>
+<dt><span class="term">fileref</span></dt>
+<dd>
+<p>Indentifies the location of the data by URI</p>
+</dd>
+<dt><span class="term">format</span></dt>
+<dd>
+<p>Specifies the format of the data</p>
+</dd>
+<dt><span class="term">scale</span></dt>
+<dd>
+<p>Specifies the scaling factor</p>
+</dd>
+<dt><span class="term">scalefit</span></dt>
+<dd>
+<p>Determines if anamorphic scaling is forbidden</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“0”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>False (do not scale-to-fit; anamorphic scaling may occur)</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“1”</td>
+<td style="" align="left">
+<p>True (scale-to-fit; anamorphic scaling is forbidden)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">valign</span></dt>
+<dd>
+<p>Specifies the vertical alignment of the video data</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“bottom”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Aligned on the bottom of the region</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“middle”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Centered vertically</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“top”</td>
+<td style="" align="left">
+<p>Aligned on the top of the region</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">width</span></dt>
+<dd>
+<p>Specifies the width of the element</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="videodata.html"><code class="sgmltag-element">videodata</code></a>: <span class="simplelist"><a href="videoobject.html"><code class="sgmltag-element">videoobject</code></a></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in videodata: <span class="simplelist"><a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titleforbidden.info)</span></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 22 Jul 2007.</p>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="varname" href="varname.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="videoobject" href="videoobject.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">varname&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;videoobject</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Parsing DocBook Documents</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="part1.html" title="Part&#160;I.&#160;Introduction" />
+<link rel="previous" href="ch02.html" title="Creating DocBook Documents" />
+<link rel="next" href="ch04.html" title="Publishing DocBook Documents" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="Creating DocBook Documents" href="ch02.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="Part&#160;I.&#160;Introduction" href="part1.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="Publishing DocBook Documents" href="ch04.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="chapter" lang="en" xml:lang="en">
+<div>
+<div>
+<div><a name="ch-parse" id="ch-parse"></a>
+<div class="component-title">
+<h1 class="label">3</h1>
+<h1 class="title">Parsing DocBook Documents</h1>
+</div>
+</div>
+<div>
+<p class="releaseinfo">$Revision: 1.1 $</p>
+</div>
+<div>
+<p class="pubdate">$Date: 2008/11/05 15:41:11 $</p>
+</div>
+</div>
+<hr xmlns:t="http://nwalsh.com/docbook/xsl/template/1.0" t:class="component-separator" /></div>
+<p><a class="indexterm" name="parsDocch4" id="parsDocch4"></a> <a class="indexterm" name="docDTDparsch4" id="docDTDparsch4"></a>A key feature of <acronym class="acronym">XML</acronym> markup is that you <span class="emphasis"><em>validate</em></span> it. The DocBook schema is a precise description of valid nesting: the order of elements, and their content. All DocBook documents must conform to this description or they are not DocBook documents (by definition). <a class="indexterm" name="d0e5340" id=
+"d0e5340"></a> <a class="indexterm" name="d0e5346" id="d0e5346"></a>The validation technology that is built into XML is the Document Type Definition or <acronym class="acronym">DTD</acronym>. A <em class="firstterm">validating parser</em> is a program that can read the <acronym class="acronym">DTD</acronym> and a particular document and determine whether the exact nesting and order of elements in the document is valid according to the <acronym class="acronym">DTD</acronym>.</p>
+<p>DocBook is now defined by a RELAX NG grammar so it is no longer necessary to validate with the DTD. In fact, it isn't even very valuable since the DTD version doesn't enforce many DocBook constraints. Instead, an external RELAX NG validator must be used.</p>
+<p>RELAX NG validation is performed on a document <span class="emphasis"><em>after</em></span> it has been parsed. It is possible for parse errors to occur as well as validation errors (if, for example, your document isn't well-formed XML). We're going to assume that your documents are well formed and not discuss XML parsing errors.</p>
+<p><a class="indexterm" name="d0e5373" id="d0e5373"></a>If you are not using a structured editor that can enforce the markup as you type, validation with an external tool is a particularly important step in the document creation process. You cannot expect to get rational results from subsequent processing (such as document publishing) if your documents are not valid.</p>
+<p>There are several free RELAX NG validators including Jing and MSV. For more detail about available RELAX NG tools, see <a class="link" href="http://www.relax-ng.org/" target="_top">http://www.relax-ng.org/</a>.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="s.id-idref" id="s.id-idref"></a>ID/IDREF constraints and validation</h2>
+</div>
+</div>
+</div>
+<p>Before we begin, we need to get a slightly tricky subject out of the way: ID/IDREF constraints. In XML, attributes of type ID and IDREF provide a straightforward cross-referencing mechanism. The value of an attribute of type IDREF must be the same as the value of some other attribute of type ID in the document. Checking these constraints is not a core part of RELAX NG, instead they are provided by a set of “DTD Compatibility” extensions.</p>
+<p>Unfortunately, schema extensibility and DTD compatibility don't mix well. Several aspects of the RELAX NG grammar for DocBook introduce errors with respect to ID/IDREF constraint checking.</p>
+<p>Luckily, because DocBook uses <code class="sgmltag-attribute">xml:id</code> for its ID attribute, it's not necessary to enforce the constraints with RELAX NG.</p>
+<p>You can either tell your processor not to perform the DTD compatibility extension checks, or ignore the warning messages that they produce.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="ch03-validate" id="ch03-validate"></a>Validating Your Documents</h2>
+</div>
+</div>
+</div>
+<p>As examples, we'll describe how you can use Jing and MSV for validation. For information about your particular validator, consult the documentation that came with it.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e5402" id="d0e5402"></a>Using Jing</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e5406" id="d0e5406"></a>The <span class="command"><strong>jing</strong></span> tool performs RELAX NG validation.</p>
+<pre class="screen">
+java -jar jing.jar -t -i docbook.rng test.xml
+Elapsed time 562+75=637 milliseconds
+</pre>
+<p>The elapsed time is printed because we used the <code class="option">-t</code> option. Without that option, it produces no output if there are no errors. The <code class="option">-i</code> option suppresses ID/IDREF checks.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e5425" id="d0e5425"></a>Using MSV</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e5429" id="d0e5429"></a>The <span class="command"><strong>MSV</strong></span> tool performs RELAX NG validation.</p>
+<pre class="screen">
+java -jar msv docbook.rng test.xml
+start parsing a grammar.
+warnings are found. use -warning switch to see all warnings.
+validating test.xml
+the document is valid.
+</pre>
+<p>If you use the <code class="option">-warnings</code> option, you'll see the ID/IDREF warnings.</p>
+</div>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="ch03-parseerr" id="ch03-parseerr"></a>Understanding Validation Errors</h2>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="errorparsech4" id="errorparsech4"></a><a class="indexterm" name="d0e5455" id="d0e5455"></a> <a class="indexterm" name="d0e5461" id="d0e5461"></a>Every validator produces slightly different error messages, but most indicate exactly (at least technically<sup>[<a name="d0e5467" href="#ftn.d0e5467" class="footnote" id="d0e5467">2</a>]</sup>) what is wrong and where the error occurred. With a little experience, this information is all you'll need to quickly identify what's
+wrong.</p>
+<p>In the rest of this section, we'll look at a number of common errors and the messages they produce in <span class="command"><strong>msv</strong></span>. We've chosen <span class="command"><strong>msv</strong></span> because it generally produces informative error messages.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e5479" id="d0e5479"></a>Character Data Not Allowed Here</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e5483" id="d0e5483"></a> <a class="indexterm" name="d0e5489" id="d0e5489"></a> <a class="indexterm" name="d0e5495" id="d0e5495"></a>Out of context character data is frequently caused by a missing start tag, but sometimes it's just the result of typing in the wrong place!</p>
+<pre class="programlisting">
+&lt;chapter xmlns="http://docbook.org/ns/docbook" version="5.0"&gt;
+&lt;title&gt;Test Chapter&lt;/title&gt;
+&lt;para&gt;
+This is a paragraph in the test chapter. It is unremarkable in
+every regard. This is a paragraph in the test chapter. It is
+unremarkable in every regard. This is a paragraph in the test
+chapter. It is unremarkable in every regard.
+&lt;/para&gt;
+You can't put character data here.
+&lt;para&gt;
+&lt;emphasis role="bold"&gt;This&lt;/emphasis&gt; paragraph contains
+&lt;emphasis&gt;some &lt;emphasis&gt;emphasized&lt;/emphasis&gt; text&lt;/emphasis&gt;
+and a &lt;superscript&gt;super&lt;/superscript&gt;script
+and a &lt;subscript&gt;sub&lt;/subscript&gt;script.
+&lt;/para&gt;
+&lt;para&gt;
+This is a paragraph in the test chapter. It is unremarkable in
+every regard. This is a paragraph in the test chapter. It is
+unremarkable in every regard. This is a paragraph in the test
+chapter. It is unremarkable in every regard.
+&lt;/para&gt;
+&lt;/chapter&gt;
+
+
+</pre>
+<pre class="screen">
+java -jar msv.jar docbook.rng badpcdata.xml
+start parsing a grammar.
+warnings are found. use -warning switch to see all warnings.
+validating badpcdata.xml
+Error at line:10, column:7 of badpcdata.xml
+  unexpected character literal
+</pre>
+<p><a class="indexterm" name="d0e5510" id="d0e5510"></a> You can't put character data directly in a <a href="chapter.html"><code class="sgmltag-element">chapter</code></a>. Here, a wrapper element, such as <a href="para.html"><code class="sgmltag-element">para</code></a>, is missing around the sentence between the first two paragraphs.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e5522" id="d0e5522"></a>Misspelled Start Tag</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e5526" id="d0e5526"></a>If you spell it wrong, the parser gets confused.</p>
+<pre class="programlisting">
+&lt;chapter xmlns="http://docbook.org/ns/docbook" version="5.0"&gt;
+&lt;title&gt;Test Chapter&lt;/title&gt;
+&lt;para&gt;
+This is a paragraph in the test chapter. It is unremarkable in
+every regard. This is a paragraph in the test chapter. It is
+unremarkable in every regard. This is a paragraph in the test
+chapter. It is unremarkable in every regard.
+&lt;/para&gt;
+&lt;paar&gt;
+&lt;emphasis role="bold"&gt;This&lt;/emphasis&gt; paragraph contains
+&lt;emphasis&gt;some &lt;emphasis&gt;emphasized&lt;/emphasis&gt; text&lt;/emphasis&gt;
+and a &lt;superscript&gt;super&lt;/superscript&gt;script
+and a &lt;subscript&gt;sub&lt;/subscript&gt;script.
+&lt;/para&gt;
+&lt;para&gt;
+This is a paragraph in the test chapter. It is unremarkable in
+every regard. This is a paragraph in the test chapter. It is
+unremarkable in every regard. This is a paragraph in the test
+chapter. It is unremarkable in every regard.
+&lt;/para&gt;
+&lt;/chapter&gt;
+
+
+</pre>
+<pre class="screen">
+java -jar msv.jar docbook.rng misspell.xml
+start parsing a grammar.
+warnings are found. use -warning switch to see all warnings.
+validating misspell.xml
+Error at line:9, column:7 of misspell.xml
+  tag name "paar" is not allowed. Possible tag names are: &lt;address&gt;,&lt;anchor&gt;,
+&lt;annotation&gt;,&lt;bibliography&gt;,&lt;bibliolist&gt;,&lt;blockquote&gt;,&lt;bridgehead&gt;,
+&lt;calloutlist&gt;,&lt;caution&gt;,&lt;classsynopsis&gt;,&lt;cmdsynopsis&gt;,
+&lt;constraintdef&gt;,&lt;constructorsynopsis&gt;,&lt;destructorsynopsis&gt;,&lt;epigraph&gt;,
+&lt;equation&gt;,&lt;example&gt;,&lt;fieldsynopsis&gt;,&lt;figure&gt;,&lt;formalpara&gt;,
+&lt;funcsynopsis&gt;,&lt;glossary&gt;,&lt;glosslist&gt;,&lt;important&gt;,&lt;index&gt;,
+&lt;indexterm&gt;,&lt;informalequation&gt;,&lt;informalexample&gt;,&lt;informalfigure&gt;,
+&lt;informaltable&gt;,&lt;itemizedlist&gt;,&lt;literallayout&gt;,&lt;mediaobject&gt;,
+&lt;methodsynopsis&gt;,&lt;msgset&gt;,&lt;note&gt;,&lt;orderedlist&gt;,&lt;para&gt;,
+&lt;procedure&gt;,&lt;productionset&gt;,&lt;programlisting&gt;,&lt;programlistingco&gt;,
+&lt;qandaset&gt;,&lt;refentry&gt;,&lt;remark&gt;,&lt;revhistory&gt;,&lt;screen&gt;,&lt;screenco&gt;,
+&lt;screenshot&gt;,&lt;section&gt;,&lt;section&gt;,&lt;segmentedlist&gt;,&lt;sidebar&gt;,
+&lt;simpara&gt;,&lt;simplelist&gt;,&lt;simplesect&gt;,&lt;synopsis&gt;,&lt;table&gt;,&lt;task&gt;,
+&lt;tip&gt;,&lt;toc&gt;,&lt;variablelist&gt;,&lt;warning&gt;
+</pre>
+<p>Luckily, these are pretty easy to spot, unless you accidentally spell the name of another element. In that case, your error might appear to be out of context.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e5543" id="d0e5543"></a>Out of Context Start Tag</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e5547" id="d0e5547"></a> <a class="indexterm" name="d0e5555" id="d0e5555"></a>Sometimes the problem isn't spelling, but placing a tag in the wrong context. When this happens, the parser tries to figure out what it can add to your document to make it valid. Then it proceeds as if it had seen what was added in order to recover from the error seen, which can cause future errors.</p>
+<pre class="programlisting">
+&lt;chapter xmlns="http://docbook.org/ns/docbook" version="5.0"&gt;
+&lt;title&gt;Test Chapter&lt;/title&gt;
+&lt;para&gt;
+This is a paragraph in the test chapter. It is unremarkable in
+every regard. This is a paragraph in the test chapter. It is
+unremarkable in every regard. This is a paragraph in the test
+chapter. It is unremarkable in every regard.
+&lt;/para&gt;
+&lt;para&gt;&lt;title&gt;Paragraph With Inlines&lt;/title&gt;
+&lt;emphasis role="bold"&gt;This&lt;/emphasis&gt; paragraph contains
+&lt;emphasis&gt;some &lt;emphasis&gt;emphasized&lt;/emphasis&gt; text&lt;/emphasis&gt;
+and a &lt;superscript&gt;super&lt;/superscript&gt;script
+and a &lt;subscript&gt;sub&lt;/subscript&gt;script.
+&lt;/para&gt;
+&lt;para&gt;
+This is a paragraph in the test chapter. It is unremarkable in
+every regard. This is a paragraph in the test chapter. It is
+unremarkable in every regard. This is a paragraph in the test
+chapter. It is unremarkable in every regard.
+&lt;/para&gt;
+&lt;/chapter&gt;
+
+
+</pre>
+<pre class="screen">
+$ java -jar msv.jar docbook.rng context.xml
+start parsing a grammar.
+warnings are found. use -warning switch to see all warnings.
+validating context.xml
+Error at line:9, column:14 of context.xml
+  tag name "title" is not allowed. Possible tag names are: &lt;abbrev&gt;,&lt;accel&gt;,
+&lt;acronym&gt;,&lt;address&gt;,…,&lt;varname&gt;,&lt;warning&gt;,&lt;wordasword&gt;,&lt;xref&gt;
+</pre>
+<p><a class="indexterm" name="d0e5569" id="d0e5569"></a> <a class="indexterm" name="d0e5577" id="d0e5577"></a>In this example, we probably wanted a <a href="formalpara.html"><code class="sgmltag-element">formalpara</code></a>, so that we could have a title on the paragraph. But note that the parser didn't suggest this alternative. The parser only tries to add additional elements, rather than rename elements that it's already seen.</p>
+</div>
+</div>
+<div class="footnotes"><br />
+<hr width="100" align="left" />
+<div class="footnote">
+<p><sup>[<a name="ftn.d0e5467" href="#d0e5467" class="para" id="ftn.d0e5467">2</a>]</sup> It is often the case that you can correct an error in the document in several ways. The parser suggests one possible fix, but this is not always the right fix. For example, the parser may suggest that you can correct out of context data by adding another element, when in fact it's “obvious” to human eyes that the problem is a missing end tag.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="Creating DocBook Documents" href="ch02.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="Publishing DocBook Documents" href="ch04.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">Creating DocBook Documents&#160;</td>
+<td width="20%" align="center"><a title="Part&#160;I.&#160;Introduction" href="part1.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;Publishing DocBook Documents</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>informaltable (db.html.informaltable)</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="cals.informaltable.html" title="informaltable (db.cals.informaltable)" />
+<link rel="next" href="initializer.html" title="initializer" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="informaltable (db.cals.informaltable)" href="cals.informaltable.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="initializer" href="initializer.html"><img src="figures/nav-next.png" alt="Next" border=
+"0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.html.informaltable" id="element.db.html.informaltable"></a>
+<div>
+<div>
+<div>
+<h1 class="title">informaltable (db.html.informaltable)</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>informaltable — An HTML table without a title</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>informaltable (db.html.informaltable)&#160;<span class="cceq">::=</span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>Sequence of:
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>?&#160;<span class="pattern">(db.titleforbidden.info)</span></li>
+<li>One of:
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li>Zero or more of:
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li><a href="html.col.html"><code class="sgmltag-element">col</code></a></li>
+</ul>
+</div>
+</li>
+<li>Zero or more of:
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li><a href="html.colgroup.html"><code class="sgmltag-element">colgroup</code></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li><a href="html.thead.html"><code class="sgmltag-element">thead</code></a>?&#160;<span class="pattern">(db.html.thead)</span></li>
+<li><a href="html.tfoot.html"><code class="sgmltag-element">tfoot</code></a>?&#160;<span class="pattern">(db.html.tfoot)</span></li>
+<li>One of:
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li>One or more of:
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li><a href="html.tbody.html"><code class="sgmltag-element">tbody</code></a>&#160;<span class="pattern">(db.html.tbody)</span></li>
+</ul>
+</div>
+</li>
+<li>One or more of:
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li><a href="html.tr.html"><code class="sgmltag-element">tr</code></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p>Attributes:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>summary</li>
+<li>width (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><code class="literal">xsd:integer</code></li>
+<li><code class="literal">xsd:string</code> (Pattern: “[0-9]+%”)</li>
+</ul>
+</div>
+</li>
+<li>border (nonNegativeInteger)</li>
+<li>frame (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“void”</li>
+<li>“above”</li>
+<li>“below”</li>
+<li>“hsides”</li>
+<li>“lhs”</li>
+<li>“rhs”</li>
+<li>“vsides”</li>
+<li>“box”</li>
+<li>“border”</li>
+</ul>
+</div>
+</li>
+<li>rules (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“none”</li>
+<li>“groups”</li>
+<li>“rows”</li>
+<li>“cols”</li>
+<li>“all”</li>
+</ul>
+</div>
+</li>
+<li>cellspacing (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><code class="literal">xsd:integer</code></li>
+<li><code class="literal">xsd:string</code> (Pattern: “[0-9]+%”)</li>
+</ul>
+</div>
+</li>
+<li>cellpadding (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><code class="literal">xsd:integer</code></li>
+<li><code class="literal">xsd:string</code> (Pattern: “[0-9]+%”)</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>This <a href="html.informaltable.html"><code class="sgmltag-element">informaltable</code></a> element identifies an informal HTML table (one without a <a href="caption.html"><code class="sgmltag-element">caption</code></a>). DocBook allows either <acronym class="acronym">CALS</acronym> or <acronym class="acronym">HTML</acronym> tables, both of which describe tables geometrically using rows, columns, and cells.</p>
+<p>HTML tables may include column headers and footers. To identify a row header, use a <a href="html.th.html"><code class="sgmltag-element">th</code></a> in the row.</p>
+<div class="sidebar">
+<p class="title"><b>Why aren't HTML tables in the HTML namespace?</b></p>
+<p>HTML tables were introduced in DocBook V4.3 which was not in a namespace and was defined normatively with a DTD. DTDs do not support namespaces very well. The Technical Committee decided to simply add the HTML element names to DocBook. This solution simplified specification, avoided issues of namespace support in DTDs, and solved the most compelling use case: cut-and-paste of simple, text-only HTML tables into DocBook.</p>
+<p>Strictly speaking, it would be incorrect to put these elements in the XHTML namespace because the DocBook common attributes are allowed on all of them and the <a href="html.td.html"><code class="sgmltag-element">td</code></a> and <a href="html.th.html"><code class="sgmltag-element">th</code></a> elements have very different content models than their HTML counterparts.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e111747" id="d0e111747"></a>
+<h3>Processing expectations</h3>
+<p>Formatted as a displayed block. This element is expected to obey the semantics described in <em class="citetitle"><a class="citetitle" href="http://www.w3.org/TR/html401/struct/tables.html" target="_top">Tables</a></em>, as specified in <em class="citetitle"><a class="citetitle" href="appd.html#xhtml"><span class="trademark">XHTML</span>™ 1.0</a></em>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attribute-descriptions" id="attribute-descriptions"></a>
+<h3>Attributes</h3>
+<div class="variablelist">
+<dl>
+<dt><span class="term">border</span></dt>
+<dd>
+<p>Specifies the width (in pixels only) of the frame around a table.</p>
+</dd>
+<dt><span class="term">cellpadding</span></dt>
+<dd>
+<p>Specifies the amount of space between the border of the cell and its contents. If the value of this attribute is a pixel length, all four margins should be this distance from the contents. If the value of the attribute is a percentage length, the top and bottom margins should be equally separated from the content based on a percentage of the available vertical space, and the left and right margins should be equally separated from the content based on a percentage of the available horizontal space.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left"><code class="literal">xsd:integer</code></td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>An explicit padding.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left"><code class="literal">xsd:string</code> (Pattern: “[0-9]+%”)</td>
+<td style="" align="left">
+<p>A percentage padding.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">cellspacing</span></dt>
+<dd>
+<p>Specifies how much space the user agent should leave between the left side of the table and the left-hand side of the leftmost column, the top of the table and the top side of the topmost row, and so on for the right and bottom of the table. The attribute also specifies the amount of space to leave between cells.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left"><code class="literal">xsd:integer</code></td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>An explicit spacing.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left"><code class="literal">xsd:string</code> (Pattern: “[0-9]+%”)</td>
+<td style="" align="left">
+<p>A percentage spacing.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">class</span></dt>
+<dd>
+<p>This attribute assigns a class name or set of class names to an element. Any number of elements may be assigned the same class name or names. Multiple class names must be separated by white space characters.</p>
+</dd>
+<dt><span class="term">frame</span></dt>
+<dd>
+<p>Specifies which sides of the frame surrounding a table will be visible.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“void”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>No sides. This is the default value.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“above”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The top side only.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“below”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The bottom side only.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“hsides”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The top and bottom sides only.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“lhs”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The left-hand side only.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“rhs”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The right-hand side only.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“vsides”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The right and left sides only.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“box”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>All four sides.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“border”</td>
+<td style="" align="left">
+<p>All four sides.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">lang</span></dt>
+<dd>
+<p>This attribute specifies the base language of an element's attribute values and text content. The default value of this attribute is unknown.</p>
+</dd>
+<dt><span class="term">onclick</span></dt>
+<dd>
+<p>Occurs when the pointing device button is clicked over an element.</p>
+</dd>
+<dt><span class="term">ondblclick</span></dt>
+<dd>
+<p>Occurs when the pointing device button is double clicked over an element.</p>
+</dd>
+<dt><span class="term">onkeydown</span></dt>
+<dd>
+<p>Occurs when a key is pressed down over an element.</p>
+</dd>
+<dt><span class="term">onkeypress</span></dt>
+<dd>
+<p>Occurs when a key is pressed and released over an element.</p>
+</dd>
+<dt><span class="term">onkeyup</span></dt>
+<dd>
+<p>Occurs when a key is released over an element.</p>
+</dd>
+<dt><span class="term">onmousedown</span></dt>
+<dd>
+<p>Occurs when the pointing device button is pressed over an element.</p>
+</dd>
+<dt><span class="term">onmousemove</span></dt>
+<dd>
+<p>Occurs when the pointing device is moved while it is over an element.</p>
+</dd>
+<dt><span class="term">onmouseout</span></dt>
+<dd>
+<p>Occurs when the pointing device is moved away from an element.</p>
+</dd>
+<dt><span class="term">onmouseover</span></dt>
+<dd>
+<p>Occurs when the pointing device is moved onto an element.</p>
+</dd>
+<dt><span class="term">onmouseup</span></dt>
+<dd>
+<p>Occurs when the pointing device button is released over an element.</p>
+</dd>
+<dt><span class="term">rules</span></dt>
+<dd>
+<p>Specifies which rules will appear between cells within a table. The rendering of rules is user agent dependent.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“none”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>No rules. This is the default value.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“groups”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Rules will appear between row groups (see thead, tfoot, and tbody) and column groups (see colgroup and col) only.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“rows”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Rules will appear between rows only.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“cols”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Rules will appear between columns only.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“all”</td>
+<td style="" align="left">
+<p>Rules will appear between all rows and columns.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">style</span></dt>
+<dd>
+<p>This attribute specifies style information for the current element.</p>
+</dd>
+<dt><span class="term">summary</span></dt>
+<dd>
+<p>Provides a summary of the table's purpose and structure for user agents rendering to non-visual media such as speech and Braille.</p>
+</dd>
+<dt><span class="term">title</span></dt>
+<dd>
+<p>This attribute offers advisory information about the element for which it is set.</p>
+</dd>
+<dt><span class="term">width</span></dt>
+<dd>
+<p>Specifies the desired width of the entire table and is intended for visual user agents. When the value is a percentage value, the value is relative to the user agent's available horizontal space. In the absence of any width specification, table width is determined by the user agent.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left"><code class="literal">xsd:integer</code></td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>An explicit width.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left"><code class="literal">xsd:string</code> (Pattern: “[0-9]+%”)</td>
+<td style="" align="left">
+<p>A percentage width.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="html.informaltable.html"><code class="sgmltag-element">informaltable</code></a>: <span class="simplelist"><a href="acknowledgements.html"><code class="sgmltag-element">acknowledgements</code></a>, <a href="annotation.html"><code class="sgmltag-element">annotation</code></a>, <a href="answer.html"><code class="sgmltag-element">answer</code></a>, <a href="appendix.html"><code class="sgmltag-element">appendix</code></a>, <a href="article.html"><code class=
+"sgmltag-element">article</code></a>, <a href="bibliodiv.html"><code class="sgmltag-element">bibliodiv</code></a>, <a href="bibliography.html"><code class="sgmltag-element">bibliography</code></a>, <a href="bibliolist.html"><code class="sgmltag-element">bibliolist</code></a>, <a href="blockquote.html"><code class="sgmltag-element">blockquote</code></a>, <a href="callout.html"><code class="sgmltag-element">callout</code></a>, <a href="calloutlist.html"><code class="sgmltag-element">calloutlist</code></a>,
+<a href="caption.html"><code class="sgmltag-element">caption</code></a>&#160;<span class="pattern">(db.caption)</span>, <a href="caution.html"><code class="sgmltag-element">caution</code></a>, <a href="chapter.html"><code class="sgmltag-element">chapter</code></a>, <a href="colophon.html"><code class="sgmltag-element">colophon</code></a>, <a href="constraintdef.html"><code class="sgmltag-element">constraintdef</code></a>, <a href="cover.html"><code class="sgmltag-element">cover</code></a>, <a href=
+"dedication.html"><code class="sgmltag-element">dedication</code></a>, <a href="entry.html"><code class="sgmltag-element">entry</code></a>, <a href="example.html"><code class="sgmltag-element">example</code></a>, <a href="figure.html"><code class="sgmltag-element">figure</code></a>, <a href="footnote.html"><code class="sgmltag-element">footnote</code></a>, <a href="glossary.html"><code class="sgmltag-element">glossary</code></a>, <a href="glossdef.html"><code class="sgmltag-element">glossdef</code></a>,
+<a href="glossdiv.html"><code class="sgmltag-element">glossdiv</code></a>, <a href="glosslist.html"><code class="sgmltag-element">glosslist</code></a>, <a href="html.fieldset.html"><code class="sgmltag-element">html:fieldset</code></a>, <a href="html.form.html"><code class="sgmltag-element">html:form</code></a>, <a href="important.html"><code class="sgmltag-element">important</code></a>, <a href="index.html"><code class="sgmltag-element">index</code></a>, <a href="indexdiv.html"><code class=
+"sgmltag-element">indexdiv</code></a>, <a href="informalexample.html"><code class="sgmltag-element">informalexample</code></a>, <a href="informalfigure.html"><code class="sgmltag-element">informalfigure</code></a>, <a href="itemizedlist.html"><code class="sgmltag-element">itemizedlist</code></a>, <a href="legalnotice.html"><code class="sgmltag-element">legalnotice</code></a>, <a href="listitem.html"><code class="sgmltag-element">listitem</code></a>, <a href="msgexplan.html"><code class=
+"sgmltag-element">msgexplan</code></a>, <a href="msgtext.html"><code class="sgmltag-element">msgtext</code></a>, <a href="note.html"><code class="sgmltag-element">note</code></a>, <a href="orderedlist.html"><code class="sgmltag-element">orderedlist</code></a>, <a href="para.html"><code class="sgmltag-element">para</code></a>, <a href="partintro.html"><code class="sgmltag-element">partintro</code></a>, <a href="preface.html"><code class="sgmltag-element">preface</code></a>, <a href=
+"procedure.html"><code class="sgmltag-element">procedure</code></a>, <a href="qandadiv.html"><code class="sgmltag-element">qandadiv</code></a>, <a href="qandaset.html"><code class="sgmltag-element">qandaset</code></a>, <a href="question.html"><code class="sgmltag-element">question</code></a>, <a href="refsect1.html"><code class="sgmltag-element">refsect1</code></a>, <a href="refsect2.html"><code class="sgmltag-element">refsect2</code></a>, <a href="refsect3.html"><code class=
+"sgmltag-element">refsect3</code></a>, <a href="refsection.html"><code class="sgmltag-element">refsection</code></a>, <a href="refsynopsisdiv.html"><code class="sgmltag-element">refsynopsisdiv</code></a>, <a href="revdescription.html"><code class="sgmltag-element">revdescription</code></a>, <a href="sect1.html"><code class="sgmltag-element">sect1</code></a>, <a href="sect2.html"><code class="sgmltag-element">sect2</code></a>, <a href="sect3.html"><code class="sgmltag-element">sect3</code></a>, <a href=
+"sect4.html"><code class="sgmltag-element">sect4</code></a>, <a href="sect5.html"><code class="sgmltag-element">sect5</code></a>, <a href="section.html"><code class="sgmltag-element">section</code></a>, <a href="setindex.html"><code class="sgmltag-element">setindex</code></a>, <a href="sidebar.html"><code class="sgmltag-element">sidebar</code></a>, <a href="simplesect.html"><code class="sgmltag-element">simplesect</code></a>, <a href="step.html"><code class="sgmltag-element">step</code></a>, <a href=
+"taskprerequisites.html"><code class="sgmltag-element">taskprerequisites</code></a>, <a href="taskrelated.html"><code class="sgmltag-element">taskrelated</code></a>, <a href="tasksummary.html"><code class="sgmltag-element">tasksummary</code></a>, <a href="html.td.html"><code class="sgmltag-element">td</code></a>, <a href="textobject.html"><code class="sgmltag-element">textobject</code></a>, <a href="html.th.html"><code class="sgmltag-element">th</code></a>, <a href="tip.html"><code class=
+"sgmltag-element">tip</code></a>, <a href="toc.html"><code class="sgmltag-element">toc</code></a>, <a href="tocdiv.html"><code class="sgmltag-element">tocdiv</code></a>, <a href="variablelist.html"><code class="sgmltag-element">variablelist</code></a>, <a href="warning.html"><code class="sgmltag-element">warning</code></a></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in informaltable: <span class="simplelist"><a href="html.col.html"><code class="sgmltag-element">col</code></a>, <a href="html.colgroup.html"><code class="sgmltag-element">colgroup</code></a>, <a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titleforbidden.info)</span>, <a href="html.tbody.html"><code class="sgmltag-element">tbody</code></a>&#160;<span class="pattern">(db.html.tbody)</span>, <a href=
+"html.tfoot.html"><code class="sgmltag-element">tfoot</code></a>&#160;<span class="pattern">(db.html.tfoot)</span>, <a href="html.thead.html"><code class="sgmltag-element">thead</code></a>&#160;<span class="pattern">(db.html.thead)</span>, <a href="html.tr.html"><code class="sgmltag-element">tr</code></a></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="seealso" id="seealso"></a>
+<h2>See Also</h2>
+<span class="simplelist"><a href="colspec.html"><code class="sgmltag-element">colspec</code></a>, <a href="entry.html"><code class="sgmltag-element">entry</code></a>, <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a>, <a href="equation.html"><code class="sgmltag-element">equation</code></a>, <a href="example.html"><code class="sgmltag-element">example</code></a>, <a href="figure.html"><code class="sgmltag-element">figure</code></a>, <a href="informalequation.html"><code class=
+"sgmltag-element">informalequation</code></a>, <a href="informalexample.html"><code class="sgmltag-element">informalexample</code></a>, <a href="informalfigure.html"><code class="sgmltag-element">informalfigure</code></a>, <a href="cals.informaltable.html"><code class="sgmltag-element">informaltable</code></a>&#160;<span class="pattern">(db.cals.informaltable)</span>, <a href="row.html"><code class="sgmltag-element">row</code></a>, <a href="spanspec.html"><code class="sgmltag-element">spanspec</code></a>,
+<a href="html.table.html"><code class="sgmltag-element">table</code></a>, <a href="html.tbody.html"><code class="sgmltag-element">tbody</code></a>, <a href="html.tfoot.html"><code class="sgmltag-element">tfoot</code></a>, <a href="tgroup.html"><code class="sgmltag-element">tgroup</code></a>, <a href="html.thead.html"><code class="sgmltag-element">thead</code></a></span></div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 22 Jul 2007.</p>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="informaltable (db.cals.informaltable)" href="cals.informaltable.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="initializer" href="initializer.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">informaltable (db.cals.informaltable)&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;initializer</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DocBook Element Reference</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="pt02.html" title="Part&#160;II.&#160;Reference" />
+<link rel="previous" href="pt02.html" title="Part&#160;II.&#160;Reference" />
+<link rel="next" href="abbrev.html" title="abbrev" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="Part&#160;II.&#160;Reference" href="pt02.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="Part&#160;II.&#160;Reference" href="pt02.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="abbrev" href="abbrev.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="reference" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h1 class="title"><a name="ref-element" id="ref-element"></a>DocBook Element Reference</h1>
+</div>
+</div>
+<hr /></div>
+<div class="partintro" lang="en" xml:lang="en">
+<p><a class="indexterm" name="elementsref" id="elementsref"></a>This reference describes every element in the DocBook schema.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="s.elem.org" id="s.elem.org"></a>Organization of Reference Pages</h2>
+</div>
+</div>
+</div>
+<p>The description of each element in this reference is divided into the following sections:</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">Synopsis</span></dt>
+<dd>
+<p><a class="indexterm" name="d0e7064" id="d0e7064"></a><a class="indexterm" name="d0e7071" id="d0e7071"></a><a class="indexterm" name="d0e7076" id="d0e7076"></a>Provides a quick synopsis of the element. The content of the synopsis varies according to the nature of the element described, but may include any or all of the following sections:</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">Content Model</span></dt>
+<dd>
+<p>Describes the content model of the element, the mixture of things that it can contain. See <a class="xref" href="ref-elements.html#s2-cmintro" title="Understanding Content Models">the section called “Understanding Content Models”</a>.</p>
+</dd>
+<dt><span class="term">Attributes</span></dt>
+<dd>
+<p><a class="indexterm" name="d0e7096" id="d0e7096"></a>Provides a synopsis of the attributes on the element. For brevity, common attributes are described only once, <a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">in this introduction</a>. Likewise, common linking attributes are <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">described once</a>.</p>
+</dd>
+<dt><span class="term">Additional Constraints</span></dt>
+<dd>
+<p>Provides a synopsis of any additional constraints on the element. These constraints are expressed using Schematron in the RELAX NG grammar.</p>
+</dd>
+<dt><span class="term">Description</span></dt>
+<dd>
+<p><a class="indexterm" name="d0e7119" id="d0e7119"></a> <a class="indexterm" name="d0e7125" id="d0e7125"></a>Describes the semantics of the element.</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">Processing expectations</span></dt>
+<dd>
+<p><a class="indexterm" name="d0e7135" id="d0e7135"></a> <a class="indexterm" name="d0e7141" id="d0e7141"></a>Summarizes specific formatting expectations of the element. Many processing expectations are influenced by attribute values. Be sure to consult the description of element attributes as well.</p>
+</dd>
+<dt><span class="term">Future changes</span></dt>
+<dd>
+<p><a class="indexterm" name="d0e7155" id="d0e7155"></a> <a class="indexterm" name="d0e7161" id="d0e7161"></a> <a class="indexterm" name="d0e7165" id="d0e7165"></a>Identifies changes that are scheduled for future versions of the schema. These changes are highlighted because they involve some backward-incompatability that may make currently valid DocBook documents no longer valid under the new version.</p>
+</dd>
+</dl>
+</div>
+</dd>
+</dl>
+</div>
+</dd>
+<dt><span class="term">Attributes</span></dt>
+<dd>
+<p><a class="indexterm" name="d0e7179" id="d0e7179"></a>Describes the semantics of each attribute.</p>
+</dd>
+<dt><span class="term">See Also</span></dt>
+<dd>
+<p>Lists similar or related elements. <a class="indexterm" name="d0e7191" id="d0e7191"></a></p>
+</dd>
+<dt><span class="term">Examples</span></dt>
+<dd>
+<p><a class="indexterm" name="d0e7202" id="d0e7202"></a>Provides examples of proper usage for the element. Generally, the smallest example required to reasonably demonstrate the element is used. In many cases, a formatted version of the example is also shown.</p>
+<p>All of the examples printed in the book are valid according to the RELAX NG grammar.</p>
+<p>Formatted examples are indicated using a vertical bar.</p>
+</dd>
+</dl>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="s2-cmintro" id="s2-cmintro"></a>Understanding Content Models</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e7216" id="d0e7216"></a>Each element synopsis begins with a description of its content model. Content models are the way that grammars describe the name, number, and order of other elements that may be used inside an element. This description is presented as a series of nested lists. The rules of RELAX NG are considerably more powerful than the rules of <acronym class="acronym">DTD</acronym>s and I've seen no obvious way to expose them. Suggestions welcome.</p>
+<p>Each level of list is introduced by a description of how elements are selected from it:</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">One of:</span></dt>
+<dd>
+<p>Exactly one selection must be taken from the list.</p>
+</dd>
+<dt><span class="term">Optionally one of:</span></dt>
+<dd>
+<p>Like “one of” but may be omitted entirely.</p>
+</dd>
+<dt><span class="term">Sequence of:</span></dt>
+<dd>
+<p>One selection must be made for each member of the list and those selections must be presented in the order they appear in the list.</p>
+</dd>
+<dt><span class="term">Optional sequence of:</span></dt>
+<dd>
+<p>Like “sequence of” but may be omitted entirely.</p>
+</dd>
+<dt><span class="term">Zero or more of:</span></dt>
+<dd>
+<p>Any number of selections, including none, can be made from the list. Selections can be made in any order, without restriction on order or number of occurrences.</p>
+</dd>
+<dt><span class="term">One or more of:</span></dt>
+<dd>
+<p>Any number of selections can be made from the list. Selections can be made in any order, without restriction on order or number of occurrences except that at least one must be selected.</p>
+</dd>
+<dt><span class="term">Optional one or more of:</span></dt>
+<dd>
+<p>Like “one or more of” but may be omitted entirely.</p>
+</dd>
+<dt><span class="term">Interleave of:</span></dt>
+<dd>
+<p>All of the members of the list must be selected exactly once, but they can be selected in any order.</p>
+</dd>
+<dt><span class="term">Optional interleave of:</span></dt>
+<dd>
+<p>Like “interleave of” but may be omitted entirely.</p>
+</dd>
+</dl>
+</div>
+<p>Individual elements in the list may be followed by an occurrence indicator. If the indicator is “?” the element is optional. Note that this can have an effect on the meaning of the list as a whole. For example, a sequence that consists of only optional elements may have none. This differs, in subtle and unimportant ways, from an optional sequence.</p>
+<p>Some of the lists, especially ones that would otherwise be quite long, are subdivided into groups. For example:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>Sequence of:
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><a href="info.html"><code class="sgmltag-element">info</code></a>? (db.titleforbidden.info)</li>
+<li><a href="attribution.html"><code class="sgmltag-element">attribution</code></a>?</li>
+<li>One or more of:
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li><a href="literallayout.html"><code class="sgmltag-element">literallayout</code></a></li>
+<li><span class="emphasis"><em>Paragraph elements</em></span> <span class="inlinemediaobject"><img src="graphics/right.gif" /></span>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li><a href="anchor.html"><code class="sgmltag-element">anchor</code></a></li>
+<li><a href="formalpara.html"><code class="sgmltag-element">formalpara</code></a></li>
+<li><a href="para.html"><code class="sgmltag-element">para</code></a></li>
+<li><a href="simpara.html"><code class="sgmltag-element">simpara</code></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<p>This extra levels of list (e.g., <span class="emphasis"><em>Paragraph elements</em></span>) are just a convenience for readers, they don't have any effect on the content model. An <a href="epigraph.html"><code class="sgmltag-element">epigraph</code></a> can contain one or more of “<a href="literallayout.html"><code class="sgmltag-element">literallayout</code></a>”, “<a href="anchor.html"><code class="sgmltag-element">anchor</code></a>”, “<a href="formalpara.html"><code class=
+"sgmltag-element">formalpara</code></a>”, “<a href="para.html"><code class="sgmltag-element">para</code></a>”, or “<a href="simpara.html"><code class="sgmltag-element">simpara</code></a>”.</p>
+<p>In online versions of this document, rendered with a user agent that supports JavaScript, these lists can be opened and closed dynamically, or removed altogether.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h4 class="title"><a name="s.elem.contentmodels" id="s.elem.contentmodels"></a>Content models and validity</h4>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e7363" id="d0e7363"></a> <a class="indexterm" name="d0e7369" id="d0e7369"></a>A parser uses the content models to determine if a given document is valid. In order for a document to be valid, the content of every element in the document must “<span class="quote">match</span>” the content model for that element.</p>
+<p>In practical terms, match means that it must be possible to expand the content model until it exactly matches the sequence of elements in the document.</p>
+<p>For example, consider the content model of the <a href="epigraph.html"><code class="sgmltag-element">epigraph</code></a>, above, and this example:</p>
+<pre class="screen">
+&lt;epigraph&gt;
+&lt;para&gt;Some text&lt;/para&gt;
+&lt;/epigraph&gt;
+</pre>
+<p>It is valid because the following expansion of the content model exactly matches the actual content: choose zero occurrences of <a href="info.html"><code class="sgmltag-element">info</code></a>, zero occurrences of <a href="attribution.html"><code class="sgmltag-element">attribution</code></a>, choose the alternative <a href="para.html"><code class="sgmltag-element">para</code></a> from the choice, and choose to let the “one or more” match once.</p>
+<p>By the same token, this example is not valid because there is no expansion of the content model that can match it:</p>
+<pre class="screen">
+&lt;epigraph&gt;
+&lt;para&gt;Some text&lt;/para&gt;
+&lt;attribution&gt;John Doe&lt;/attribution&gt;
+&lt;/epigraph&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="common.attributes" id="common.attributes"></a>Common Attributes</h2>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e7407" id="d0e7407"></a> <a class="indexterm" name="d0e7413" id="d0e7413"></a>The following attributes occur on all elements. They are summarized here once for brevity and to make the additional attributes that occur on many elements stand out.</p>
+<table width="100%" border="0" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ;">
+<col align="left" width="25%" />
+<thead>
+<tr>
+<th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">Name</th>
+<th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.annotations">annotations</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.arch">arch</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.audience">audience</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.condition">condition</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.conformance">conformance</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.dir">dir</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top">
+<table class="simplelist" border="0" summary="Simple list">
+<tr>
+<td><em>Enumeration:</em></td>
+</tr>
+<tr>
+<td>ltr</td>
+</tr>
+<tr>
+<td>rtl</td>
+</tr>
+<tr>
+<td>lro</td>
+</tr>
+<tr>
+<td>rlo</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.os">os</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.remap">remap</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.revision">revision</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.revisionflag">revisionflag</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top">
+<table class="simplelist" border="0" summary="Simple list">
+<tr>
+<td><em>Enumeration:</em></td>
+</tr>
+<tr>
+<td>changed</td>
+</tr>
+<tr>
+<td>added</td>
+</tr>
+<tr>
+<td>deleted</td>
+</tr>
+<tr>
+<td>off</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.role">role</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.security">security</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.userlevel">userlevel</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.vendor">vendor</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.version">version</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.wordsize">wordsize</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.xml:base">xml:base</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top">anyURI</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.xml:id">xml:id</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top">ID</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.xml:lang">xml:lang</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.xreflabel">xreflabel</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.annotations" id="db.cmn.annotations">annotations</a></code></dt>
+<dd>
+<p>Identifies one or more annotations that apply to this element.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.arch" id="db.cmn.arch">arch</a></code></dt>
+<dd>
+<p>Designates the computer or chip architecture to which the element applies.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.audience" id="db.cmn.audience">audience</a></code></dt>
+<dd>
+<p>Designates the intended audience to which the element applies, for example, system administrators, programmers, or new users..</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.condition" id="db.cmn.condition">condition</a></code></dt>
+<dd>
+<p>provides a standard place for application-specific effectivity.</p>
+<p>Many DocBook users observed that in order to add an effectivity condition that was unique to their environment required “<span class="quote">abusing</span>” the semantics of one of the existing attributes, or adding their own, making their customization an extension rather than a subset. The<code class="sgmltag-attribute">condition</code> attribute is a general-purpose effectivity attribute with no specified semantics.</p>
+<p>The<code class="sgmltag-attribute">condition</code> attribute provides a standard place for application-specific effectivity.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.conformance" id="db.cmn.conformance">conformance</a></code></dt>
+<dd>
+<p>Indicates standards conformance characteristics of the element.</p>
+<p>These characteristics are application-specific; DocBook provides no default semantics.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.dir" id="db.cmn.dir">dir</a></code></dt>
+<dd>
+<p>Identifies the direction of text in an element.</p>
+<dl>
+<dt><code>ltr</code></dt>
+<dd>Left-to-right text</dd>
+<dt><code>rtl</code></dt>
+<dd>Right-to-left text</dd>
+<dt><code>lro</code></dt>
+<dd>Left-to-right override</dd>
+<dt><code>rlo</code></dt>
+<dd>Right-to-left override</dd>
+</dl>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.os" id="db.cmn.os">os</a></code></dt>
+<dd>
+<p>Indicates the operating system to which the element is applicable.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.remap" id="db.cmn.remap">remap</a></code></dt>
+<dd>
+<p>Provides the name or similar semantic identifier assigned to the content in some previous markup scheme.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.revision" id="db.cmn.revision">revision</a></code></dt>
+<dd>
+<p>Indicates the editorial revision to which the element belongs.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.revisionflag" id="db.cmn.revisionflag">revisionflag</a></code></dt>
+<dd>
+<p>Identifies the revision status of the element.</p>
+<dl>
+<dt><code>changed</code></dt>
+<dd>The element has been changed.</dd>
+<dt><code>added</code></dt>
+<dd>The element is new (has been added to the document).</dd>
+<dt><code>deleted</code></dt>
+<dd>The element has been deleted.</dd>
+<dt><code>off</code></dt>
+<dd>Explicitly turns off revision markup for this element.</dd>
+</dl>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.role" id="db.cmn.role">role</a></code></dt>
+<dd>
+<p>Provides additional, user-specified classification for an element.</p>
+<p>While <code class="sgmltag-attribute">role</code> is a common attribute in the sense that it occurs on all DocBook elements, customizers will find that it is not part of any of the “common attribute” patterns. It is parameterized differently because it is useful to be able to subclass <code class="sgmltag-attribute">role</code> independently on different elements.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.security" id="db.cmn.security">security</a></code></dt>
+<dd>
+<p>Indicates something about the security level associated with the element to which it applies.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.userlevel" id="db.cmn.userlevel">userlevel</a></code></dt>
+<dd>
+<p>Indicates the level of user experience for which the element applies.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.vendor" id="db.cmn.vendor">vendor</a></code></dt>
+<dd>
+<p>Indicates the computer vendor to which the element applies..</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.version" id="db.cmn.version">version</a></code></dt>
+<dd>
+<p>Specifies the DocBook version of the element and its descendants.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.wordsize" id="db.cmn.wordsize">wordsize</a></code></dt>
+<dd>
+<p>Indicates the word size (width in bits) of the computer architecture to which the element applies.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.xml:base" id="db.cmn.xml:base">xml:base</a></code></dt>
+<dd>
+<p>Specifies the base URI of the element and its descendants.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.xml:id" id="db.cmn.xml:id">xml:id</a></code></dt>
+<dd>
+<p>Identifies the unique ID value of the element.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.xml:lang" id="db.cmn.xml:lang">xml:lang</a></code></dt>
+<dd>
+<p>Specifies the natural language of the element and its descendants.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.xreflabel" id="db.cmn.xreflabel">xreflabel</a></code></dt>
+<dd>
+<p>Provides the text that is to be generated for a cross reference to the element.</p>
+</dd>
+</dl>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="common.linking.attributes" id="common.linking.attributes"></a>Common Linking Attributes</h2>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e7423" id="d0e7423"></a> <a class="indexterm" name="d0e7429" id="d0e7429"></a>The following attributes occur on all elements that can be the start of a link. They are summarized here once for brevity and to make the additional attributes that occur on many elements stand out.</p>
+<table width="100%" border="0" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ;">
+<col align="left" width="25%" />
+<thead>
+<tr>
+<th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">Name</th>
+<th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.linkend">linkend</a></code>/<code class="sgmltag-attribute"><a href="#db.cmn.linkends">linkends</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top">IDREF/IDREFS</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.xlink:actuate">xlink:actuate</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top">
+<table class="simplelist" border="0" summary="Simple list">
+<tr>
+<td><em>Enumeration:</em></td>
+</tr>
+<tr>
+<td>onLoad</td>
+</tr>
+<tr>
+<td>onRequest</td>
+</tr>
+<tr>
+<td>other</td>
+</tr>
+<tr>
+<td>none</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.xlink:arcrole">xlink:arcrole</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top">anyURI</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.xlink:href">xlink:href</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top">anyURI</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.xlink:role">xlink:role</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top">anyURI</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.xlink:show">xlink:show</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top">
+<table class="simplelist" border="0" summary="Simple list">
+<tr>
+<td><em>Enumeration:</em></td>
+</tr>
+<tr>
+<td>new</td>
+</tr>
+<tr>
+<td>replace</td>
+</tr>
+<tr>
+<td>embed</td>
+</tr>
+<tr>
+<td>other</td>
+</tr>
+<tr>
+<td>none</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.xlink:title">xlink:title</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><code class="sgmltag-attribute"><a href="#db.cmn.xlink:type">xlink:type</a></code></td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" valign="top"><em>text</em></td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.linkend" id="db.cmn.linkend">linkend</a></code>/<code class="sgmltag-attribute"><a name="db.cmn.linkends" id="db.cmn.linkends">linkends</a></code></dt>
+<dd>
+<p>Points to an internal link target by identifying the value of its xml:id attribute.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.xlink:actuate" id="db.cmn.xlink:actuate">xlink:actuate</a></code></dt>
+<dd>
+<p>Identifies the XLink actuate behavior of the link.</p>
+<dl>
+<dt><code>onLoad</code></dt>
+<dd>An application should traverse to the ending resource immediately on loading the starting resource.</dd>
+<dt><code>onRequest</code></dt>
+<dd>An application should traverse from the starting resource to the ending resource only on a post-loading event triggered for the purpose of traversal.</dd>
+<dt><code>other</code></dt>
+<dd>The behavior of an application traversing to the ending resource is unconstrained by this specification. The application should look for other markup present in the link to determine the appropriate behavior.</dd>
+<dt><code>none</code></dt>
+<dd>The behavior of an application traversing to the ending resource is unconstrained by this specification. No other markup is present to help the application determine the appropriate behavior.</dd>
+</dl>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.xlink:arcrole" id="db.cmn.xlink:arcrole">xlink:arcrole</a></code></dt>
+<dd>
+<p>Identifies the XLink arcrole of the link.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.xlink:href" id="db.cmn.xlink:href">xlink:href</a></code></dt>
+<dd>
+<p>Identifies a link target with a URI.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.xlink:role" id="db.cmn.xlink:role">xlink:role</a></code></dt>
+<dd>
+<p>Identifies the XLink role of the link.</p>
+<p>DocBook uses the XLink role value <code class="uri">http://docbook.org/xlink/role/olink</code> to identify linking elements with OLink semantics. That means the part of <code class="sgmltag-attribute">xlink:href</code> before the number sign (#) is to be interpreted as equivalent to the olink <code class="sgmltag-attribute">targetdoc</code> attribute value, and the part after the number sign as the olink <code class="sgmltag-attribute">targetptr</code> attribute value.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.xlink:show" id="db.cmn.xlink:show">xlink:show</a></code></dt>
+<dd>
+<p>Identifies the XLink show behavior of the link.</p>
+<dl>
+<dt><code>new</code></dt>
+<dd>An application traversing to the ending resource should load it in a new window, frame, pane, or other relevant presentation context.</dd>
+<dt><code>replace</code></dt>
+<dd>An application traversing to the ending resource should load the resource in the same window, frame, pane, or other relevant presentation context in which the starting resource was loaded.</dd>
+<dt><code>embed</code></dt>
+<dd>An application traversing to the ending resource should load its presentation in place of the presentation of the starting resource.</dd>
+<dt><code>other</code></dt>
+<dd>The behavior of an application traversing to the ending resource is unconstrained by XLink. The application should look for other markup present in the link to determine the appropriate behavior.</dd>
+<dt><code>none</code></dt>
+<dd>The behavior of an application traversing to the ending resource is unconstrained by this specification. No other markup is present to help the application determine the appropriate behavior.</dd>
+</dl>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.xlink:title" id="db.cmn.xlink:title">xlink:title</a></code></dt>
+<dd>
+<p>Identifies the XLink title of the link.</p>
+</dd>
+<dt><code class="sgmltag-attribute"><a name="db.cmn.xlink:type" id="db.cmn.xlink:type">xlink:type</a></code></dt>
+<dd>
+<p>Identifies the XLink link type.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="Part&#160;II.&#160;Reference" href="pt02.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="abbrev" href="abbrev.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">Part&#160;II.&#160;Reference&#160;</td>
+<td width="20%" align="center"><a title="Part&#160;II.&#160;Reference" href="pt02.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;abbrev</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

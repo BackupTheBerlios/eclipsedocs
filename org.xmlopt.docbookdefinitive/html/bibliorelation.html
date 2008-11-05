@@ -1,0 +1,452 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>bibliorelation</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="biblioref.html" title="biblioref" />
+<link rel="next" href="biblioset.html" title="biblioset" />
+</head>
+<body onload="hideAll();">
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="biblioref" href="biblioref.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="biblioset" href="biblioset.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.bibliorelation" id="element.db.bibliorelation"></a>
+<div>
+<div>
+<div>
+<h1 class="title">bibliorelation</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>bibliorelation — The relationship of a document to another</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>bibliorelation&#160;<span class="cceq">::=</span><span id="cmshow" style="display: none;">&#160;<a href="javascript:showAll()"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="cmhide">&#160;<a href="javascript:hideAll()"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>Zero or more of:
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><span class="emphasis"><em>text</em></span></li>
+<li><a href="_phrase.html"><code class="sgmltag-element">phrase</code></a>&#160;<span class="pattern">(db._phrase)</span></li>
+<li><a href="replaceable.html"><code class="sgmltag-element">replaceable</code></a></li>
+<li><em title="inlinemediaobject" class="patnlink">Graphic inlines</em><span id="pls.d2e109796-db.graphic.inlines" style="display: none;">&#160;<a href="javascript:show('d2e109796-db.graphic.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e109796-db.graphic.inlines">&#160;<a href="javascript:hide('d2e109796-db.graphic.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e109796-db.graphic.inlines">
+<div class="itemizedlist">
+<ul type="square">
+<li><a href="inlinemediaobject.html"><code class="sgmltag-element">inlinemediaobject</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="indexterm, indexterm, and indexterm" class="patnlink">Indexing inlines</em><span id="pls.d2e109796-db.indexing.inlines" style="display: none;">&#160;<a href="javascript:show('d2e109796-db.indexing.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e109796-db.indexing.inlines">&#160;<a href="javascript:hide('d2e109796-db.indexing.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e109796-db.indexing.inlines">
+<div class="itemizedlist">
+<ul type="square">
+<li><a href="indexterm.endofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.endofrange)</span></li>
+<li><a href="indexterm.singular.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.singular)</span></li>
+<li><a href="indexterm.startofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.startofrange)</span></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="anchor, biblioref, link, olink, and xref" class="patnlink">Linking inlines</em><span id="pls.d2e109796-db.link.inlines" style="display: none;">&#160;<a href="javascript:show('d2e109796-db.link.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e109796-db.link.inlines">&#160;<a href="javascript:hide('d2e109796-db.link.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e109796-db.link.inlines">
+<div class="itemizedlist">
+<ul type="square">
+<li><a href="anchor.html"><code class="sgmltag-element">anchor</code></a></li>
+<li><a href="biblioref.html"><code class="sgmltag-element">biblioref</code></a></li>
+<li><a href="link.html"><code class="sgmltag-element">link</code></a></li>
+<li><a href="olink.html"><code class="sgmltag-element">olink</code></a></li>
+<li><a href="xref.html"><code class="sgmltag-element">xref</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="alt, anchor, annotation, biblioref, indexterm, indexterm, indexterm, inlinemediaobject, link, olink, remark, subscript, superscript, and xref" class="patnlink">Ubiquitous inlines</em><span id="pls.d2e109796-db.ubiq.inlines" style="display: none;">&#160;<a href="javascript:show('d2e109796-db.ubiq.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e109796-db.ubiq.inlines">&#160;<a href="javascript:hide('d2e109796-db.ubiq.inlines')"><img src=
+"graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e109796-db.ubiq.inlines">
+<div class="itemizedlist">
+<ul type="square">
+<li><a href="alt.html"><code class="sgmltag-element">alt</code></a></li>
+<li><a href="anchor.html"><code class="sgmltag-element">anchor</code></a></li>
+<li><a href="annotation.html"><code class="sgmltag-element">annotation</code></a></li>
+<li><a href="biblioref.html"><code class="sgmltag-element">biblioref</code></a></li>
+<li><a href="indexterm.endofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.endofrange)</span></li>
+<li><a href="indexterm.singular.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.singular)</span></li>
+<li><a href="indexterm.startofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.startofrange)</span></li>
+<li><a href="inlinemediaobject.html"><code class="sgmltag-element">inlinemediaobject</code></a></li>
+<li><a href="link.html"><code class="sgmltag-element">link</code></a></li>
+<li><a href="olink.html"><code class="sgmltag-element">olink</code></a></li>
+<li><a href="remark.html"><code class="sgmltag-element">remark</code></a></li>
+<li><a href="subscript.html"><code class="sgmltag-element">subscript</code></a></li>
+<li><a href="superscript.html"><code class="sgmltag-element">superscript</code></a></li>
+<li><a href="xref.html"><code class="sgmltag-element">xref</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<p>Additional attributes:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li><span class="emphasis"><em>Exactly one of:</em></span>
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>class (enumeration)
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li>“doi”</li>
+<li>“isbn”</li>
+<li>“isrn”</li>
+<li>“issn”</li>
+<li>“libraryofcongress”</li>
+<li>“pubsnumber”</li>
+<li>“uri”</li>
+</ul>
+</div>
+</li>
+<li><span class="emphasis"><em>All of:</em></span>
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li><span class="bold"><strong>class</strong></span> (enumeration)
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>“other”</li>
+</ul>
+</div>
+</li>
+<li><span class="bold"><strong>otherclass</strong></span> (NMTOKEN)</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li><span class="emphasis"><em>Exactly one of:</em></span>
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>type (enumeration)
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li>“hasformat”</li>
+<li>“haspart”</li>
+<li>“hasversion”</li>
+<li>“isformatof”</li>
+<li>“ispartof”</li>
+<li>“isreferencedby”</li>
+<li>“isreplacedby”</li>
+<li>“isrequiredby”</li>
+<li>“isversionof”</li>
+<li>“references”</li>
+<li>“replaces”</li>
+<li>“requires”</li>
+</ul>
+</div>
+</li>
+<li><span class="emphasis"><em>Each of:</em></span>
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li>type (enumeration)
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>“othertype”</li>
+</ul>
+</div>
+</li>
+<li><span class="bold"><strong>othertype</strong></span> (NMTOKEN)</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<p>Required attributes are shown in <span class="bold"><strong>bold</strong></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>The <a href="bibliorelation.html"><code class="sgmltag-element">bibliorelation</code></a> element satisfies the relation element of the <a class="link" href="http://dublincore.org/" target="_top">Dublin Core Metadata Initiative</a>.</p>
+<p>The Dublin Core defines relation as “<span class="quote">a reference to a related resource.</span>” It goes on to note that “<span class="quote">recommended best practice is to reference the resource by means of a string or number conforming to a formal identification system.</span>”</p>
+<p>DocBook 4.2 added <a href="bibliocoverage.html"><code class="sgmltag-element">bibliocoverage</code></a>, <a href="bibliorelation.html"><code class="sgmltag-element">bibliorelation</code></a>, and <a href="bibliosource.html"><code class="sgmltag-element">bibliosource</code></a> to make the DocBook meta-information wrappers a complete superset of the Dublin Core.</p>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e28157" id="d0e28157"></a>
+<h3>Processing expectations</h3>
+<p>Formatted inline. Sometimes suppressed.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attribute-descriptions" id="attribute-descriptions"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">class</span></dt>
+<dd>
+<p>Identifies the kind of bibliographic identifier</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“doi”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>A document object identifier.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“isbn”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>An international standard book number.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“isrn”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>An international standard technical report number (ISO 10444).</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“issn”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>An international standard serial number.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“libraryofcongress”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>A Library of Congress reference number.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“pubsnumber”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>A publication number (an internal number or possibly organizational standard).</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“uri”</td>
+<td style="" align="left">
+<p>A Uniform Resource Identifier</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">class</span></dt>
+<dd>
+<p>Identifies the kind of bibliographic identifier</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“other”</td>
+<td style="" align="left">
+<p>Indicates that the identifier is some 'other' kind.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">otherclass</span></dt>
+<dd>
+<p>Identifies the nature of the non-standard bibliographic identifier</p>
+</dd>
+<dt><span class="term">othertype</span></dt>
+<dd>
+<p>A keyword that identififes the type of the non-standard relationship</p>
+</dd>
+<dt><span class="term">type</span></dt>
+<dd>
+<p>Identifies the type of relationship</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“hasformat”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The described resource pre-existed the referenced resource, which is essentially the same intellectual content presented in another format</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“haspart”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The described resource includes the referenced resource either physically or logically</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“hasversion”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The described resource has a version, edition, or adaptation, namely, the referenced resource</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“isformatof”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The described resource is the same intellectual content of the referenced resource, but presented in another format</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“ispartof”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The described resource is a physical or logical part of the referenced resource</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“isreferencedby”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The described resource is referenced, cited, or otherwise pointed to by the referenced resource</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“isreplacedby”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The described resource is supplanted, displaced, or superceded by the referenced resource</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“isrequiredby”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The described resource is required by the referenced resource, either physically or logically</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“isversionof”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The described resource is a version, edition, or adaptation of the referenced resource; changes in version imply substantive changes in content rather than differences in format</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“references”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The described resource references, cites, or otherwise points to the referenced resource</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“replaces”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>The described resource supplants, displaces, or supersedes the referenced resource</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“requires”</td>
+<td style="" align="left">
+<p>The described resource requires the referenced resource to support its function, delivery, or coherence of content</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">type</span></dt>
+<dd>
+<p>Identifies the type of relationship</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“othertype”</td>
+<td style="" align="left">
+<p>The described resource has a non-standard relationship with the referenced resource</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="bibliorelation.html"><code class="sgmltag-element">bibliorelation</code></a>: <span class="simplelist"><a href="biblioentry.html"><code class="sgmltag-element">biblioentry</code></a>, <a href="bibliomixed.html"><code class="sgmltag-element">bibliomixed</code></a>, <a href="bibliomset.html"><code class="sgmltag-element">bibliomset</code></a>, <a href="biblioset.html"><code class="sgmltag-element">biblioset</code></a>, <a href="info.html"><code class=
+"sgmltag-element">info</code></a>&#160;<span class="pattern">(db.info)</span>, <a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titleforbidden.info)</span>, <a href="titleonly.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titleonly.info)</span>, <a href="titleonlyreq.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titleonlyreq.info)</span>, <a href=
+"titlereq.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titlereq.info)</span></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in bibliorelation: <span class="simplelist"><span class="emphasis"><em>text</em></span>, <a href="alt.html"><code class="sgmltag-element">alt</code></a>, <a href="anchor.html"><code class="sgmltag-element">anchor</code></a>, <a href="annotation.html"><code class="sgmltag-element">annotation</code></a>, <a href="biblioref.html"><code class="sgmltag-element">biblioref</code></a>, <a href="indexterm.endofrange.html"><code class=
+"sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.endofrange)</span>, <a href="indexterm.singular.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.singular)</span>, <a href="indexterm.startofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.startofrange)</span>, <a href="inlinemediaobject.html"><code class="sgmltag-element">inlinemediaobject</code></a>, <a href=
+"link.html"><code class="sgmltag-element">link</code></a>, <a href="olink.html"><code class="sgmltag-element">olink</code></a>, <a href="_phrase.html"><code class="sgmltag-element">phrase</code></a>&#160;<span class="pattern">(db._phrase)</span>, <a href="remark.html"><code class="sgmltag-element">remark</code></a>, <a href="replaceable.html"><code class="sgmltag-element">replaceable</code></a>, <a href="subscript.html"><code class="sgmltag-element">subscript</code></a>, <a href=
+"superscript.html"><code class="sgmltag-element">superscript</code></a>, <a href="xref.html"><code class="sgmltag-element">xref</code></a></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 22 Jul 2007.</p>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="biblioref" href="biblioref.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="biblioset" href="biblioset.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">biblioref&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;biblioset</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,889 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>entry</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="emphasis.html" title="emphasis (db.emphasis)" />
+<link rel="next" href="entrytbl.html" title="entrytbl" />
+</head>
+<body onload="hideAll();">
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="emphasis (db.emphasis)" href="emphasis.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="entrytbl" href="entrytbl.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.entry" id="element.db.entry"></a>
+<div>
+<div>
+<div>
+<h1 class="title">entry</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>entry — A cell in a table</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>entry&#160;<span class="cceq">::=</span><span id="cmshow" style="display: none;">&#160;<a href="javascript:showAll()"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="cmhide">&#160;<a href="javascript:hideAll()"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>One of:
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>Zero or more of:
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li><span class="emphasis"><em>text</em></span></li>
+<li><em title="author, citation, citebiblioid, citerefentry, citetitle, editor, jobtitle, org, orgname, person, and personname" class="patnlink">Bibliography inlines</em><span id="pls.d2e279801-db.bibliography.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.bibliography.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.bibliography.inlines">&#160;<a href="javascript:hide('d2e279801-db.bibliography.inlines')"><img src=
+"graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.bibliography.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="author.html"><code class="sgmltag-element">author</code></a></li>
+<li><a href="citation.html"><code class="sgmltag-element">citation</code></a></li>
+<li><a href="citebiblioid.html"><code class="sgmltag-element">citebiblioid</code></a></li>
+<li><a href="citerefentry.html"><code class="sgmltag-element">citerefentry</code></a></li>
+<li><a href="citetitle.html"><code class="sgmltag-element">citetitle</code></a></li>
+<li><a href="editor.html"><code class="sgmltag-element">editor</code></a></li>
+<li><a href="jobtitle.html"><code class="sgmltag-element">jobtitle</code></a></li>
+<li><a href="org.html"><code class="sgmltag-element">org</code></a></li>
+<li><a href="orgname.html"><code class="sgmltag-element">orgname</code></a></li>
+<li><a href="person.html"><code class="sgmltag-element">person</code></a></li>
+<li><a href="personname.html"><code class="sgmltag-element">personname</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="errorcode, errorname, errortext, and errortype" class="patnlink">Error inlines</em><span id="pls.d2e279801-db.error.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.error.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.error.inlines">&#160;<a href="javascript:hide('d2e279801-db.error.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.error.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="errorcode.html"><code class="sgmltag-element">errorcode</code></a></li>
+<li><a href="errorname.html"><code class="sgmltag-element">errorname</code></a></li>
+<li><a href="errortext.html"><code class="sgmltag-element">errortext</code></a></li>
+<li><a href="errortype.html"><code class="sgmltag-element">errortype</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="inlinemediaobject" class="patnlink">Graphic inlines</em><span id="pls.d2e279801-db.graphic.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.graphic.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.graphic.inlines">&#160;<a href="javascript:hide('d2e279801-db.graphic.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.graphic.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="inlinemediaobject.html"><code class="sgmltag-element">inlinemediaobject</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="guibutton, guiicon, guilabel, guimenu, guimenuitem, guisubmenu, menuchoice, and mousebutton" class="patnlink">GUI inlines</em><span id="pls.d2e279801-db.gui.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.gui.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.gui.inlines">&#160;<a href="javascript:hide('d2e279801-db.gui.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.gui.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="guibutton.html"><code class="sgmltag-element">guibutton</code></a></li>
+<li><a href="guiicon.html"><code class="sgmltag-element">guiicon</code></a></li>
+<li><a href="guilabel.html"><code class="sgmltag-element">guilabel</code></a></li>
+<li><a href="guimenu.html"><code class="sgmltag-element">guimenu</code></a></li>
+<li><a href="guimenuitem.html"><code class="sgmltag-element">guimenuitem</code></a></li>
+<li><a href="guisubmenu.html"><code class="sgmltag-element">guisubmenu</code></a></li>
+<li><a href="menuchoice.html"><code class="sgmltag-element">menuchoice</code></a></li>
+<li><a href="mousebutton.html"><code class="sgmltag-element">mousebutton</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="html:button, html:fieldset, html:input, html:label, html:select, and html:textarea" class="patnlink">HTML Form inlines</em><span id="pls.d2e279801-db.htmlform.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.htmlform.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.htmlform.inlines">&#160;<a href="javascript:hide('d2e279801-db.htmlform.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.htmlform.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="html.button.html"><code class="sgmltag-element">html:button</code></a></li>
+<li><a href="html.fieldset.html"><code class="sgmltag-element">html:fieldset</code></a></li>
+<li><a href="html.input.html"><code class="sgmltag-element">html:input</code></a></li>
+<li><a href="html.label.html"><code class="sgmltag-element">html:label</code></a></li>
+<li><a href="html.select.html"><code class="sgmltag-element">html:select</code></a></li>
+<li><a href="html.textarea.html"><code class="sgmltag-element">html:textarea</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="indexterm, indexterm, and indexterm" class="patnlink">Indexing inlines</em><span id="pls.d2e279801-db.indexing.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.indexing.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.indexing.inlines">&#160;<a href="javascript:hide('d2e279801-db.indexing.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.indexing.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="indexterm.endofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.endofrange)</span></li>
+<li><a href="indexterm.singular.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.singular)</span></li>
+<li><a href="indexterm.startofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.startofrange)</span></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="accel, keycap, keycode, keycombo, keysym, and shortcut" class="patnlink">Keyboard inlines</em><span id="pls.d2e279801-db.keyboard.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.keyboard.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.keyboard.inlines">&#160;<a href="javascript:hide('d2e279801-db.keyboard.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.keyboard.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="accel.html"><code class="sgmltag-element">accel</code></a></li>
+<li><a href="keycap.html"><code class="sgmltag-element">keycap</code></a></li>
+<li><a href="keycode.html"><code class="sgmltag-element">keycode</code></a></li>
+<li><a href="keycombo.html"><code class="sgmltag-element">keycombo</code></a></li>
+<li><a href="keysym.html"><code class="sgmltag-element">keysym</code></a></li>
+<li><a href="shortcut.html"><code class="sgmltag-element">shortcut</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="anchor, biblioref, link, olink, and xref" class="patnlink">Linking inlines</em><span id="pls.d2e279801-db.link.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.link.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.link.inlines">&#160;<a href="javascript:hide('d2e279801-db.link.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.link.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="anchor.html"><code class="sgmltag-element">anchor</code></a></li>
+<li><a href="biblioref.html"><code class="sgmltag-element">biblioref</code></a></li>
+<li><a href="link.html"><code class="sgmltag-element">link</code></a></li>
+<li><a href="olink.html"><code class="sgmltag-element">olink</code></a></li>
+<li><a href="xref.html"><code class="sgmltag-element">xref</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="code, constant, email, literal, markup, symbol, tag, token, and uri" class="patnlink">Markup inlines</em><span id="pls.d2e279801-db.markup.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.markup.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.markup.inlines">&#160;<a href="javascript:hide('d2e279801-db.markup.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.markup.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="code.html"><code class="sgmltag-element">code</code></a></li>
+<li><a href="constant.html"><code class="sgmltag-element">constant</code></a></li>
+<li><a href="email.html"><code class="sgmltag-element">email</code></a></li>
+<li><a href="literal.html"><code class="sgmltag-element">literal</code></a></li>
+<li><a href="markup.html"><code class="sgmltag-element">markup</code></a></li>
+<li><a href="symbol.html"><code class="sgmltag-element">symbol</code></a></li>
+<li><a href="tag.html"><code class="sgmltag-element">tag</code></a></li>
+<li><a href="token.html"><code class="sgmltag-element">token</code></a></li>
+<li><a href="uri.html"><code class="sgmltag-element">uri</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="inlineequation" class="patnlink">Math inlines</em><span id="pls.d2e279801-db.math.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.math.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.math.inlines">&#160;<a href="javascript:hide('d2e279801-db.math.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.math.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="inlineequation.html"><code class="sgmltag-element">inlineequation</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="ooclass, ooexception, and oointerface" class="patnlink">Object-oriented programming inlines</em><span id="pls.d2e279801-db.oo.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.oo.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.oo.inlines">&#160;<a href="javascript:hide('d2e279801-db.oo.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.oo.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="ooclass.html"><code class="sgmltag-element">ooclass</code></a></li>
+<li><a href="ooexception.html"><code class="sgmltag-element">ooexception</code></a></li>
+<li><a href="oointerface.html"><code class="sgmltag-element">oointerface</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="command, computeroutput, envar, filename, prompt, and userinput" class="patnlink">Operating system inlines</em><span id="pls.d2e279801-db.os.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.os.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.os.inlines">&#160;<a href="javascript:hide('d2e279801-db.os.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.os.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="command.html"><code class="sgmltag-element">command</code></a></li>
+<li><a href="computeroutput.html"><code class="sgmltag-element">computeroutput</code></a></li>
+<li><a href="envar.html"><code class="sgmltag-element">envar</code></a></li>
+<li><a href="filename.html"><code class="sgmltag-element">filename</code></a></li>
+<li><a href="prompt.html"><code class="sgmltag-element">prompt</code></a></li>
+<li><a href="userinput.html"><code class="sgmltag-element">userinput</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="application, database, hardware, productname, productnumber, and trademark" class="patnlink">Product inlines</em><span id="pls.d2e279801-db.product.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.product.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.product.inlines">&#160;<a href="javascript:hide('d2e279801-db.product.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.product.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="application.html"><code class="sgmltag-element">application</code></a></li>
+<li><a href="database.html"><code class="sgmltag-element">database</code></a></li>
+<li><a href="hardware.html"><code class="sgmltag-element">hardware</code></a></li>
+<li><a href="productname.html"><code class="sgmltag-element">productname</code></a></li>
+<li><a href="productnumber.html"><code class="sgmltag-element">productnumber</code></a></li>
+<li><a href="trademark.html"><code class="sgmltag-element">trademark</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="classname, exceptionname, function, initializer, interfacename, methodname, modifier, ooclass, ooexception, oointerface, parameter, returnvalue, type, and varname" class="patnlink">Programming inlines</em><span id="pls.d2e279801-db.programming.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.programming.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.programming.inlines">&#160;<a href=
+"javascript:hide('d2e279801-db.programming.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.programming.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="classname.html"><code class="sgmltag-element">classname</code></a></li>
+<li><a href="exceptionname.html"><code class="sgmltag-element">exceptionname</code></a></li>
+<li><a href="function.html"><code class="sgmltag-element">function</code></a></li>
+<li><a href="initializer.html"><code class="sgmltag-element">initializer</code></a></li>
+<li><a href="interfacename.html"><code class="sgmltag-element">interfacename</code></a></li>
+<li><a href="methodname.html"><code class="sgmltag-element">methodname</code></a></li>
+<li><a href="modifier.html"><code class="sgmltag-element">modifier</code></a></li>
+<li><a href="ooclass.html"><code class="sgmltag-element">ooclass</code></a></li>
+<li><a href="ooexception.html"><code class="sgmltag-element">ooexception</code></a></li>
+<li><a href="oointerface.html"><code class="sgmltag-element">oointerface</code></a></li>
+<li><a href="parameter.html"><code class="sgmltag-element">parameter</code></a></li>
+<li><a href="returnvalue.html"><code class="sgmltag-element">returnvalue</code></a></li>
+<li><a href="type.html"><code class="sgmltag-element">type</code></a></li>
+<li><a href="varname.html"><code class="sgmltag-element">varname</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="abbrev, acronym, coref, date, emphasis, firstterm, footnote, footnoteref, foreignphrase, glossterm, phrase, quote, subscript, superscript, and wordasword" class="patnlink">Publishing inlines</em><span id="pls.d2e279801-db.publishing.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.publishing.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.publishing.inlines">&#160;<a href=
+"javascript:hide('d2e279801-db.publishing.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.publishing.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="abbrev.html"><code class="sgmltag-element">abbrev</code></a></li>
+<li><a href="acronym.html"><code class="sgmltag-element">acronym</code></a></li>
+<li><a href="coref.html"><code class="sgmltag-element">coref</code></a></li>
+<li><a href="date.html"><code class="sgmltag-element">date</code></a></li>
+<li><a href="emphasis.html"><code class="sgmltag-element">emphasis</code></a>&#160;<span class="pattern">(db.emphasis)</span></li>
+<li><a href="firstterm.html"><code class="sgmltag-element">firstterm</code></a></li>
+<li><a href="footnote.html"><code class="sgmltag-element">footnote</code></a></li>
+<li><a href="footnoteref.html"><code class="sgmltag-element">footnoteref</code></a></li>
+<li><a href="foreignphrase.html"><code class="sgmltag-element">foreignphrase</code></a></li>
+<li><a href="glossterm.html"><code class="sgmltag-element">glossterm</code></a></li>
+<li><a href="phrase.html"><code class="sgmltag-element">phrase</code></a>&#160;<span class="pattern">(db.phrase)</span></li>
+<li><a href="quote.html"><code class="sgmltag-element">quote</code></a></li>
+<li><a href="subscript.html"><code class="sgmltag-element">subscript</code></a></li>
+<li><a href="superscript.html"><code class="sgmltag-element">superscript</code></a></li>
+<li><a href="wordasword.html"><code class="sgmltag-element">wordasword</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="nonterminal, option, optional, package, parameter, property, replaceable, systemitem, and termdef" class="patnlink">Technical inlines</em><span id="pls.d2e279801-db.technical.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.technical.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.technical.inlines">&#160;<a href="javascript:hide('d2e279801-db.technical.inlines')"><img src="graphics/down.gif" border="0" alt=
+"[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.technical.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="nonterminal.html"><code class="sgmltag-element">nonterminal</code></a></li>
+<li><a href="option.html"><code class="sgmltag-element">option</code></a></li>
+<li><a href="optional.html"><code class="sgmltag-element">optional</code></a></li>
+<li><a href="package.html"><code class="sgmltag-element">package</code></a></li>
+<li><a href="parameter.html"><code class="sgmltag-element">parameter</code></a></li>
+<li><a href="property.html"><code class="sgmltag-element">property</code></a></li>
+<li><a href="replaceable.html"><code class="sgmltag-element">replaceable</code></a></li>
+<li><a href="systemitem.html"><code class="sgmltag-element">systemitem</code></a></li>
+<li><a href="termdef.html"><code class="sgmltag-element">termdef</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="alt, anchor, annotation, biblioref, indexterm, indexterm, indexterm, inlinemediaobject, link, olink, remark, subscript, superscript, and xref" class="patnlink">Ubiquitous inlines</em><span id="pls.d2e279801-db.ubiq.inlines" style="display: none;">&#160;<a href="javascript:show('d2e279801-db.ubiq.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e279801-db.ubiq.inlines">&#160;<a href="javascript:hide('d2e279801-db.ubiq.inlines')"><img src=
+"graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e279801-db.ubiq.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="alt.html"><code class="sgmltag-element">alt</code></a></li>
+<li><a href="anchor.html"><code class="sgmltag-element">anchor</code></a></li>
+<li><a href="annotation.html"><code class="sgmltag-element">annotation</code></a></li>
+<li><a href="biblioref.html"><code class="sgmltag-element">biblioref</code></a></li>
+<li><a href="indexterm.endofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.endofrange)</span></li>
+<li><a href="indexterm.singular.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.singular)</span></li>
+<li><a href="indexterm.startofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.startofrange)</span></li>
+<li><a href="inlinemediaobject.html"><code class="sgmltag-element">inlinemediaobject</code></a></li>
+<li><a href="link.html"><code class="sgmltag-element">link</code></a></li>
+<li><a href="olink.html"><code class="sgmltag-element">olink</code></a></li>
+<li><a href="remark.html"><code class="sgmltag-element">remark</code></a></li>
+<li><a href="subscript.html"><code class="sgmltag-element">subscript</code></a></li>
+<li><a href="superscript.html"><code class="sgmltag-element">superscript</code></a></li>
+<li><a href="xref.html"><code class="sgmltag-element">xref</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>Zero or more of:
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li><a href="annotation.html"><code class="sgmltag-element">annotation</code></a></li>
+<li><a href="bridgehead.html"><code class="sgmltag-element">bridgehead</code></a></li>
+<li><a href="remark.html"><code class="sgmltag-element">remark</code></a></li>
+<li><a href="revhistory.html"><code class="sgmltag-element">revhistory</code></a></li>
+<li><em title="indexterm, indexterm, and indexterm" class="patnlink">Indexing inlines</em><span id="pls.d2e280035-db.indexing.inlines" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.indexing.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.indexing.inlines">&#160;<a href="javascript:hide('d2e280035-db.indexing.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.indexing.inlines">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="indexterm.endofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.endofrange)</span></li>
+<li><a href="indexterm.singular.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.singular)</span></li>
+<li><a href="indexterm.startofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.startofrange)</span></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="caution, important, note, tip, and warning" class="patnlink">Admonition elements</em><span id="pls.d2e280035-db.admonition.blocks" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.admonition.blocks')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.admonition.blocks">&#160;<a href="javascript:hide('d2e280035-db.admonition.blocks')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.admonition.blocks">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="caution.html"><code class="sgmltag-element">caution</code></a></li>
+<li><a href="important.html"><code class="sgmltag-element">important</code></a></li>
+<li><a href="note.html"><code class="sgmltag-element">note</code></a></li>
+<li><a href="tip.html"><code class="sgmltag-element">tip</code></a></li>
+<li><a href="warning.html"><code class="sgmltag-element">warning</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="equation, example, figure, table, and table" class="patnlink">Formal elements</em><span id="pls.d2e280035-db.formal.blocks" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.formal.blocks')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.formal.blocks">&#160;<a href="javascript:hide('d2e280035-db.formal.blocks')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.formal.blocks">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="equation.html"><code class="sgmltag-element">equation</code></a></li>
+<li><a href="example.html"><code class="sgmltag-element">example</code></a></li>
+<li><a href="figure.html"><code class="sgmltag-element">figure</code></a></li>
+<li><a href="cals.table.html"><code class="sgmltag-element">table</code></a>&#160;<span class="pattern">(db.cals.table)</span></li>
+<li><a href="html.table.html"><code class="sgmltag-element">table</code></a>&#160;<span class="pattern">(db.html.table)</span></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="mediaobject and screenshot" class="patnlink">Graphic elements</em><span id="pls.d2e280035-db.graphic.blocks" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.graphic.blocks')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.graphic.blocks">&#160;<a href="javascript:hide('d2e280035-db.graphic.blocks')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.graphic.blocks">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="mediaobject.html"><code class="sgmltag-element">mediaobject</code></a></li>
+<li><a href="screenshot.html"><code class="sgmltag-element">screenshot</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="html:form" class="patnlink">HTML Form elements</em><span id="pls.d2e280035-db.htmlform.blocks" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.htmlform.blocks')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.htmlform.blocks">&#160;<a href="javascript:hide('d2e280035-db.htmlform.blocks')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.htmlform.blocks">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="html.form.html"><code class="sgmltag-element">html:form</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="informalequation, informalexample, informalfigure, informaltable, and informaltable" class="patnlink">Informal elements</em><span id="pls.d2e280035-db.informal.blocks" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.informal.blocks')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.informal.blocks">&#160;<a href="javascript:hide('d2e280035-db.informal.blocks')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.informal.blocks">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="informalequation.html"><code class="sgmltag-element">informalequation</code></a></li>
+<li><a href="informalexample.html"><code class="sgmltag-element">informalexample</code></a></li>
+<li><a href="informalfigure.html"><code class="sgmltag-element">informalfigure</code></a></li>
+<li><a href="cals.informaltable.html"><code class="sgmltag-element">informaltable</code></a>&#160;<span class="pattern">(db.cals.informaltable)</span></li>
+<li><a href="html.informaltable.html"><code class="sgmltag-element">informaltable</code></a>&#160;<span class="pattern">(db.html.informaltable)</span></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="bibliolist, calloutlist, glosslist, itemizedlist, orderedlist, procedure, qandaset, segmentedlist, simplelist, and variablelist" class="patnlink">List elements</em><span id="pls.d2e280035-db.list.blocks" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.list.blocks')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.list.blocks">&#160;<a href="javascript:hide('d2e280035-db.list.blocks')"><img src="graphics/down.gif" border="0" alt=
+"[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.list.blocks">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="bibliolist.html"><code class="sgmltag-element">bibliolist</code></a></li>
+<li><a href="calloutlist.html"><code class="sgmltag-element">calloutlist</code></a></li>
+<li><a href="glosslist.html"><code class="sgmltag-element">glosslist</code></a></li>
+<li><a href="itemizedlist.html"><code class="sgmltag-element">itemizedlist</code></a></li>
+<li><a href="orderedlist.html"><code class="sgmltag-element">orderedlist</code></a></li>
+<li><a href="procedure.html"><code class="sgmltag-element">procedure</code></a></li>
+<li><a href="qandaset.html"><code class="sgmltag-element">qandaset</code></a></li>
+<li><a href="segmentedlist.html"><code class="sgmltag-element">segmentedlist</code></a></li>
+<li><a href="simplelist.html"><code class="sgmltag-element">simplelist</code></a></li>
+<li><a href="variablelist.html"><code class="sgmltag-element">variablelist</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="anchor, formalpara, para, and simpara" class="patnlink">Paragraph elements</em><span id="pls.d2e280035-db.para.blocks" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.para.blocks')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.para.blocks">&#160;<a href="javascript:hide('d2e280035-db.para.blocks')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.para.blocks">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="anchor.html"><code class="sgmltag-element">anchor</code></a></li>
+<li><a href="formalpara.html"><code class="sgmltag-element">formalpara</code></a></li>
+<li><a href="para.html"><code class="sgmltag-element">para</code></a></li>
+<li><a href="simpara.html"><code class="sgmltag-element">simpara</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="address, blockquote, epigraph, and sidebar" class="patnlink">Publishing elements</em><span id="pls.d2e280035-db.publishing.blocks" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.publishing.blocks')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.publishing.blocks">&#160;<a href="javascript:hide('d2e280035-db.publishing.blocks')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.publishing.blocks">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="address.html"><code class="sgmltag-element">address</code></a></li>
+<li><a href="blockquote.html"><code class="sgmltag-element">blockquote</code></a></li>
+<li><a href="epigraph.html"><code class="sgmltag-element">epigraph</code></a></li>
+<li><a href="sidebar.html"><code class="sgmltag-element">sidebar</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="classsynopsis, cmdsynopsis, constructorsynopsis, destructorsynopsis, fieldsynopsis, funcsynopsis, and methodsynopsis" class="patnlink">Synopsis elements</em><span id="pls.d2e280035-db.synopsis.blocks" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.synopsis.blocks')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.synopsis.blocks">&#160;<a href="javascript:hide('d2e280035-db.synopsis.blocks')"><img src="graphics/down.gif" border=
+"0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.synopsis.blocks">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="classsynopsis.html"><code class="sgmltag-element">classsynopsis</code></a></li>
+<li><a href="cmdsynopsis.html"><code class="sgmltag-element">cmdsynopsis</code></a></li>
+<li><a href="constructorsynopsis.html"><code class="sgmltag-element">constructorsynopsis</code></a></li>
+<li><a href="destructorsynopsis.html"><code class="sgmltag-element">destructorsynopsis</code></a></li>
+<li><a href="fieldsynopsis.html"><code class="sgmltag-element">fieldsynopsis</code></a></li>
+<li><a href="funcsynopsis.html"><code class="sgmltag-element">funcsynopsis</code></a></li>
+<li><a href="methodsynopsis.html"><code class="sgmltag-element">methodsynopsis</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="constraintdef, msgset, procedure, productionset, and task" class="patnlink">Technical elements</em><span id="pls.d2e280035-db.technical.blocks" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.technical.blocks')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.technical.blocks">&#160;<a href="javascript:hide('d2e280035-db.technical.blocks')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.technical.blocks">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="constraintdef.html"><code class="sgmltag-element">constraintdef</code></a></li>
+<li><a href="msgset.html"><code class="sgmltag-element">msgset</code></a></li>
+<li><a href="procedure.html"><code class="sgmltag-element">procedure</code></a></li>
+<li><a href="productionset.html"><code class="sgmltag-element">productionset</code></a></li>
+<li><a href="task.html"><code class="sgmltag-element">task</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="literallayout, programlisting, programlistingco, screen, screenco, and synopsis" class="patnlink">Verbatim elements</em><span id="pls.d2e280035-db.verbatim.blocks" style="display: none;">&#160;<a href="javascript:show('d2e280035-db.verbatim.blocks')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e280035-db.verbatim.blocks">&#160;<a href="javascript:hide('d2e280035-db.verbatim.blocks')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e280035-db.verbatim.blocks">
+<div class="itemizedlist">
+<ul type="disc">
+<li><a href="literallayout.html"><code class="sgmltag-element">literallayout</code></a></li>
+<li><a href="programlisting.html"><code class="sgmltag-element">programlisting</code></a></li>
+<li><a href="programlistingco.html"><code class="sgmltag-element">programlistingco</code></a></li>
+<li><a href="screen.html"><code class="sgmltag-element">screen</code></a></li>
+<li><a href="screenco.html"><code class="sgmltag-element">screenco</code></a></li>
+<li><a href="synopsis.html"><code class="sgmltag-element">synopsis</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<p>Additional attributes:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>align (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“center”</li>
+<li>“char”</li>
+<li>“justify”</li>
+<li>“left”</li>
+<li>“right”</li>
+</ul>
+</div>
+</li>
+<li>char</li>
+<li>charoff (decimal)</li>
+<li><span class="emphasis"><em>At most one of:</em></span>
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>colname</li>
+<li>namest</li>
+<li>spanname</li>
+<li><span class="emphasis"><em>All or none of:</em></span>
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li>namest</li>
+<li>nameend</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>colsep (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“0”</li>
+<li>“1”</li>
+</ul>
+</div>
+</li>
+<li>morerows (integer)</li>
+<li>rotate (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“0”</li>
+<li>“1”</li>
+</ul>
+</div>
+</li>
+<li>rowsep (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“0”</li>
+<li>“1”</li>
+</ul>
+</div>
+</li>
+<li>valign (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“bottom”</li>
+<li>“middle”</li>
+<li>“top”</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>An <a href="entry.html"><code class="sgmltag-element">entry</code></a> is a cell in a table.</p>
+<p>Each <a href="entry.html"><code class="sgmltag-element">entry</code></a> may specify its starting column. Entries that do not explicitly specify a starting column begin implicitly in the column that is immediately adjacent to the preceding cell. Note that <a href="entry.html"><code class="sgmltag-element">entry</code></a>s with the <code class="sgmltag-attribute">morerows</code> attribute from preceding rows implicitly occupy cells in the succeeding <a href="row.html"><code class=
+"sgmltag-element">row</code></a>s.</p>
+<p>A <a href="row.html"><code class="sgmltag-element">row</code></a> is not required to be full. It is legal for some entries to be completely absent (at the beginning, middle, or end of a row).</p>
+<div class="sidebar"><a name="pernicious" id="pernicious"></a>
+<p class="title"><b>Pernicious Mixed Content</b></p>
+<p>The content model of the <a href="entry.html"><code class="sgmltag-element">entry</code></a> element exhibits a nasty peculiarity that we call “pernicious mixed content”.<sup>[<a name="d0e61506" href="#ftn.d0e61506" class="footnote" id="d0e61506">3</a>]</sup></p>
+<p>Every other element in DocBook contains either block elements or inline elements (including text) unambiguously. In these cases, the meaning of line breaks and spaces are well understood; they are insignificant between block elements and significant (to the <acronym class="acronym">SGML</acronym> parser, anyway) where inline markup can occur.</p>
+<p>Table entries are different; they can contain either block or inline elements, but not both at the same time. In other words, one <a href="entry.html"><code class="sgmltag-element">entry</code></a> in a table might contain a paragraph or a list while another contains simply text or another inline markup, but no single <a href="entry.html"><code class="sgmltag-element">entry</code></a> can contain both.</p>
+<p>Because the content model of an <a href="entry.html"><code class="sgmltag-element">entry</code></a> allows both kinds of markup, each time the <acronym class="acronym">SGML</acronym> parser encounters an <a href="entry.html"><code class="sgmltag-element">entry</code></a>, it has to decide what variety of markup it contains. <acronym class="acronym">SGML</acronym> parsers are forbidden to use more than a single token of lookahead to reach this decision. In practical terms, what this means is that a line
+feed or space after an <a href="entry.html"><code class="sgmltag-element">entry</code></a> start tag causes the parser to decide that the cell contains inline markup. Subsequent discovery of a paragraph or another block element causes a parsing error.</p>
+<p>All of these are legal:</p>
+<pre class="screen">
+
+&lt;entry&gt;3.1415927&lt;/entry&gt;
+&lt;entry&gt;General &lt;emphasis&gt;#PCDATA&lt;/emphasis&gt;&lt;/entry&gt;
+&lt;entry&gt;&lt;para&gt;A paragraph of text
+&lt;/para&gt;&lt;/entry&gt;
+
+</pre>
+<p>However, each of these is an error:</p>
+<pre class="screen">
+&lt;entry&gt;                <em class="lineannotation"><span class="lineannotation">
+Error, cannot have a line break before a block element</span></em>
+&lt;para&gt;A paragraph of text.
+&lt;/para&gt;&lt;/entry&gt;
+
+&lt;entry&gt;&lt;para&gt;A paragraph of text.
+&lt;/para&gt;               <em class="lineannotation"><span class="lineannotation">Error, cannot have a line break between block elements
+</span></em>
+&lt;para&gt;A paragraph of text.
+&lt;/para&gt;&lt;/entry&gt;
+
+&lt;entry&gt;&lt;para&gt;A paragraph of text.
+&lt;/para&gt;               <em class="lineannotation"><span class="lineannotation">Error, cannot have a line break after a block element
+</span></em>
+&lt;/entry&gt;
+</pre>
+<p>When designing a <acronym class="acronym">DTD</acronym>, it is wise to avoid pernicious mixed content. Unfortunately, the only way to correct the pernicious mixed content problem that already exists in DocBook is to require some sort of wrapper (a block element, or an inline like <a href="phrase.html"><code class="sgmltag-element">phrase</code></a>) around text within table <a href="entry.html"><code class="sgmltag-element">entry</code></a>s. This is annoying and inconvenient in a great many tables in
+which text cells predominate and, in addition, differ from <acronym class="acronym">CALS</acronym>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e61573" id="d0e61573"></a>
+<h3>Processing expectations</h3>
+<p>This element is expected to obey the semantics of the <a class="link" href="appd.html#calsdtd"><em class="citetitle">CALS Table Model Document Type Definition</em></a>, as specified by <em class="citetitle"><a class="link" href="http://www.oasis-open.org/html/a502.htm" target="_top">OASIS Technical Memorandum TM 9502:1995</a></em>.</p>
+<p>The content of <a href="entry.html"><code class="sgmltag-element">entry</code></a> is formatted to fit within the table cell that it occupies. Horizontal and vertical spanning may allow the content of an <a href="entry.html"><code class="sgmltag-element">entry</code></a> to occupy several physical cells.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attribute-descriptions" id="attribute-descriptions"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">align</span></dt>
+<dd>
+<p>Specifies the horizontal alignment of text in an entry.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“center”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Centered.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“char”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Aligned on a particular character.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“justify”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Left and right justified.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“left”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Left justified.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“right”</td>
+<td style="" align="left">
+<p>Right justified.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">char</span></dt>
+<dd>
+<p>Specifies the alignment character when <code class="sgmltag-attribute">align</code> is set to “<span class="quote">char</span>” .</p>
+</dd>
+<dt><span class="term">charoff</span></dt>
+<dd>
+<p>Specifies the percentage of the column's total width that should appear to the left of the first occurance of the character identified in <code class="sgmltag-attribute">char</code> when <code class="sgmltag-attribute">align</code> is set to “<span class="quote">char</span>” .</p>
+</dd>
+<dt><span class="term">colname</span></dt>
+<dd>
+<p>Specifies a column specification by name.</p>
+</dd>
+<dt><span class="term">colsep</span></dt>
+<dd>
+<p>Specifies the presence or absence of the column separator</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“0”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>No column separator rule.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“1”</td>
+<td style="" align="left">
+<p>Provide a column separator rule on the right</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">morerows</span></dt>
+<dd>
+<p>Specifies the number of additional rows which this entry occupies. Defaults to zero.</p>
+</dd>
+<dt><span class="term">nameend</span></dt>
+<dd>
+<p>Specifies an ending column by name.</p>
+</dd>
+<dt><span class="term">namest</span></dt>
+<dd>
+<p>Specifies a starting column by name.</p>
+</dd>
+<dt><span class="term">namest</span></dt>
+<dd>
+<p>Specifies a starting column by name.</p>
+</dd>
+<dt><span class="term">rotate</span></dt>
+<dd>
+<p>Specifies the rotation of this entry. A value of 1 (true) rotates the cell 90 degrees counter-clockwise. A value of 0 (false) leaves the cell unrotated.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“0”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Do not rotate the cell.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“1”</td>
+<td style="" align="left">
+<p>Rotate the cell 90 degrees counter-clockwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">rowsep</span></dt>
+<dd>
+<p>Specifies the presence or absence of the row separator</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“0”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>No row separator rule.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“1”</td>
+<td style="" align="left">
+<p>Provide a row separator rule below</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">spanname</span></dt>
+<dd>
+<p>Specifies a span by name.</p>
+</dd>
+<dt><span class="term">valign</span></dt>
+<dd>
+<p>Specifies the vertical alignment of text in an entry.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“bottom”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Aligned on the bottom of the entry.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“middle”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Aligned in the middle.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“top”</td>
+<td style="" align="left">
+<p>Aligned at the top of the entry.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="entry.html"><code class="sgmltag-element">entry</code></a>: <span class="simplelist"><a href="entrytbl.row.html"><code class="sgmltag-element">row</code></a>&#160;<span class="pattern">(db.entrytbl.row)</span>, <a href="row.html"><code class="sgmltag-element">row</code></a>&#160;<span class="pattern">(db.row)</span></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in entry: <span class="simplelist"><span class="emphasis"><em>text</em></span>, <a href="abbrev.html"><code class="sgmltag-element">abbrev</code></a>, <a href="accel.html"><code class="sgmltag-element">accel</code></a>, <a href="acronym.html"><code class="sgmltag-element">acronym</code></a>, <a href="address.html"><code class="sgmltag-element">address</code></a>, <a href="alt.html"><code class="sgmltag-element">alt</code></a>, <a href="anchor.html"><code class=
+"sgmltag-element">anchor</code></a>, <a href="annotation.html"><code class="sgmltag-element">annotation</code></a>, <a href="application.html"><code class="sgmltag-element">application</code></a>, <a href="author.html"><code class="sgmltag-element">author</code></a>, <a href="bibliolist.html"><code class="sgmltag-element">bibliolist</code></a>, <a href="biblioref.html"><code class="sgmltag-element">biblioref</code></a>, <a href="blockquote.html"><code class="sgmltag-element">blockquote</code></a>, <a href=
+"bridgehead.html"><code class="sgmltag-element">bridgehead</code></a>, <a href="calloutlist.html"><code class="sgmltag-element">calloutlist</code></a>, <a href="caution.html"><code class="sgmltag-element">caution</code></a>, <a href="citation.html"><code class="sgmltag-element">citation</code></a>, <a href="citebiblioid.html"><code class="sgmltag-element">citebiblioid</code></a>, <a href="citerefentry.html"><code class="sgmltag-element">citerefentry</code></a>, <a href="citetitle.html"><code class=
+"sgmltag-element">citetitle</code></a>, <a href="classname.html"><code class="sgmltag-element">classname</code></a>, <a href="classsynopsis.html"><code class="sgmltag-element">classsynopsis</code></a>, <a href="cmdsynopsis.html"><code class="sgmltag-element">cmdsynopsis</code></a>, <a href="code.html"><code class="sgmltag-element">code</code></a>, <a href="command.html"><code class="sgmltag-element">command</code></a>, <a href="computeroutput.html"><code class="sgmltag-element">computeroutput</code></a>,
+<a href="constant.html"><code class="sgmltag-element">constant</code></a>, <a href="constraintdef.html"><code class="sgmltag-element">constraintdef</code></a>, <a href="constructorsynopsis.html"><code class="sgmltag-element">constructorsynopsis</code></a>, <a href="coref.html"><code class="sgmltag-element">coref</code></a>, <a href="database.html"><code class="sgmltag-element">database</code></a>, <a href="date.html"><code class="sgmltag-element">date</code></a>, <a href=
+"destructorsynopsis.html"><code class="sgmltag-element">destructorsynopsis</code></a>, <a href="editor.html"><code class="sgmltag-element">editor</code></a>, <a href="email.html"><code class="sgmltag-element">email</code></a>, <a href="emphasis.html"><code class="sgmltag-element">emphasis</code></a>&#160;<span class="pattern">(db.emphasis)</span>, <a href="envar.html"><code class="sgmltag-element">envar</code></a>, <a href="epigraph.html"><code class="sgmltag-element">epigraph</code></a>, <a href=
+"equation.html"><code class="sgmltag-element">equation</code></a>, <a href="errorcode.html"><code class="sgmltag-element">errorcode</code></a>, <a href="errorname.html"><code class="sgmltag-element">errorname</code></a>, <a href="errortext.html"><code class="sgmltag-element">errortext</code></a>, <a href="errortype.html"><code class="sgmltag-element">errortype</code></a>, <a href="example.html"><code class="sgmltag-element">example</code></a>, <a href="exceptionname.html"><code class=
+"sgmltag-element">exceptionname</code></a>, <a href="fieldsynopsis.html"><code class="sgmltag-element">fieldsynopsis</code></a>, <a href="figure.html"><code class="sgmltag-element">figure</code></a>, <a href="filename.html"><code class="sgmltag-element">filename</code></a>, <a href="firstterm.html"><code class="sgmltag-element">firstterm</code></a>, <a href="footnote.html"><code class="sgmltag-element">footnote</code></a>, <a href="footnoteref.html"><code class="sgmltag-element">footnoteref</code></a>,
+<a href="foreignphrase.html"><code class="sgmltag-element">foreignphrase</code></a>, <a href="formalpara.html"><code class="sgmltag-element">formalpara</code></a>, <a href="funcsynopsis.html"><code class="sgmltag-element">funcsynopsis</code></a>, <a href="function.html"><code class="sgmltag-element">function</code></a>, <a href="glosslist.html"><code class="sgmltag-element">glosslist</code></a>, <a href="glossterm.html"><code class="sgmltag-element">glossterm</code></a>, <a href=
+"guibutton.html"><code class="sgmltag-element">guibutton</code></a>, <a href="guiicon.html"><code class="sgmltag-element">guiicon</code></a>, <a href="guilabel.html"><code class="sgmltag-element">guilabel</code></a>, <a href="guimenu.html"><code class="sgmltag-element">guimenu</code></a>, <a href="guimenuitem.html"><code class="sgmltag-element">guimenuitem</code></a>, <a href="guisubmenu.html"><code class="sgmltag-element">guisubmenu</code></a>, <a href="hardware.html"><code class=
+"sgmltag-element">hardware</code></a>, <a href="html.button.html"><code class="sgmltag-element">html:button</code></a>, <a href="html.fieldset.html"><code class="sgmltag-element">html:fieldset</code></a>, <a href="html.form.html"><code class="sgmltag-element">html:form</code></a>, <a href="html.input.html"><code class="sgmltag-element">html:input</code></a>, <a href="html.label.html"><code class="sgmltag-element">html:label</code></a>, <a href="html.select.html"><code class=
+"sgmltag-element">html:select</code></a>, <a href="html.textarea.html"><code class="sgmltag-element">html:textarea</code></a>, <a href="important.html"><code class="sgmltag-element">important</code></a>, <a href="indexterm.endofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.endofrange)</span>, <a href="indexterm.singular.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.singular)</span>, <a href=
+"indexterm.startofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.startofrange)</span>, <a href="informalequation.html"><code class="sgmltag-element">informalequation</code></a>, <a href="informalexample.html"><code class="sgmltag-element">informalexample</code></a>, <a href="informalfigure.html"><code class="sgmltag-element">informalfigure</code></a>, <a href="cals.informaltable.html"><code class=
+"sgmltag-element">informaltable</code></a>&#160;<span class="pattern">(db.cals.informaltable)</span>, <a href="html.informaltable.html"><code class="sgmltag-element">informaltable</code></a>&#160;<span class="pattern">(db.html.informaltable)</span>, <a href="initializer.html"><code class="sgmltag-element">initializer</code></a>, <a href="inlineequation.html"><code class="sgmltag-element">inlineequation</code></a>, <a href="inlinemediaobject.html"><code class="sgmltag-element">inlinemediaobject</code></a>,
+<a href="interfacename.html"><code class="sgmltag-element">interfacename</code></a>, <a href="itemizedlist.html"><code class="sgmltag-element">itemizedlist</code></a>, <a href="jobtitle.html"><code class="sgmltag-element">jobtitle</code></a>, <a href="keycap.html"><code class="sgmltag-element">keycap</code></a>, <a href="keycode.html"><code class="sgmltag-element">keycode</code></a>, <a href="keycombo.html"><code class="sgmltag-element">keycombo</code></a>, <a href="keysym.html"><code class=
+"sgmltag-element">keysym</code></a>, <a href="link.html"><code class="sgmltag-element">link</code></a>, <a href="literal.html"><code class="sgmltag-element">literal</code></a>, <a href="literallayout.html"><code class="sgmltag-element">literallayout</code></a>, <a href="markup.html"><code class="sgmltag-element">markup</code></a>, <a href="mediaobject.html"><code class="sgmltag-element">mediaobject</code></a>, <a href="menuchoice.html"><code class="sgmltag-element">menuchoice</code></a>, <a href=
+"methodname.html"><code class="sgmltag-element">methodname</code></a>, <a href="methodsynopsis.html"><code class="sgmltag-element">methodsynopsis</code></a>, <a href="modifier.html"><code class="sgmltag-element">modifier</code></a>, <a href="mousebutton.html"><code class="sgmltag-element">mousebutton</code></a>, <a href="msgset.html"><code class="sgmltag-element">msgset</code></a>, <a href="nonterminal.html"><code class="sgmltag-element">nonterminal</code></a>, <a href="note.html"><code class=
+"sgmltag-element">note</code></a>, <a href="olink.html"><code class="sgmltag-element">olink</code></a>, <a href="ooclass.html"><code class="sgmltag-element">ooclass</code></a>, <a href="ooexception.html"><code class="sgmltag-element">ooexception</code></a>, <a href="oointerface.html"><code class="sgmltag-element">oointerface</code></a>, <a href="option.html"><code class="sgmltag-element">option</code></a>, <a href="optional.html"><code class="sgmltag-element">optional</code></a>, <a href=
+"orderedlist.html"><code class="sgmltag-element">orderedlist</code></a>, <a href="org.html"><code class="sgmltag-element">org</code></a>, <a href="orgname.html"><code class="sgmltag-element">orgname</code></a>, <a href="package.html"><code class="sgmltag-element">package</code></a>, <a href="para.html"><code class="sgmltag-element">para</code></a>, <a href="parameter.html"><code class="sgmltag-element">parameter</code></a>, <a href="person.html"><code class="sgmltag-element">person</code></a>, <a href=
+"personname.html"><code class="sgmltag-element">personname</code></a>, <a href="phrase.html"><code class="sgmltag-element">phrase</code></a>&#160;<span class="pattern">(db.phrase)</span>, <a href="procedure.html"><code class="sgmltag-element">procedure</code></a>, <a href="productionset.html"><code class="sgmltag-element">productionset</code></a>, <a href="productname.html"><code class="sgmltag-element">productname</code></a>, <a href="productnumber.html"><code class=
+"sgmltag-element">productnumber</code></a>, <a href="programlisting.html"><code class="sgmltag-element">programlisting</code></a>, <a href="programlistingco.html"><code class="sgmltag-element">programlistingco</code></a>, <a href="prompt.html"><code class="sgmltag-element">prompt</code></a>, <a href="property.html"><code class="sgmltag-element">property</code></a>, <a href="qandaset.html"><code class="sgmltag-element">qandaset</code></a>, <a href="quote.html"><code class="sgmltag-element">quote</code></a>,
+<a href="remark.html"><code class="sgmltag-element">remark</code></a>, <a href="replaceable.html"><code class="sgmltag-element">replaceable</code></a>, <a href="returnvalue.html"><code class="sgmltag-element">returnvalue</code></a>, <a href="revhistory.html"><code class="sgmltag-element">revhistory</code></a>, <a href="screen.html"><code class="sgmltag-element">screen</code></a>, <a href="screenco.html"><code class="sgmltag-element">screenco</code></a>, <a href="screenshot.html"><code class=
+"sgmltag-element">screenshot</code></a>, <a href="segmentedlist.html"><code class="sgmltag-element">segmentedlist</code></a>, <a href="shortcut.html"><code class="sgmltag-element">shortcut</code></a>, <a href="sidebar.html"><code class="sgmltag-element">sidebar</code></a>, <a href="simpara.html"><code class="sgmltag-element">simpara</code></a>, <a href="simplelist.html"><code class="sgmltag-element">simplelist</code></a>, <a href="subscript.html"><code class="sgmltag-element">subscript</code></a>, <a href=
+"superscript.html"><code class="sgmltag-element">superscript</code></a>, <a href="symbol.html"><code class="sgmltag-element">symbol</code></a>, <a href="synopsis.html"><code class="sgmltag-element">synopsis</code></a>, <a href="systemitem.html"><code class="sgmltag-element">systemitem</code></a>, <a href="cals.table.html"><code class="sgmltag-element">table</code></a>&#160;<span class="pattern">(db.cals.table)</span>, <a href="html.table.html"><code class=
+"sgmltag-element">table</code></a>&#160;<span class="pattern">(db.html.table)</span>, <a href="tag.html"><code class="sgmltag-element">tag</code></a>, <a href="task.html"><code class="sgmltag-element">task</code></a>, <a href="termdef.html"><code class="sgmltag-element">termdef</code></a>, <a href="tip.html"><code class="sgmltag-element">tip</code></a>, <a href="token.html"><code class="sgmltag-element">token</code></a>, <a href="trademark.html"><code class="sgmltag-element">trademark</code></a>, <a href=
+"type.html"><code class="sgmltag-element">type</code></a>, <a href="uri.html"><code class="sgmltag-element">uri</code></a>, <a href="userinput.html"><code class="sgmltag-element">userinput</code></a>, <a href="variablelist.html"><code class="sgmltag-element">variablelist</code></a>, <a href="varname.html"><code class="sgmltag-element">varname</code></a>, <a href="warning.html"><code class="sgmltag-element">warning</code></a>, <a href="wordasword.html"><code class="sgmltag-element">wordasword</code></a>,
+<a href="xref.html"><code class="sgmltag-element">xref</code></a></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="seealso" id="seealso"></a>
+<h2>See Also</h2>
+<span class="simplelist"><a href="colspec.html"><code class="sgmltag-element">colspec</code></a>, <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a>, <a href="html.informaltable.html"><code class="sgmltag-element">informaltable</code></a>, <a href="row.html"><code class="sgmltag-element">row</code></a>, <a href="spanspec.html"><code class="sgmltag-element">spanspec</code></a>, <a href="html.table.html"><code class="sgmltag-element">table</code></a>, <a href=
+"html.tbody.html"><code class="sgmltag-element">tbody</code></a>, <a href="html.tfoot.html"><code class="sgmltag-element">tfoot</code></a>, <a href="tgroup.html"><code class="sgmltag-element">tgroup</code></a>, <a href="html.thead.html"><code class="sgmltag-element">thead</code></a></span></div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 22 Jul 2007.</p>
+</div>
+<div class="footnotes"><br />
+<hr width="100" align="left" />
+<div class="footnote">
+<p><sup>[<a name="ftn.d0e61506" href="#d0e61506" class="para" id="ftn.d0e61506">3</a>]</sup> A term coined by Terry Allen.</p>
+</div>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="emphasis (db.emphasis)" href="emphasis.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="entrytbl" href="entrytbl.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">emphasis (db.emphasis)&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;entrytbl</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

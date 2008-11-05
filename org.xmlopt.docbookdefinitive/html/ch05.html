@@ -1,0 +1,833 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Customizing DocBook</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="part1.html" title="Part&#160;I.&#160;Introduction" />
+<link rel="previous" href="ch04.html" title="Publishing DocBook Documents" />
+<link rel="next" href="pt02.html" title="Part&#160;II.&#160;Reference" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="Publishing DocBook Documents" href="ch04.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="Part&#160;I.&#160;Introduction" href="part1.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="Part&#160;II.&#160;Reference" href="pt02.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="chapter" lang="en" xml:lang="en">
+<div>
+<div>
+<div><a name="app-customizing" id="app-customizing"></a>
+<div class="component-title">
+<h1 class="label">5</h1>
+<h1 class="title">Customizing DocBook</h1>
+</div>
+</div>
+<div>
+<p class="releaseinfo">$Revision: 1.1 $</p>
+</div>
+<div>
+<p class="pubdate">$Date: 2008/11/05 15:41:10 $</p>
+</div>
+</div>
+<hr xmlns:t="http://nwalsh.com/docbook/xsl/template/1.0" t:class="component-separator" /></div>
+<p><a class="indexterm" name="customDocBookch05" id="customDocBookch05"></a><a class="indexterm" name="DocBookcustomch05" id="DocBookcustomch05"></a>For the applications you have in mind, DocBook “<span class="quote">out of the box</span>” may not be exactly what you need. Perhaps you need additional inline elements or perhaps you want to remove elements that you never want your authors to use. By design, DocBook makes this sort of customization easy.</p>
+<p><a class="indexterm" name="d0e5905" id="d0e5905"></a><a class="indexterm" name="d0e5910" id="d0e5910"></a>This chapter explains how to make your own <em class="firstterm">customization layer</em>. You might do this in order to:</p>
+<div class="itemizedlist">
+<ul type="disc">
+<li>
+<p>Add new elements</p>
+</li>
+<li>
+<p>Remove elements</p>
+</li>
+<li>
+<p>Change the structure of existing elements</p>
+</li>
+<li>
+<p>Add new attributes</p>
+</li>
+<li>
+<p>Remove attributes</p>
+</li>
+<li>
+<p>Broaden the range of values allowed in an attribute</p>
+</li>
+<li>
+<p>Narrow the range of values in an attribute to a specific list or a fixed value</p>
+</li>
+</ul>
+</div>
+<p><a class="indexterm" name="d0e5942" id="d0e5942"></a><a class="indexterm" name="d0e5945" id="d0e5945"></a>You can use customization layers to extend DocBook or subset it. Creating a schema that is a strict subset of DocBook means that all of your instances are still completely valid DocBook instances, which may be important to your tools and stylesheets, and to other people with whom you share documents. An <em class="firstterm">extension</em> adds new structures, or changes the schema in a way that is
+not compatible with DocBook. Extensions can be very useful, but might have a great impact on your environment.</p>
+<p>Customization layers can be as small as restricting an attribute value or as large as adding an entirely different hierarchy on top of the inline elements.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="ch05-shouldi" id="ch05-shouldi"></a>Should You Do This?</h2>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e5963" id="d0e5963"></a>Changing a schema can have a wide-ranging impact on the tools and stylesheets that you use. It can have an impact on your authors and on your legacy documents. This is especially true if you make an extension. If you rely on your support staff to install and maintain your authoring and publishing tools, check with them before you invest a lot of time modifying the schema. There may be additional issues that are outside your immediate control. Proceed
+with caution.</p>
+<p>That said, DocBook is designed to be easy to modify. This chapter assumes that you are comfortable with <acronym class="acronym">XML</acronym> and RELAX NG grammar syntax, but the examples presented should be a good springboard to learning the syntax if it's not already familiar to you.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="s-notdocbook" id="s-notdocbook"></a>If You Change DocBook, It's Not DocBook Anymore!</h2>
+</div>
+</div>
+</div>
+<p>Starting with DocBook V5.0, DocBook is identified by its namespace, <code class="uri">http://docbook.org/ns/docbook</code>. The particular version of DocBook to which an element conforms is identified by its <code class="sgmltag-attribute">version</code> attribute. If the element does not specify a version, the version of the closest ancestor DocBook element that does specify a version is assumed. The <code class="sgmltag-attribute">version</code> attribute is required on the root DocBook element.</p>
+<p>If you make any changes to the DocBook schema, it is imperative that you provide an alternative version identifier that you use for the schema and the modules you changed. The license agreement under which DocBook is distributed gives you complete freedom to change, modify, reuse, and generally hack the schema in any way you want, except that you must not call your alterations “<span class="quote">DocBook</span>”.</p>
+<p>The following format is recommended:</p>
+<pre class="screen">
+<em class="replaceable"><code>base_version</code></em>-[subset|extension|variant] (<em class="replaceable"><code>name</code></em>[-<em class="replaceable"><code>version</code></em>])+
+</pre>
+<p>For example, version 1.0 of Acme Corporation's extension of DocBook V5.0 could be identified as “<code class="literal">5.0-extension&#160;acme-1.0</code>”.</p>
+<p>A document that relied on the version 3.2 of Example Corporation's subset of DocBook V5.0, MathML 2.0, and SVG 1.1 could be identified as: “<code class="literal">5.0-subset&#160;example-3.2 mathml-2.0 svg-1.1</code>”.</p>
+<p>If your schema is a proper subset, you can advertise this status by using the <code class="literal">subset</code> keyword in the version. If your schema contains any markup model extensions, you can advertise this status by using the <code class="literal">extension</code> keyword. If you'd rather not characterize your variant specifically as a subset or an extension, you can leave out this field entirely or, if you prefer, use the <code class="literal">variant</code> keyword.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="pubid" id="pubid"></a>Public Identifiers</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6033" id="d0e6033"></a>Although not directly supported by RELAX NG, in some cases it may still be valuable to identify a DocBook V5.0 customization layer with a public identifier. A public identifier for DocBook V5.0 is:</p>
+<pre class="screen">
+-//OASIS//DTD DocBook V5.0//EN
+</pre>
+<p>If you make any changes to the structure of the schema, it is imperative that you alter the public identifier that you use to identify it.</p>
+<p><a class="indexterm" name="d0e6046" id="d0e6046"></a> <a class="indexterm" name="d0e6052" id="d0e6052"></a>You should change both the owner identifier and the description. Formal public identifiers for the base DocBook modules would have identifiers with the following syntax:</p>
+<pre class="screen">
+-//OASIS//<em class="replaceable"><code>text-class</code></em> DocBook <em class="replaceable"><code>description</code></em> V<em class="replaceable"><code>version</code></em>//EN
+</pre>
+<p>Your own formal public identifiers should use the following syntax in order to record their DocBook derivation:</p>
+<pre class="screen">
+-//<em class="replaceable"><code>your-owner-ID</code></em>//<em class="replaceable"><code>text-class</code></em> DocBook V<em class="replaceable"><code>version</code></em>-Based [<span class="optional">Subset|Extension|Variant</span>] <em class="replaceable"><code>your-descrip-and-version</code></em>//<em class="replaceable"><code>lang</code></em>
+</pre>
+<p>For example:</p>
+<pre class="screen">
+-//O'Reilly//DTD DocBook V5.0-Based Subset V1.1//EN
+</pre>
+<p><a class="indexterm" name="d0e6097" id="d0e6097"></a>If your schema is a proper subset, you can advertise this status by using the <code class="literal">Subset</code> keyword in the description. If your schema contains any markup model extensions, you can advertise this status by using the <code class="literal">Extension</code> keyword. If you'd rather not characterize your variant specifically as a subset or an extension, you can leave out this field entirely, or, if you prefer, use the <code class=
+"literal">Variant</code> keyword.</p>
+</div>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="ch05-layers" id="ch05-layers"></a>Customization Layers</h2>
+</div>
+</div>
+</div>
+<p>A RELAX NG grammar is a collection of patterns. These patterns can be stored in a single file or in a collection of files that import each other. Patterns can augment each other in a variety of ways. A complete grammar is the logical union of the specified patterns.</p>
+<p>For convenience, the DocBook grammar is distributed in a single file.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="ch05-syntax" id="ch05-syntax"></a>RELAX NG Syntax</h3>
+</div>
+</div>
+</div>
+<p>There are two standard syntaxes for RELAX NG, an XML syntax and a “compact” text syntax. The two forms have the same expressive power; it is possible to transform between them with no loss of information.</p>
+<p>Many users find the relative terseness of the compact syntax makes it a convenient form for reading and writing RELAX NG. That is the form we will use in the following examples.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="ch05-patnames" id="ch05-patnames"></a>DocBook Pattern Names</h3>
+</div>
+</div>
+</div>
+<p>The names of the patterns used in a RELAX NG grammar are arbitrary, they have nothing to do with the names of the elements and attributes defined by the schema. The DocBook RELAX NG grammar employs a number of naming conventions in order to make it easier to navigate.</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term"><code class="literal">db.<em class="replaceable"><code>*</code></em>.attlist</code></span></dt>
+<dd>
+<p>Defines the list of attributes associated with an element. For example, <code class="literal">db.emphasis.attlist</code> is the pattern that matches all of the attributes of the <a href="emphasis.html"><code class="sgmltag-element">emphasis</code></a> element.</p>
+</dd>
+<dt><span class="term"><code class="literal">db.<em class="replaceable"><code>*</code></em>.attribute</code></span></dt>
+<dd>
+<p>Defines a single attribute. For example, <code class="literal">db.conformance.attribute</code> is the pattern that matches the <code class="sgmltag-attribute">conformance</code> attribute on all of the elements where it occurs.</p>
+</dd>
+<dt><span class="term"><code class="literal">db.<em class="replaceable"><code>*</code></em>.attributes</code></span></dt>
+<dd>
+<p>Defines a collection of attributes. For example, <code class="literal">db.effectivity.attributes</code> is all of the effectivity attributes (<code class="sgmltag-attribute">arch</code>, <code class="sgmltag-attribute">audience</code>, etc.).</p>
+</dd>
+<dt><span class="term"><code class="literal">db.<em class="replaceable"><code>*</code></em>.blocks</code></span></dt>
+<dd>
+<p>Defines a list (a choice of) a set of related block elements. For example, <code class="literal">db.list.blocks</code> is a pattern that matches any of the list elements.</p>
+</dd>
+<dt><span class="term"><code class="literal">db.<em class="replaceable"><code>*</code></em>.contentmodel</code></span></dt>
+<dd>
+<p>Defines a fragment of content model shared by several elements.</p>
+</dd>
+<dt><span class="term"><code class="literal">db.<em class="replaceable"><code>*</code></em>.enumeration</code></span></dt>
+<dd>
+<p>Defines an enumeration, usually one used in an attribute value. For example, <code class="literal">db.revisionflag.enumeration</code> is a pattern that matches the list of values that can be used as the value of a <code class="sgmltag-attribute">revisionflag</code> attribute.</p>
+</dd>
+<dt><span class="term"><code class="literal">db.<em class="replaceable"><code>*</code></em>.info</code></span></dt>
+<dd>
+<p>Defines the <a href="info.html"><code class="sgmltag-element">info</code></a> element for a particular element. For example, <code class="literal">db.example.info</code> is the pattern that matches <a href="info.html"><code class="sgmltag-element">info</code></a> on <a href="example.html"><code class="sgmltag-element">example</code></a>.</p>
+<p>Almost all of the <a href="info.html"><code class="sgmltag-element">info</code></a> elements are the same, but they are described with distinct patterns so that customizers can change them selectively.</p>
+</dd>
+<dt><span class="term"><code class="literal">db.<em class="replaceable"><code>*</code></em>.inlines</code></span></dt>
+<dd>
+<p>Defines a list (a choice of) a set of related inline elements. For example, <code class="literal">db.link.inlines</code> is a pattern that matches any of the linking-related elements.</p>
+</dd>
+<dt><span class="term"><code class="literal">db.<em class="replaceable"><code>*</code></em>.role.attribute</code></span></dt>
+<dd>
+<p>Defines the <code class="sgmltag-attribute">role</code> attribute for a particular element. For example, <code class="literal">db.emphasis.role</code> is the pattern that matches <code class="sgmltag-attribute">role</code> on <a href="emphasis.html"><code class="sgmltag-element">emphasis</code></a>.</p>
+<p>All of the <code class="sgmltag-attribute">role</code> attributes are the same, but they are described with distinct patterns so that customizers can change them selectively.</p>
+</dd>
+<dt><span class="term"><code class="literal">db.<em class="replaceable"><code>*</code></em></code></span></dt>
+<dd>
+<p>Is the pattern that matches a particular DocBook element. element. For example, <code class="literal">db.title.role</code> is the pattern that matches <a href="title.html"><code class="sgmltag-element">title</code></a>.</p>
+<p>RELAX NG allows multiple patterns to match the same element, so sometimes these patterns come in flavors, for example, <code class="literal">db.indexterm.singular</code>, <code class="literal">db.indexterm.startofrange</code>, and <code class="literal">db.indexterm.endofrange</code>. Each of these patterns matches a <a href="indexterm.singular.html"><code class="sgmltag-element">indexterm</code></a> with varying attributes.</p>
+</dd>
+</dl>
+</div>
+<p>These are conventions, not hard and fast rules. There are patterns that don't follow these conventions.</p>
+</div>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="ch05-genstruct" id="ch05-genstruct"></a>The General Structure of Customization Layers</h2>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6325" id="d0e6325"></a>Although customization layers vary in complexity, most of them have the same general structure as other customization layers of similar complexity.</p>
+<p>In the most common case, you probably want to include all of DocBook, but you want to make some small changes. These customization layers tend to look like this:</p>
+<div class="screenco">
+<pre class="screen">
+namespace db = "http://docbook.org/ns/docbook"
+# perhaps other namespace declarations
+
+include "docbook.rnc"                            <span class="co" id="gs1-d1"><img src="figures/callouts/1.png" alt="(1)" /></span>
+
+# new patterns and augmented patterns            <span class="co" id="gs1-n1"><img src="figures/callouts/2.png" alt="(2)" /></span>
+</pre>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td width="5%" valign="top" align="left">
+<p><img src="figures/callouts/1.png" alt="1" border="0" /></p>
+</td>
+<td valign="top" align="left">
+<p>Start by importing the base DocBook schema.</p>
+</td>
+</tr>
+<tr>
+<td width="5%" valign="top" align="left">
+<p><img src="figures/callouts/2.png" alt="2" border="0" /></p>
+</td>
+<td valign="top" align="left">
+<p>Then you can add new patterns or augment existing patterns.</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<p>If you want to completely replace a pattern (for example, to remove or completely change an element), the template is a little different.</p>
+<div class="screenco">
+<pre class="screen">
+namespace db = "http://docbook.org/ns/docbook"
+# perhaps other namespace declarations
+
+include "docbook.rnc" {
+   # redefinitions of DocBook patterns           <span class="co" id="gs2-d1"><img src="figures/callouts/1.png" alt="(1)" /></span>
+}
+
+# new patterns and augmented patterns            <span class="co" id="gs2-n1"><img src="figures/callouts/2.png" alt="(2)" /></span>
+</pre>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td width="5%" valign="top" align="left">
+<p><img src="figures/callouts/1.png" alt="1" border="0" /></p>
+</td>
+<td valign="top" align="left">
+<p>You can redefine patterns in the body of an import statement. These patterns completely replace any that appear in the imported schema.</p>
+</td>
+</tr>
+<tr>
+<td width="5%" valign="top" align="left">
+<p><img src="figures/callouts/2.png" alt="2" border="0" /></p>
+</td>
+<td valign="top" align="left">
+<p>As before, patterns outside the include statement can augment existing patterns (even redefined ones).</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<p>There are other possibilities as well, these examples are illustrative, not exhaustive.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="ch05-write" id="ch05-write"></a>Writing, Testing, and Using a Customization Layer</h2>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6371" id="d0e6371"></a><a class="indexterm" name="d0e6378" id="d0e6378"></a>The procedure for creating, testing, and using a customization layer is always about the same. In this section, we'll go through the process in some detail. The rest of the sections in this chapter describe a range of useful customization layers.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e6386" id="d0e6386"></a>Deciding What to Change</h3>
+</div>
+</div>
+</div>
+<p>If you're considering writing a customization layer, there must be something that you want to change. Perhaps you want to add an element or attribute, remove one, or change some other aspect of the schema.</p>
+<p><a class="indexterm" name="d0e6392" id="d0e6392"></a>Adding an element, particularly an inline element, is one possibility. If you're writing about cryptography, you might want to add a “<code class="literal">cleartext</code>” element, for example.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e6401" id="d0e6401"></a>Deciding How to Change a Customization Layer</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6405" id="d0e6405"></a>Figuring out what to change may be the hardest part of the process. Finding something similar usually provides a good model for new changes.</p>
+<p>Depending on the exact focus of your document, there are probably several candidates. In this case, all of the following look plausible: technical inlines, programming inlines, and domain inlines. Let's suppose you chose the domain inlines.</p>
+<p>As shown in <a class="xref" href="ch05.html#ex-addcleartext" title="Example&#160;5.1.&#160;Adding cleartext with a Customization Layer">Example&#160;5.1, “Adding cleartext with a Customization Layer”</a>, your customization would import the DocBook schema, extend the domain inlines, and then provide a pattern that matches the new element.</p>
+<div class="example"><a name="ex-addcleartext" id="ex-addcleartext"></a>
+<p class="title"><b>Example&#160;5.1.&#160;Adding <code class="literal">cleartext</code> with a Customization Layer</b></p>
+<div class="example-contents">
+<div class="programlistingco">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+default namespace = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc"
+
+db.domain.inlines |= db.cleartext                <span class="co" id="gs3-d1"><img src="figures/callouts/1.png" alt="(1)" /></span>
+
+# Define a new cleartext element:                <span class="co" id="gs3-d1b"><img src="figures/callouts/2.png" alt="(2)" /></span>
+
+db.cleartext.role.attribute = attribute role { text }   <span class="co" id="gs3-d2"><img src="figures/callouts/3.png" alt="(3)" /></span>
+db.cleartext.attlist =                           <span class="co" id="gs3-d3"><img src="figures/callouts/4.png" alt="(4)" /></span>
+   db.cleartext.role.attribute?
+ &amp; db.common.attributes
+ &amp; db.common.linking.attributes
+
+db.cleartext =                                   <span class="co" id="gs3-d4"><img src="figures/callouts/5.png" alt="(5)" /></span>
+   element cleartext {
+      db.cleartext.attlist,
+      db._text
+   }
+
+</pre>
+<div class="calloutlist">
+<table border="0" summary="Callout list">
+<tr>
+<td width="5%" valign="top" align="left">
+<p><img src="figures/callouts/1.png" alt="1" border="0" /></p>
+</td>
+<td valign="top" align="left">
+<p>The “<code class="literal">|=</code>” operator adds a new choice to a pattern. So this line makes the “<code class="literal">db.cleartext</code>” pattern a valid option where (anywhere that) “<code class="literal">db.domain.inlines</code>” appears.</p>
+</td>
+</tr>
+<tr>
+<td width="5%" valign="top" align="left">
+<p><img src="figures/callouts/2.png" alt="2" border="0" /></p>
+</td>
+<td valign="top" align="left">
+<p>Next, we create a pattern for the <code class="literal">cleartext</code> element. The convention in the DocBook schema is to create three patterns, one for the role attribute, one for the attributes, and one for the element. We use that pattern here in case someone wants to customize our customization.</p>
+</td>
+</tr>
+<tr>
+<td width="5%" valign="top" align="left">
+<p><img src="figures/callouts/3.png" alt="3" border="0" /></p>
+</td>
+<td valign="top" align="left">
+<p>Defining a separate pattern for the role attribute makes it easy for customizers to change it on a per-element basis.</p>
+</td>
+</tr>
+<tr>
+<td width="5%" valign="top" align="left">
+<p><img src="figures/callouts/4.png" alt="4" border="0" /></p>
+</td>
+<td valign="top" align="left">
+<p>Defining a separate pattern for the attributes makes it easy for customizer to change them on a per-element basis.</p>
+</td>
+</tr>
+<tr>
+<td width="5%" valign="top" align="left">
+<p><img src="figures/callouts/5.png" alt="5" border="0" /></p>
+</td>
+<td valign="top" align="left">
+<p>The pattern for the element pulls it all together. The pattern “<code class="literal">db._text</code>” matches text plus a number of ubiquitous or nearly ubiquitous inlines. It's recommended unless you really, really want only text.</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<br class="example-break" /></div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e6466" id="d0e6466"></a>Using Your Customization Layer</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6470" id="d0e6470"></a> <a class="indexterm" name="d0e6478" id="d0e6478"></a>Using a customization layer is as simple as referring to it instead of the base DocBook schema where your tools offer the option.</p>
+</div>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="cust.test" id="cust.test"></a>Testing Your Work</h2>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6490" id="d0e6490"></a> <a class="indexterm" name="d0e6498" id="d0e6498"></a> <a class="indexterm" name="d0e6504" id="d0e6504"></a>Schemas, by their nature, contain many complex, interrelated patterns. Whenever you make a change to the schema, it's always wise to use a validator to double-check your work.</p>
+<p>Start by validating a document that's plain, vanilla DocBook, one that you know is valid according to the DocBook standard schema. This will help you identify errors that you've introduced to the schema itself. After you are confident that the schema is correct, begin testing with instances that you expect (and don't expect) to be valid against it.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="ch05-remvelem" id="ch05-remvelem"></a>Removing Elements</h2>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6516" id="d0e6516"></a>DocBook has a large number of elements. In some authoring environments, it may be useful or necessary to remove some of these elements.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e6522" id="d0e6522"></a>Removing <a href="msgset.html"><code class="sgmltag-element">msgset</code></a></h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6528" id="d0e6528"></a><a href="msgset.html"><code class="sgmltag-element">MsgSet</code></a> is a favorite target. It has a complex internal structure designed for describing interrelated error messages, especially on systems that may exhibit messages from several different components. Many technical documents can do without it, and removing it leaves one less complexity to explain to your authors.</p>
+<p><a class="xref" href="ch05.html#ex.remvmsgset" title="Example&#160;5.2.&#160;Removing msgset">Example&#160;5.2, “Removing msgset”</a> shows a customization layer that removes the <a href="msgset.html"><code class="sgmltag-element">msgset</code></a> element from DocBook:</p>
+<div class="example"><a name="ex.remvmsgset" id="ex.remvmsgset"></a>
+<p class="title"><b>Example&#160;5.2.&#160;Removing <a href="msgset.html"><code class="sgmltag-element">msgset</code></a></b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.msgset = notAllowed
+}
+</pre></div>
+</div>
+<br class="example-break" />
+<p>The complexity of <a href="msgset.html"><code class="sgmltag-element">msgset</code></a> is really in its <a href="msgentry.html"><code class="sgmltag-element">msgentry</code></a> children. DocBook V4.5 introduced a simple alternative, <a href="simplemsgentry.html"><code class="sgmltag-element">simplemsgentry</code></a>. <a class="xref" href="ch05.html#ex.remvmsgentry" title="Example&#160;5.3.&#160;Removing msgentry">Example&#160;5.3, “Removing msgentry”</a> demonstrates how you could allow <a href=
+"msgset.html"><code class="sgmltag-element">msgset</code></a> but only support the simpler alternative.</p>
+<div class="example"><a name="ex.remvmsgentry" id="ex.remvmsgentry"></a>
+<p class="title"><b>Example&#160;5.3.&#160;Removing <a href="msgentry.html"><code class="sgmltag-element">msgentry</code></a></b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.msgentry = notAllowed
+}
+</pre></div>
+</div>
+<br class="example-break" />
+<p>Closer examination of the <a href="msgentry.html"><code class="sgmltag-element">msgentry</code></a> content model will reveal that it contains a number of descendants. It isn't necessary, but it wouldn't be wrong, to define their patterns as <code class="literal">notAllowed</code> as well.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e6582" id="d0e6582"></a>Removing Computer Inlines</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6586" id="d0e6586"></a> <a class="indexterm" name="d0e6592" id="d0e6592"></a> <a class="indexterm" name="d0e6598" id="d0e6598"></a>DocBook contains a large number of computer inlines. The DocBook inlines define a domain-specific vocabulary. If you're working in another domain, many of them may be unnecessary.</p>
+<p>They're defined in a set of patterns that ultimately roll-up to the “<code class="literal">db.domain.inlines</code>” pattern. If you make that pattern “<code class="literal">notAllowed</code>”, you'll remove them all in one fell swoop.</p>
+<div class="example"><a name="d0e6612" id="d0e6612"></a>
+<p class="title"><b>Example&#160;5.4.&#160;Removing Computer Inlines</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.domain.inlines = notAllowed
+}
+
+</pre></div>
+</div>
+<br class="example-break" />
+<p>If you want to be more selective, you might consider making one or more of the set not allowed instead: “<code class="literal">db.error.inlines</code>”, errors and error messages; “<code class="literal">db.gui.inlines</code>”, GUI elements; “<code class="literal">db.keyboard.inlines</code>”, key and keyboard elements; “<code class="literal">db.markup.inlines</code>”, markup elements; “<code class="literal">db.math.inlines</code>”, mathematical expressions; “<code class="literal">db.os.inlines</code>”,
+operating system inlines; and “<code class="literal">db.programming.inlines</code>”, programming-related inlines.</p>
+<p><a class="indexterm" name="d0e6642" id="d0e6642"></a> <a class="indexterm" name="d0e6648" id="d0e6648"></a> <a class="indexterm" name="d0e6654" id="d0e6654"></a>It's likely that a customization layer that removed this many technical inlines would also remove some larger technical structures (<a href="msgset.html"><code class="sgmltag-element">msgset</code></a>, <a href="funcsynopsis.html"><code class="sgmltag-element">funcsynopsis</code></a>).</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e6666" id="d0e6666"></a>Removing Synopsis Elements</h3>
+</div>
+</div>
+</div>
+<p>Another possibility is removing the complex synopsis elements. The customization layer in <a class="xref" href="ch05.html#ex.remvcmdsyn" title="Example&#160;5.5.&#160;Removing CmdSynopsis and FuncSynopsis">Example&#160;5.5, “Removing CmdSynopsis and FuncSynopsis”</a> removes <a href="cmdsynopsis.html"><code class="sgmltag-element">cmdsynopsis</code></a> and <a href="funcsynopsis.html"><code class="sgmltag-element">funcsynopsis</code></a>.</p>
+<div class="example"><a name="ex.remvcmdsyn" id="ex.remvcmdsyn"></a>
+<p class="title"><b>Example&#160;5.5.&#160;Removing CmdSynopsis and FuncSynopsis</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.funcsynopsis = notAllowed
+   db.cmdsynopsis = notAllowed
+}
+</pre></div>
+</div>
+<br class="example-break" /></div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e6685" id="d0e6685"></a>Removing Sectioning Elements</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6689" id="d0e6689"></a>Perhaps you want to restrict your authors to only three levels of sectioning. To do that, you must remove the <a href="sect4.html"><code class="sgmltag-element">sect4</code></a> and <a href="sect5.html"><code class="sgmltag-element">sect5</code></a> elements, as shown in <a class="xref" href="ch05.html#ex.remvsect4" title="Example&#160;5.6.&#160;Removing sect4 and sect5 Elements">Example&#160;5.6, “Removing sect4 and sect5 Elements ”</a>.</p>
+<div class="example"><a name="ex.remvsect4" id="ex.remvsect4"></a>
+<p class="title"><b>Example&#160;5.6.&#160;Removing <a href="sect4.html"><code class="sgmltag-element">sect4</code></a> and <a href="sect5.html"><code class="sgmltag-element">sect5</code></a> Elements</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.sect4 = notAllowed
+
+   # Strictly speaking, we don't need to remove sect5 because, having removed
+   # sect4, there's no way to reach it. But it seems cleaner to do so.
+   db.sect5 = notAllowed
+}
+</pre></div>
+</div>
+<br class="example-break" />
+<p>This technique works if your authors are using numbered sections. You could require them to do so by removing <a href="section.html"><code class="sgmltag-element">section</code></a>. But suppose instead you want to allow them to use recursive sections and still limit them to only three levels.</p>
+<p>One way to do this would be to define new “<code class="literal">section2</code>” and “<code class="literal">section3</code>” patterns, as shown in <a class="xref" href="ch05.html#ex.limitsdepth" title="Example&#160;5.7.&#160;Limiting recursive sections to three levels">Example&#160;5.7, “Limiting recursive sections to three levels”</a>.</p>
+<div class="example"><a name="ex.limitsdepth" id="ex.limitsdepth"></a>
+<p class="title"><b>Example&#160;5.7.&#160;Limiting recursive sections to three levels</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+default namespace = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.section =
+      element section {
+         db.section.attlist,
+         db.section.info,
+         db.recursive.blocks.or.section2s,
+         db.navigation.components*
+      }
+}
+
+db.recursive.section2s = (db.section2+, db.simplesect*) | db.simplesect+
+
+db.recursive.blocks.or.section2s =
+  (db.all.blocks+, db.recursive.section2s?) | db.recursive.section2s
+
+db.section2 =
+   element section {
+      db.section.attlist,
+      db.section.info,
+      db.recursive.blocks.or.section3s,
+      db.navigation.components*
+   }
+
+db.recursive.section3s = (db.section3+, db.simplesect*) | db.simplesect+
+
+db.recursive.blocks.or.section3s =
+  (db.all.blocks+, db.recursive.section3s?) | db.recursive.section3s
+
+db.section3 =
+   element section {
+      db.section.attlist,
+      db.section.info,
+      db.all.blocks+
+      db.navigation.components*
+   }
+</pre></div>
+</div>
+<br class="example-break" />
+<p>Another solution, assuming your validation environment supports Schematron, is simply to add a new rule, as shown in <a class="xref" href="ch05.html#ex.limitsdepthsch" title="Example&#160;5.8.&#160;Limiting recursive sections to three levels">Example&#160;5.8, “Limiting recursive sections to three levels”</a>.</p>
+<div class="example"><a name="ex.limitsdepthsch" id="ex.limitsdepthsch"></a>
+<p class="title"><b>Example&#160;5.8.&#160;Limiting recursive sections to three levels</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+namespace s = "http://www.ascc.net/xml/schematron"
+default namespace = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.section =
+      [
+         s:pattern [
+            name = "Limit depth of sections"
+            s:rule [
+               context = "db:section"
+               s:assert [
+                  test = "count(ancestor::db:section) &lt; 2"
+                  "Sections can be no more than three levels deep"
+               ]
+            ]
+         ]
+      ]
+      element section {
+         db.section.attlist,
+         db.section.info,
+         db.recursive.blocks.or.sections,
+         db.navigation.components*
+      }
+}
+</pre></div>
+</div>
+<br class="example-break" /></div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="s2-remvadmon" id="s2-remvadmon"></a>Removing Admonitions from Table Entries</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6750" id="d0e6750"></a> <a class="indexterm" name="d0e6756" id="d0e6756"></a>Sometimes what you want to do is not as simple as entirely removing an element. Instead, you want to remove it only from some contexts. The way to accomplish this task is to redefine the patterns used to calculate the elements allowed in those contexts.</p>
+<p>Standard DocBook allows any inline element or any block element to appear in a table cell. You might decide that it's unreasonable to allow admonitions (<a href="note.html"><code class="sgmltag-element">note</code></a>, <a href="caution.html"><code class="sgmltag-element">caution</code></a>, <a href="warning.html"><code class="sgmltag-element">warning</code></a>, etc.) to appear in a table cell.</p>
+<p>In order to remove them, you must change what is allowed in an <a href="entry.html"><code class="sgmltag-element">entry</code></a>, as show in <a class="xref" href="ch05.html#ex.remvadmon" title="Example&#160;5.9.&#160;Removing Admonitions from Tables">Example&#160;5.9, “Removing Admonitions from Tables”</a>.</p>
+<div class="example"><a name="ex.remvadmon" id="ex.remvadmon"></a>
+<p class="title"><b>Example&#160;5.9.&#160;Removing Admonitions from Tables</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+default namespace = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.entry = element entry {
+      db.entry.attlist,
+      (db.all.inlines* | db.some.blocks*)
+   }
+}
+
+db.some.blocks =
+   db.somenopara.blocks
+ | db.para.blocks
+ | db.extension.blocks
+
+db.somenopara.blocks =
+   db.list.blocks
+ | db.formal.blocks
+ | db.informal.blocks
+ | db.publishing.blocks
+ | db.graphic.blocks
+ | db.technical.blocks
+ | db.verbatim.blocks
+ | db.bridgehead
+ | db.remark
+ | db.revhistory
+ | db.indexterm
+ | db.synopsis.blocks
+</pre></div>
+</div>
+<br class="example-break" />
+<p>The extent to which any particular change is easy or hard depends in part on how many patterns need to be changed. The DocBook Technical Committee is generally open to the idea of adding more patterns if it improves the readability of customization layers. Feel free to ask, if you think some refactoring would make your job easier.</p>
+</div>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="ch05-remvattr" id="ch05-remvattr"></a>Removing Attributes</h2>
+</div>
+</div>
+</div>
+<p>Just as there may be more elements than you need, there may be more attributes.</p>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h3 class="title"><a name="d0e6793" id="d0e6793"></a>Removing an Attribute</h3>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6797" id="d0e6797"></a> <a class="indexterm" name="d0e6803" id="d0e6803"></a>Suppose your processing system doesn't support “continued” lists. You want to remove the <code class="sgmltag-attribute">continuation</code> attribute from the <a href="orderedlist.html"><code class="sgmltag-element">orderedlist</code></a> element. There are two ways you could accomplish this. One way would be to redefine the “<code class="literal">db.orderedlist.continuation.attribute</code>” as
+not allowed; the other would be to redefine the “<code class="literal">db.orderedlist.attlist</code>” pattern so that it does not include the continuation attribute. Either would accomplish the goal.</p>
+<div class="example"><a name="ex.remvcontinuation" id="ex.remvcontinuation"></a>
+<p class="title"><b>Example&#160;5.10.&#160;Removing <code class="sgmltag-attribute">continuations</code> from <a href="orderedlist.html"><code class="sgmltag-element">orderedlist</code></a></b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.orderedlist.continuation.attribute = empty
+}
+</pre></div>
+</div>
+<br class="example-break" />
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h4 class="title"><a name="d0e6830" id="d0e6830"></a>Subsetting the Common Attributes</h4>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6834" id="d0e6834"></a> <a class="indexterm" name="d0e6842" id="d0e6842"></a>DocBook defines a whole set of “common attributes”; these attributes appear on <span class="emphasis"><em>every</em></span> element. Depending on how you're processing your documents, removing some of them can both simplify the authoring task and improve processing speed.</p>
+<p>Some obvious candidates are:</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">Effectivity attributes (<code class="sgmltag-attribute">Arch</code> , <code class="sgmltag-attribute">OS</code>,...)</span></dt>
+<dd>
+<p><a class="indexterm" name="d0e6864" id="d0e6864"></a> If you're not using all of the effectivity attributes in your documents, you can get rid of up to seven attributes in one fell swoop.</p>
+</dd>
+<dt><span class="term"><code class="sgmltag-attribute">lang</code></span></dt>
+<dd>
+<p><a class="indexterm" name="d0e6875" id="d0e6875"></a>If you're not producing multilingual documents, you can remove <code class="sgmltag-attribute">lang</code>.</p>
+</dd>
+<dt><span class="term"><code class="sgmltag-attribute">remap</code></span></dt>
+<dd>
+<p><a class="indexterm" name="d0e6891" id="d0e6891"></a>The <code class="sgmltag-attribute">remap</code> attribute is designed to hold the name of a semantically equivalent construct from a previous markup scheme (for example, a Microsoft Word style template name, if you're converting from Word). If you're authoring from scratch, or not preserving previous constructs with <code class="sgmltag-attribute">remap</code>, you can get rid of it.</p>
+</dd>
+<dt><span class="term"><code class="sgmltag-attribute">xreflabel</code></span></dt>
+<dd>
+<p><a class="indexterm" name="d0e6910" id="d0e6910"></a>If your processing system isn't using <code class="sgmltag-attribute">xreflabel</code>, it's a candidate as well.</p>
+</dd>
+</dl>
+</div>
+<p>The customization layer in <a class="xref" href="ch05.html#ex.remvcommon" title="Example&#160;5.11.&#160;Removing Common Attributes">Example&#160;5.11, “Removing Common Attributes”</a> reduces the common attributes to just <code class="sgmltag-attribute">xml:id</code> <code class="sgmltag-attribute">version</code>, and <code class="sgmltag-attribute">lang</code>.</p>
+<div class="example"><a name="ex.remvcommon" id="ex.remvcommon"></a>
+<p class="title"><b>Example&#160;5.11.&#160;Removing Common Attributes</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.common.base.attributes =
+      db.version.attribute?
+    &amp; db.xml.lang.attribute?
+}
+</pre></div>
+</div>
+<br class="example-break" />
+<p>The <code class="sgmltag-attribute">xml:id</code> attribute is added in two other patterns, one where it's required and one where it's optional.</p>
+</div>
+</div>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="ch05-addelem" id="ch05-addelem"></a>Adding Elements: Adding a <code class="literal">sect6</code></h2>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6949" id="d0e6949"></a>Adding a new inline or block element is generally a straightforward matter of creating a pattern for the new element and “|=” adding it to the right pattern. But if your new element is more intimately related to the existing structure of the document, it may require more surgery.</p>
+<p><a class="xref" href="ch05.html#ex.addsect6" title="Example&#160;5.12.&#160;Adding a sect6 Element">Example&#160;5.12, “Adding a sect6 Element”</a> extends DocBook by adding a <code class="literal">sect6</code> element.</p>
+<div class="example"><a name="ex.addsect6" id="ex.addsect6"></a>
+<p class="title"><b>Example&#160;5.12.&#160;Adding a <code class="literal">sect6</code> Element</b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+default namespace = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.sect5.sections = (db.sect6+, db.simplesect*) | db.simplesect+
+}
+
+db.sect6.sections = db.simplesect+
+
+db.sect6.status.attribute = db.status.attribute
+db.sect6.role.attribute = attribute role { text }
+db.sect6.attlist =
+   db.sect6.role.attribute?
+ &amp; db.common.attributes
+ &amp; db.common.linking.attributes
+ &amp; db.label.attribute?
+ &amp; db.sect6.status.attribute?
+
+db.sect6.info = db._info.title.req
+
+db.sect6 =
+   element sect6 {
+      db.sect6.attlist,
+      db.sect6.info,
+      ((db.all.blocks+, db.sect6.sections?)
+       | db.sect6.sections),
+      db.navigation.components*
+   }
+</pre></div>
+</div>
+<br class="example-break" />
+<p>Here we've redefined <a href="sect5.html"><code class="sgmltag-element">sect5</code></a> to include <code class="literal">sect6</code> and provided a pattern for <code class="literal">sect6</code>.</p>
+</div>
+<div class="section" lang="en" xml:lang="en">
+<div class="titlepage">
+<div>
+<div>
+<h2 class="title" style="clear: both"><a name="ch05-classrole" id="ch05-classrole"></a>Other Modifications: Classifying a Role</h2>
+</div>
+</div>
+</div>
+<p><a class="indexterm" name="d0e6985" id="d0e6985"></a>The <code class="sgmltag-attribute">role</code> attribute, found on almost all of the elements in DocBook, is a text attribute that can be used to subclass an element. In some applications, it may be useful to modify the definition of <code class="sgmltag-attribute">role</code> so that authors must choose one of a specific set of possible values.</p>
+<p>In <a class="xref" href="ch05.html#ex.changerole" title="Example&#160;5.13.&#160;Changing role on procedure">Example&#160;5.13, “Changing role on procedure”</a>, <code class="sgmltag-attribute">role</code> on the <a href="procedure.html"><code class="sgmltag-element">procedure</code></a> element is constrained to the values <code class="literal">required</code> or <code class="literal">optional</code>.</p>
+<div class="example"><a name="ex.changerole" id="ex.changerole"></a>
+<p class="title"><b>Example&#160;5.13.&#160;Changing role on <a href="procedure.html"><code class="sgmltag-element">procedure</code></a></b></p>
+<div class="example-contents">
+<pre class="programlisting">
+namespace db = "http://docbook.org/ns/docbook"
+
+include "docbook.rnc" {
+   db.procedure.role.attribute = attribute role { "required" | "optional" }
+}
+</pre></div>
+</div>
+<br class="example-break" /></div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="Publishing DocBook Documents" href="ch04.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="Part&#160;II.&#160;Reference" href="pt02.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">Publishing DocBook Documents&#160;</td>
+<td width="20%" align="center"><a title="Part&#160;I.&#160;Introduction" href="part1.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;Part&#160;II.&#160;Reference</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

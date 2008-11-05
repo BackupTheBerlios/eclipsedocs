@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>imagedata (db.imagedata)</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="imagedata.svg.html" title="imagedata (db.imagedata.svg)" />
+<link rel="next" href="imageobject.html" title="imageobject" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="imagedata (db.imagedata.svg)" href="imagedata.svg.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="imageobject" href="imageobject.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.imagedata" id="element.db.imagedata"></a>
+<div>
+<div>
+<div>
+<h1 class="title">imagedata (db.imagedata)</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>imagedata — Pointer to external image data</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>imagedata (db.imagedata)&#160;<span class="cceq">::=</span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li><a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>?&#160;<span class="pattern">(db.titleforbidden.info)</span></li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a>.</p>
+<p>Additional attributes:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>align (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“center”</li>
+<li>“char”</li>
+<li>“justify”</li>
+<li>“left”</li>
+<li>“right”</li>
+</ul>
+</div>
+</li>
+<li>contentdepth</li>
+<li>contentwidth</li>
+<li>depth</li>
+<li><span class="emphasis"><em>Each of:</em></span>
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>format</li>
+<li><span class="emphasis"><em>Exactly one of:</em></span>
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li><span class="bold"><strong>fileref</strong></span> (anyURI)</li>
+<li><span class="bold"><strong>entityref</strong></span> (ENTITY)</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>scale (positiveInteger)</li>
+<li>scalefit (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“0”</li>
+<li>“1”</li>
+</ul>
+</div>
+</li>
+<li>valign (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“bottom”</li>
+<li>“middle”</li>
+<li>“top”</li>
+</ul>
+</div>
+</li>
+<li>width</li>
+</ul>
+</div>
+<p>Required attributes are shown in <span class="bold"><strong>bold</strong></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>This element points to an external entity containing graphical image data.</p>
+<div class="refsection" lang="en" xml:lang="en"><a name="dbreproc.imagedata" id="dbreproc.imagedata"></a>
+<h3>Processing expectations</h3>
+<p>Render the image. May be formatted inline or as a displayed block, depending on context.</p>
+<p>There are two ways to provide content for <a href="imagedata.html"><code class="sgmltag-element">imagedata</code></a>: <code class="sgmltag-attribute">entityref</code> or <code class="sgmltag-attribute">fileref</code>. It is best to use only one of these methods, however, if multiple sources are provided, <code class="sgmltag-attribute">entityref</code> will be used in favor of <code class="sgmltag-attribute">fileref</code>.</p>
+<p>The <a href="imagedata.html"><code class="sgmltag-element">imagedata</code></a> provides a selection of attributes that can be used to control how the image is rendered. These attributes define two rectangles, the <em class="glossterm">viewport area</em> and the <em class="glossterm">content area</em>, and how these rectangles are related to each other. The <em class="glossterm">intrinsic size</em> of the image is a third rectangle that sometimes influences the way an image is rendered.</p>
+<p>It is important to understand the distinction between these three areas. When rendering an image, the viewport area defines the space reserved in the flow of content for the image. If a 6in&#160;x&#160;4in viewport area is specified, that's how much space will be reserved for the image, independent of the actual size of the rendered image. The content area defines the actual size of the rendered image, independent of the intrinsic size of the image. The intrinisic size of the image is its actual, real
+size.</p>
+<p>DocBook provides three mutually exclusive mechanisms for specifying the content area of an image: it can be specified directly, it can be specified by selecting a scale factor, or it can be specified to be the same size as the viewport area.</p>
+<p>Finally, DocBook provides two attributes, <code class="sgmltag-attribute">align</code> and <code class="sgmltag-attribute">valign</code> to specify the alignment of the content area within the viewport area.</p>
+<p>DocBook provides no mechanism for specifying how an image should be rendered if the content area exceeds the viewport area in either or both dimensions. Implementations are free to perform clipping, allow the image to overflow, and/or generate errors.</p>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e98286" id="d0e98286"></a>
+<h4>Units of Measure</h4>
+<p>The size of the viewport area and the content area are defined in terms of lengths (width and depth).</p>
+<p>Lengths must be expressed as a decimal value followed immediately by an optional unit of measure or a percentage. Six and one eight inches, for example, must be expressed as “<span class="quote">6.125in</span>”. It is an error to put a space or other punctuation between the decimal value and the unit of measure.</p>
+<p>Examples of common units of measure include:</p>
+<table class="simplelist" border="0" summary="Simple list">
+<tr>
+<td><code class="literal">pt</code></td>
+<td>Points (1/72 of an inch)</td>
+</tr>
+<tr>
+<td><code class="literal">cm</code></td>
+<td>Centimeters</td>
+</tr>
+<tr>
+<td><code class="literal">mm</code></td>
+<td>Millimeters</td>
+</tr>
+<tr>
+<td><code class="literal">in</code></td>
+<td>Inches</td>
+</tr>
+<tr>
+<td><code class="literal">pc</code></td>
+<td>Picas (1/6 of an inch)</td>
+</tr>
+<tr>
+<td><code class="literal">px</code></td>
+<td>Pixels</td>
+</tr>
+<tr>
+<td><code class="literal">em</code></td>
+<td>Ems</td>
+</tr>
+</table>
+<p>If no unit of measure is provided, <code class="literal">px</code> is assumed. Note that pixels have no universally accepted absolute size and ems are relative units of measure. Implementations may define pixel sizes differently and stylesheets may or may not be able to determine the current font size in order to correctly calculate the absolute size of an em. It is best to avoid these units of measure.</p>
+<p>Percetages are expressed as a decimal value followed immediately by a <code class="literal">%</code> sign.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="viewport.area" id="viewport.area"></a>
+<h4>Specifying the Viewport Area</h4>
+<p>The viewport area is specified by the <code class="sgmltag-attribute">width</code> and <code class="sgmltag-attribute">depth</code> attributes.</p>
+<p>If neither width nor depth is specified, an implementation is free to choose defaults. These defaults may be influenced by context. For example, when rendering an inline graphic, the viewport area often defaults to the size of the content area. For block graphics, the width often defaults to the column width while the depth defaults to the depth of the content area.</p>
+<p>If only one of width or depth is specified, an implementation is free to choose a default for the other dimension.</p>
+<p>Viewport area dimensions expressed as a percentage are a percentage of the available area. For example, a width of <code class="literal">50%</code> when an implementation is rendering in a column 6in wide is equivalent to specifying a width of 3in.</p>
+<p>Percentages must be used with care. Some media are unbounded in one or more directions (for example, web pages are generally unbounded in depth). Specifying a percentage of an unbounded dimension is undefined. Implementations may choose arbitrary defaults or may generate errors.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e98366" id="d0e98366"></a>
+<h4>Specifing the Content Area</h4>
+<p>The content area is specified by the <code class="sgmltag-attribute">contentwidth</code> and <code class="sgmltag-attribute">contentdepth</code> attributes.</p>
+<p>If neither content width nor content depth is specified, an implementation is expected to render the image at its intrinsic size (unless scaling or scaling to fit is requested). If only one of content width or content depth is specified, an implementation is expected to choose a default for the other dimension such that the image is scaled proportionally. For example, if an image has an intrinsic size of one square inch and the content width is specified as <code class="literal">2in</code>, the content
+depth must default to <code class="literal">2in</code>.</p>
+<p>Content area dimensions expressed as a percentage are a percentage of the intrinsic size of the image.</p>
+<p>Percentages must be used with care. Some implementations may be unable to determine the intrinsic size of an image and will therefore be forced to make compromises. Implementations may choose arbitrary values or may generate errors if the intrinsic size cannot be obtained.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e98389" id="d0e98389"></a>
+<h4>Scaling</h4>
+<p>There are two ways that scaling can be specified, with the <code class="sgmltag-attribute">scale</code> attribute or with the <code class="sgmltag-attribute">scalefit</code> attribute.</p>
+<p>If scale is specified, it must be a positive integer. It is always interpreted to be a percentage value where “<span class="quote"><code class="literal">100</code></span>” represents 100%.</p>
+<p>The legal values of <code class="sgmltag-attribute">scalefit</code> are <code class="literal">0</code> (false) or <code class="literal">1</code> (true). If scaling to fit is requested, the content area is scaled until <span class="emphasis"><em>either</em></span> the content width is the same as the viewport width (and the content depth is less than or equal to the viewport depth) <span class="emphasis"><em>or</em></span> the content depth is the same as the viewport depth (and the content width is less
+than or equal to the viewport width), whichever comes first. In other words, scaling to fit never causes anamorphic scaling, it simply scales the image as large as possible without overflowing the bounds of the viewport area.</p>
+<p>Specification of content area, scaling, and scaling to fit are mutually exclusive. If a content area (<code class="sgmltag-attribute">contentwidth</code>, <code class="sgmltag-attribute">contentdepth</code>, or both) is specified, <span class="emphasis"><em>both</em></span> scaling and scaling to fit are ignored. If the content area is not specified and both scaling and scaling to fit are specified, <code class="sgmltag-attribute">scalefit</code> is ignored.</p>
+<p>In order to achieve a level of backwards compatibility with previous versions of DocBook (which did not have attributes for specifying a content area) while maintaining coherent semantics, the default value of <code class="sgmltag-attribute">scalefit</code> depends on other attributes:</p>
+<div class="informaltable">
+<table style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ;">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="34%" /></colgroup>
+<thead>
+<tr>
+<th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">Viewport area</th>
+<th style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">Content area</th>
+<th style="border-bottom: 0.5pt solid ;" align="center"><code class="sgmltag-attribute">scalefit</code> default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">unspecified</td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">unspecified</td>
+<td style="border-bottom: 0.5pt solid ;" align="center">irrelevant</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">specified</td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">unspecified</td>
+<td style="border-bottom: 0.5pt solid ;" align="center">1</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">unspecified</td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="center">specified</td>
+<td style="border-bottom: 0.5pt solid ;" align="center">0</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="center">specified</td>
+<td style="border-right: 0.5pt solid ;" align="center">specified</td>
+<td style="" align="center">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If a viewport area is specified (and neither a content area nor scaling is specified) and <code class="sgmltag-attribute">scalefit</code> is explicitly “<span class="quote"><code class="literal">0</code></span>”, the viewport area specification must be ignored.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e98492" id="d0e98492"></a>
+<h4>Alignment</h4>
+<p>Two alignment attributes are provided, <code class="sgmltag-attribute">align</code> and <code class="sgmltag-attribute">valign</code>.</p>
+<p>If specified, <code class="sgmltag-attribute">align</code> indicates how the content area should be aligned horizontally within the viewport area. If not specified, implementations are free to choose any default value.</p>
+<p>If specified, <code class="sgmltag-attribute">valign</code> indicates how the content area should be aligned vertically within the viewport area. If not specified, implementations are free to choose any default value.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e98513" id="d0e98513"></a>
+<h4>Examples</h4>
+<p>If nothing is specified about the size of an image, it is rendered in a content area that is the same as its intrinsic size in a viewport area that is implementation defined:</p>
+<div class="informalfigure">
+<pre class="screen">
+&lt;imagedata fileref="image.png"/&gt;
+</pre>
+<div class="mediaobject"><img src="figures/graphic-attr-6.png" alt="An image at its intrinsic size" /></div>
+</div>
+<p>If a viewport area is specified, the image is rendered in a content area that is the same as its intrinsic size in the specified viewport area:</p>
+<div class="informalfigure">
+<pre class="screen">
+&lt;imagedata fileref="image.png" width="6in" depth="5.5in" scalefit="0"/&gt;
+</pre>
+<div class="mediaobject"><img src="figures/graphic-attr-7.png" alt="An image at its intrinsic size in a viewport" /></div>
+</div>
+<p>If a content area is specified, the image is scaled (possibly anamorphically) to that size and rendered in a viewport area that is implementation defined:</p>
+<div class="informalfigure">
+<pre class="screen">
+&lt;imagedata fileref="image.png" contentwidth="4in" contentdepth="3in"/&gt;
+</pre>
+<div class="mediaobject"><img src="figures/graphic-attr-5.png" alt="An image at a specified content size" /></div>
+</div>
+<p>If a scaling factor is specified, the intrinsic size is scaled uniformly by that amount to obtain the content area which is rendered in a viewport area that is implementation defined:</p>
+<div class="informalfigure">
+<pre class="screen">
+&lt;imagedata fileref="image.png" scale="300"/&gt;
+</pre>
+<div class="mediaobject"><img src="figures/graphic-attr-4.png" alt="An image scaled" /></div>
+</div>
+<p>If a viewport area is specified and scaling to fit is requested, the intrinsic size is scaled (uniformly) as large as possible without extending beyond the bounds of the viewport area which is rendered as specified.</p>
+<div class="informalfigure">
+<pre class="screen">
+&lt;imagedata fileref="image.png" width="6in" depth="5.5in"/&gt;
+&lt;!-- note that scalefit="1" is the default in this case --&gt;
+</pre>
+<div class="mediaobject"><img src="figures/graphic-attr-3.png" alt="An image scaled to fit" /></div>
+</div>
+<p>If the viewport area and content area are specified, the image is scaled (possibly anamorphically) to the content area size and rendered in the specified viewport area:</p>
+<div class="informalfigure">
+<pre class="screen">
+&lt;imagedata fileref="image.png" width="6in" depth="5.5in"
+           contentwidth="4in" contentdepth="3in"/&gt;
+</pre>
+<div class="mediaobject"><img src="figures/graphic-attr-2.png" alt="An image at a specified size in a specified viewport" /></div>
+</div>
+<p>If the viewport area and a scaling factor are specified, the intrinsic size is scaled uniformly by the scaling factor amount to obtain the content area which is rendered in the specified viewport area:</p>
+<div class="informalfigure">
+<pre class="screen">
+&lt;imagedata fileref="image.png" width="6in" depth="5.5in" scale="300"/&gt;
+</pre>
+<div class="mediaobject"><img src="figures/graphic-attr-1.png" alt="An image scaled in a specified viewport" /></div>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attribute-descriptions" id="attribute-descriptions"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a>.</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">align</span></dt>
+<dd>
+<p>Specifies the (horizontal) alignment of the image data</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“center”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Centered horizontally</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“char”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Aligned horizontally on the specified character</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“justify”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Fully justified (left and right margins or edges)</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“left”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Left aligned</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“right”</td>
+<td style="" align="left">
+<p>Right aligned</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">contentdepth</span></dt>
+<dd>
+<p>Specifies the depth of the content rectangle</p>
+</dd>
+<dt><span class="term">contentwidth</span></dt>
+<dd>
+<p>Specifies the width of the content rectangle</p>
+</dd>
+<dt><span class="term">depth</span></dt>
+<dd>
+<p>Specifies the depth of the element</p>
+</dd>
+<dt><span class="term">entityref</span></dt>
+<dd>
+<p>Identifies the location of the data by external identifier (entity name)</p>
+</dd>
+<dt><span class="term">fileref</span></dt>
+<dd>
+<p>Indentifies the location of the data by URI</p>
+</dd>
+<dt><span class="term">format</span></dt>
+<dd>
+<p>Specifies the format of the data</p>
+</dd>
+<dt><span class="term">scale</span></dt>
+<dd>
+<p>Specifies the scaling factor</p>
+</dd>
+<dt><span class="term">scalefit</span></dt>
+<dd>
+<p>Determines if anamorphic scaling is forbidden</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“0”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>False (do not scale-to-fit; anamorphic scaling may occur)</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“1”</td>
+<td style="" align="left">
+<p>True (scale-to-fit; anamorphic scaling is forbidden)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">valign</span></dt>
+<dd>
+<p>Specifies the vertical alignment of the image data</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“bottom”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Aligned on the bottom of the region</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“middle”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Centered vertically</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“top”</td>
+<td style="" align="left">
+<p>Aligned on the top of the region</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">width</span></dt>
+<dd>
+<p>Specifies the width of the element</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="imagedata.html"><code class="sgmltag-element">imagedata</code></a>: <span class="simplelist"><a href="imageobject.html"><code class="sgmltag-element">imageobject</code></a></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in imagedata: <span class="simplelist"><a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titleforbidden.info)</span></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="seealso" id="seealso"></a>
+<h2>See Also</h2>
+<span class="simplelist"><a href="imagedata.mathml.html"><code class="sgmltag-element">imagedata</code></a>&#160;<span class="pattern">(db.imagedata.mathml)</span></span></div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 22 Jul 2007.</p>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="imagedata (db.imagedata.svg)" href="imagedata.svg.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="imageobject" href="imageobject.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">imagedata (db.imagedata.svg)&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;imageobject</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>literal</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="listitem.html" title="listitem" />
+<link rel="next" href="literallayout.html" title="literallayout" />
+</head>
+<body onload="hideAll();">
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="listitem" href="listitem.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="literallayout" href="literallayout.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.literal" id="element.db.literal"></a>
+<div>
+<div>
+<div>
+<h1 class="title">literal</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>literal — Inline text that is some literal value</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>literal&#160;<span class="cceq">::=</span><span id="cmshow" style="display: none;">&#160;<a href="javascript:showAll()"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="cmhide">&#160;<a href="javascript:hideAll()"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>Zero or more of:
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><span class="emphasis"><em>text</em></span></li>
+<li><a href="_phrase.html"><code class="sgmltag-element">phrase</code></a>&#160;<span class="pattern">(db._phrase)</span></li>
+<li><a href="replaceable.html"><code class="sgmltag-element">replaceable</code></a></li>
+<li><em title="inlinemediaobject" class="patnlink">Graphic inlines</em><span id="pls.d2e333622-db.graphic.inlines" style="display: none;">&#160;<a href="javascript:show('d2e333622-db.graphic.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e333622-db.graphic.inlines">&#160;<a href="javascript:hide('d2e333622-db.graphic.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e333622-db.graphic.inlines">
+<div class="itemizedlist">
+<ul type="square">
+<li><a href="inlinemediaobject.html"><code class="sgmltag-element">inlinemediaobject</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="indexterm, indexterm, and indexterm" class="patnlink">Indexing inlines</em><span id="pls.d2e333622-db.indexing.inlines" style="display: none;">&#160;<a href="javascript:show('d2e333622-db.indexing.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e333622-db.indexing.inlines">&#160;<a href="javascript:hide('d2e333622-db.indexing.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e333622-db.indexing.inlines">
+<div class="itemizedlist">
+<ul type="square">
+<li><a href="indexterm.endofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.endofrange)</span></li>
+<li><a href="indexterm.singular.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.singular)</span></li>
+<li><a href="indexterm.startofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.startofrange)</span></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="anchor, biblioref, link, olink, and xref" class="patnlink">Linking inlines</em><span id="pls.d2e333622-db.link.inlines" style="display: none;">&#160;<a href="javascript:show('d2e333622-db.link.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e333622-db.link.inlines">&#160;<a href="javascript:hide('d2e333622-db.link.inlines')"><img src="graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e333622-db.link.inlines">
+<div class="itemizedlist">
+<ul type="square">
+<li><a href="anchor.html"><code class="sgmltag-element">anchor</code></a></li>
+<li><a href="biblioref.html"><code class="sgmltag-element">biblioref</code></a></li>
+<li><a href="link.html"><code class="sgmltag-element">link</code></a></li>
+<li><a href="olink.html"><code class="sgmltag-element">olink</code></a></li>
+<li><a href="xref.html"><code class="sgmltag-element">xref</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+<li><em title="alt, anchor, annotation, biblioref, indexterm, indexterm, indexterm, inlinemediaobject, link, olink, remark, subscript, superscript, and xref" class="patnlink">Ubiquitous inlines</em><span id="pls.d2e333622-db.ubiq.inlines" style="display: none;">&#160;<a href="javascript:show('d2e333622-db.ubiq.inlines')"><img src="graphics/right.gif" border="0" alt="[+]" /></a></span><span id="plh.d2e333622-db.ubiq.inlines">&#160;<a href="javascript:hide('d2e333622-db.ubiq.inlines')"><img src=
+"graphics/down.gif" border="0" alt="[-]" /></a></span>
+<div class="patnlist" id="l.d2e333622-db.ubiq.inlines">
+<div class="itemizedlist">
+<ul type="square">
+<li><a href="alt.html"><code class="sgmltag-element">alt</code></a></li>
+<li><a href="anchor.html"><code class="sgmltag-element">anchor</code></a></li>
+<li><a href="annotation.html"><code class="sgmltag-element">annotation</code></a></li>
+<li><a href="biblioref.html"><code class="sgmltag-element">biblioref</code></a></li>
+<li><a href="indexterm.endofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.endofrange)</span></li>
+<li><a href="indexterm.singular.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.singular)</span></li>
+<li><a href="indexterm.startofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.startofrange)</span></li>
+<li><a href="inlinemediaobject.html"><code class="sgmltag-element">inlinemediaobject</code></a></li>
+<li><a href="link.html"><code class="sgmltag-element">link</code></a></li>
+<li><a href="olink.html"><code class="sgmltag-element">olink</code></a></li>
+<li><a href="remark.html"><code class="sgmltag-element">remark</code></a></li>
+<li><a href="subscript.html"><code class="sgmltag-element">subscript</code></a></li>
+<li><a href="superscript.html"><code class="sgmltag-element">superscript</code></a></li>
+<li><a href="xref.html"><code class="sgmltag-element">xref</code></a></li>
+</ul>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>A <a href="literal.html"><code class="sgmltag-element">literal</code></a> is some specific piece of data, taken literally, from a computer system. It is similar in some ways to <a href="userinput.html"><code class="sgmltag-element">userinput</code></a> and <a href="computeroutput.html"><code class="sgmltag-element">computeroutput</code></a>, but is somewhat more of a general classification. The sorts of things that constitute literals varies by domain.</p>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e123518" id="d0e123518"></a>
+<h3>Processing expectations</h3>
+<p>Formatted inline. A literal is frequently distinguished typographically and <a href="literal.html"><code class="sgmltag-element">literal</code></a> is often used wherever that typographic presentation is desired.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="literal.html"><code class="sgmltag-element">literal</code></a>: <span class="simplelist"><a href="bridgehead.html"><code class="sgmltag-element">bridgehead</code></a>, <a href="html.caption.html"><code class="sgmltag-element">caption</code></a>&#160;<span class="pattern">(db.html.caption)</span>, <a href="citation.html"><code class="sgmltag-element">citation</code></a>, <a href="citetitle.html"><code class="sgmltag-element">citetitle</code></a>, <a href=
+"classsynopsisinfo.html"><code class="sgmltag-element">classsynopsisinfo</code></a>, <a href="computeroutput.html"><code class="sgmltag-element">computeroutput</code></a>, <a href="emphasis.html"><code class="sgmltag-element">emphasis</code></a>&#160;<span class="pattern">(db.emphasis)</span>, <a href="entry.html"><code class="sgmltag-element">entry</code></a>, <a href="firstterm.html"><code class="sgmltag-element">firstterm</code></a>, <a href="funcsynopsisinfo.html"><code class=
+"sgmltag-element">funcsynopsisinfo</code></a>, <a href="glosssee.html"><code class="sgmltag-element">glosssee</code></a>, <a href="glossseealso.html"><code class="sgmltag-element">glossseealso</code></a>, <a href="glossterm.html"><code class="sgmltag-element">glossterm</code></a>, <a href="html.button.html"><code class="sgmltag-element">html:button</code></a>, <a href="html.label.html"><code class="sgmltag-element">html:label</code></a>, <a href="html.legend.html"><code class=
+"sgmltag-element">html:legend</code></a>, <a href="link.html"><code class="sgmltag-element">link</code></a>, <a href="literallayout.html"><code class="sgmltag-element">literallayout</code></a>, <a href="member.html"><code class="sgmltag-element">member</code></a>, <a href="olink.html"><code class="sgmltag-element">olink</code></a>, <a href="orgdiv.html"><code class="sgmltag-element">orgdiv</code></a>, <a href="para.html"><code class="sgmltag-element">para</code></a>, <a href="phrase.html"><code class=
+"sgmltag-element">phrase</code></a>&#160;<span class="pattern">(db.phrase)</span>, <a href="primary.html"><code class="sgmltag-element">primary</code></a>, <a href="primaryie.html"><code class="sgmltag-element">primaryie</code></a>, <a href="programlisting.html"><code class="sgmltag-element">programlisting</code></a>, <a href="quote.html"><code class="sgmltag-element">quote</code></a>, <a href="refdescriptor.html"><code class="sgmltag-element">refdescriptor</code></a>, <a href=
+"refentrytitle.html"><code class="sgmltag-element">refentrytitle</code></a>, <a href="refname.html"><code class="sgmltag-element">refname</code></a>, <a href="refpurpose.html"><code class="sgmltag-element">refpurpose</code></a>, <a href="screen.html"><code class="sgmltag-element">screen</code></a>, <a href="secondary.html"><code class="sgmltag-element">secondary</code></a>, <a href="secondaryie.html"><code class="sgmltag-element">secondaryie</code></a>, <a href="see.html"><code class=
+"sgmltag-element">see</code></a>, <a href="seealso.html"><code class="sgmltag-element">seealso</code></a>, <a href="seealsoie.html"><code class="sgmltag-element">seealsoie</code></a>, <a href="seeie.html"><code class="sgmltag-element">seeie</code></a>, <a href="seg.html"><code class="sgmltag-element">seg</code></a>, <a href="segtitle.html"><code class="sgmltag-element">segtitle</code></a>, <a href="simpara.html"><code class="sgmltag-element">simpara</code></a>, <a href="subtitle.html"><code class=
+"sgmltag-element">subtitle</code></a>, <a href="synopsis.html"><code class="sgmltag-element">synopsis</code></a>, <a href="html.td.html"><code class="sgmltag-element">td</code></a>, <a href="term.html"><code class="sgmltag-element">term</code></a>, <a href="termdef.html"><code class="sgmltag-element">termdef</code></a>, <a href="tertiary.html"><code class="sgmltag-element">tertiary</code></a>, <a href="tertiaryie.html"><code class="sgmltag-element">tertiaryie</code></a>, <a href="html.th.html"><code class=
+"sgmltag-element">th</code></a>, <a href="title.html"><code class="sgmltag-element">title</code></a>, <a href="titleabbrev.html"><code class="sgmltag-element">titleabbrev</code></a>, <a href="tocentry.html"><code class="sgmltag-element">tocentry</code></a>, <a href="userinput.html"><code class="sgmltag-element">userinput</code></a></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in literal: <span class="simplelist"><span class="emphasis"><em>text</em></span>, <a href="alt.html"><code class="sgmltag-element">alt</code></a>, <a href="anchor.html"><code class="sgmltag-element">anchor</code></a>, <a href="annotation.html"><code class="sgmltag-element">annotation</code></a>, <a href="biblioref.html"><code class="sgmltag-element">biblioref</code></a>, <a href="indexterm.endofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class=
+"pattern">(db.indexterm.endofrange)</span>, <a href="indexterm.singular.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.singular)</span>, <a href="indexterm.startofrange.html"><code class="sgmltag-element">indexterm</code></a>&#160;<span class="pattern">(db.indexterm.startofrange)</span>, <a href="inlinemediaobject.html"><code class="sgmltag-element">inlinemediaobject</code></a>, <a href="link.html"><code class="sgmltag-element">link</code></a>, <a href=
+"olink.html"><code class="sgmltag-element">olink</code></a>, <a href="_phrase.html"><code class="sgmltag-element">phrase</code></a>&#160;<span class="pattern">(db._phrase)</span>, <a href="remark.html"><code class="sgmltag-element">remark</code></a>, <a href="replaceable.html"><code class="sgmltag-element">replaceable</code></a>, <a href="subscript.html"><code class="sgmltag-element">subscript</code></a>, <a href="superscript.html"><code class="sgmltag-element">superscript</code></a>, <a href=
+"xref.html"><code class="sgmltag-element">xref</code></a></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="seealso" id="seealso"></a>
+<h2>See Also</h2>
+<span class="simplelist"><a href="command.html"><code class="sgmltag-element">command</code></a>, <a href="computeroutput.html"><code class="sgmltag-element">computeroutput</code></a>, <a href="constant.html"><code class="sgmltag-element">constant</code></a>, <a href="markup.html"><code class="sgmltag-element">markup</code></a>, <a href="option.html"><code class="sgmltag-element">option</code></a>, <a href="optional.html"><code class="sgmltag-element">optional</code></a>, <a href=
+"parameter.html"><code class="sgmltag-element">parameter</code></a>, <a href="prompt.html"><code class="sgmltag-element">prompt</code></a>, <a href="replaceable.html"><code class="sgmltag-element">replaceable</code></a>, <a href="tag.html"><code class="sgmltag-element">tag</code></a>, <a href="userinput.html"><code class="sgmltag-element">userinput</code></a>, <a href="varname.html"><code class="sgmltag-element">varname</code></a></span></div>
+<div class="refsection" lang="en" xml:lang="en"><a name="examples" id="examples"></a>
+<h2>Examples</h2>
+<pre class="programlisting">
+&lt;article xmlns='http://docbook.org/ns/docbook'&gt;
+&lt;title&gt;Example literal&lt;/title&gt;
+
+&lt;para&gt;There are several undocumented settings for &lt;varname&gt;debug&lt;/varname&gt;,
+among them &lt;literal&gt;3.27&lt;/literal&gt; to enable a complete trace and
+&lt;literal&gt;3.8&lt;/literal&gt; to debug the spell checker. For a complete
+list of the possible settings,
+see &lt;filename class="headerfile"&gt;edit/debug.h&lt;/filename&gt;.&lt;/para&gt;
+
+&lt;/article&gt;
+</pre>
+<div class="example-output">
+<p>There are several undocumented settings for <code class="varname">debug</code>, among them <code class="literal">3.27</code> to enable a complete trace and <code class="literal">3.8</code> to debug the spell checker. For a complete list of the possible settings, see <code class="filename">edit/debug.h</code>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 22 Jul 2007.</p>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="listitem" href="listitem.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="literallayout" href="literallayout.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">listitem&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;literallayout</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Docbookdefinitive Plug-in
+Bundle-SymbolicName: org.xmlopt.docbookdefinitive; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Vendor: Eclipsedocs.berlios.de

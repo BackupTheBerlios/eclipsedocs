@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>row (db.entrytbl.row)</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="rhs.html" title="rhs" />
+<link rel="next" href="row.html" title="row (db.row)" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="rhs" href="rhs.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="row (db.row)" href="row.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.entrytbl.row" id="element.db.entrytbl.row"></a>
+<div>
+<div>
+<div>
+<h1 class="title">row (db.entrytbl.row)</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>row — A row in a table</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>row (db.entrytbl.row)&#160;<span class="cceq">::=</span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>One or more of:
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><a href="entry.html"><code class="sgmltag-element">entry</code></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<p>Additional attributes:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>rowsep (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“0”</li>
+<li>“1”</li>
+</ul>
+</div>
+</li>
+<li>valign (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“bottom”</li>
+<li>“middle”</li>
+<li>“top”</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>A <a href="row.html"><code class="sgmltag-element">row</code></a> is a row in a table. It contains all of the cells (<a href="entry.html"><code class="sgmltag-element">entry</code></a>s or <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a>s) that appear in that row.</p>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e182089" id="d0e182089"></a>
+<h3>Processing expectations</h3>
+<p>This element is expected to obey the semantics of the <a class="link" href="appd.html#calsdtd"><em class="citetitle">CALS Table Model Document Type Definition</em></a>, as specified by <em class="citetitle"><a class="link" href="http://www.oasis-open.org/html/a502.htm" target="_top">OASIS Technical Memorandum TM 9502:1995</a></em>.</p>
+<p>Within a <a href="row.html"><code class="sgmltag-element">row</code></a>, cells are arranged horizontally from the start of the row to the end. Cells can, but are not required to, specify the column in which they occur, so it is possible for a row to contain fewer cells than there are columns in the table. This introduces missing cells, which are assumed to be empty. These missing cells can occur anywhere in the row.</p>
+<p>Once a cell has been allocated to a column, subsequent cells may not fill preceding columns. In other words, while three cells can specify that they occur in columns 1, 3, and 5, they cannot specify that they occur in columns 1, 5, and 3. Once a column is passed, you can never go back.</p>
+<p>If cells do not specify the column in which they occur, they are placed in the next available column. Calculation of the next available column is complicated by horizontal and vertical spanning. Cells from preceding rows can have a vertical span that causes them to extend into the current row, thus occupying space in the current row. These logically occupied cells are skipped when looking for the next available column. Similarly, if a cell has a horizontal span, it logically occupies the columns that
+follow it. Cells can simultaneously span rows and columns.</p>
+<p>Each of the following conditions is an error:</p>
+<div class="itemizedlist">
+<ul type="disc">
+<li>
+<p>A cell spans beyond the boundries of the table.</p>
+</li>
+<li>
+<p>A row contains more cells than there are columns in the table.</p>
+</li>
+<li>
+<p>The arrangement of cells in a row forces one or more cells past the last column of the table.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attribute-descriptions" id="attribute-descriptions"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">rowsep</span></dt>
+<dd>
+<p>Specifies the presence or absence of the row separator</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“0”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>No row separator rule.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“1”</td>
+<td style="" align="left">
+<p>Provide a row separator rule below</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">valign</span></dt>
+<dd>
+<p>Specifies the vertical alignment of text in an entry.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“bottom”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Aligned on the bottom of the entry.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“middle”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Aligned in the middle.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“top”</td>
+<td style="" align="left">
+<p>Aligned at the top of the entry.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="row.html"><code class="sgmltag-element">row</code></a>: <span class="simplelist"><a href="cals.entrytbl.tbody.html"><code class="sgmltag-element">tbody</code></a>&#160;<span class="pattern">(db.cals.entrytbl.tbody)</span>, <a href="cals.entrytbl.thead.html"><code class="sgmltag-element">thead</code></a>&#160;<span class="pattern">(db.cals.entrytbl.thead)</span></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in row: <span class="simplelist"><a href="entry.html"><code class="sgmltag-element">entry</code></a></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="seealso" id="seealso"></a>
+<h2>See Also</h2>
+<span class="simplelist"><a href="colspec.html"><code class="sgmltag-element">colspec</code></a>, <a href="entry.html"><code class="sgmltag-element">entry</code></a>, <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a>, <a href="html.informaltable.html"><code class="sgmltag-element">informaltable</code></a>, <a href="row.html"><code class="sgmltag-element">row</code></a>&#160;<span class="pattern">(db.row)</span>, <a href="spanspec.html"><code class=
+"sgmltag-element">spanspec</code></a>, <a href="html.table.html"><code class="sgmltag-element">table</code></a>, <a href="html.tbody.html"><code class="sgmltag-element">tbody</code></a>, <a href="html.tfoot.html"><code class="sgmltag-element">tfoot</code></a>, <a href="tgroup.html"><code class="sgmltag-element">tgroup</code></a>, <a href="html.thead.html"><code class="sgmltag-element">thead</code></a></span></div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 22 Jul 2007.</p>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="rhs" href="rhs.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="row (db.row)" href="row.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">rhs&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;row (db.row)</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>tr</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="token.html" title="token" />
+<link rel="next" href="trademark.html" title="trademark" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="token" href="token.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="trademark" href="trademark.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.html.tr" id="element.db.html.tr"></a>
+<div>
+<div>
+<div>
+<h1 class="title">tr</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>tr — A row in an HTML table</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>tr&#160;<span class="cceq">::=</span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>One or more of:
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><a href="html.td.html"><code class="sgmltag-element">td</code></a></li>
+<li><a href="html.th.html"><code class="sgmltag-element">th</code></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p>Attributes:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>align (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“left”</li>
+<li>“center”</li>
+<li>“right”</li>
+<li>“justify”</li>
+<li>“char”</li>
+</ul>
+</div>
+</li>
+<li>char</li>
+<li>charoff (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><code class="literal">xsd:integer</code></li>
+<li><code class="literal">xsd:string</code> (Pattern: “[0-9]+%”)</li>
+</ul>
+</div>
+</li>
+<li>valign (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“top”</li>
+<li>“middle”</li>
+<li>“bottom”</li>
+<li>“baseline”</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>Identifies a row in an HTML table.</p>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e240187" id="d0e240187"></a>
+<h3>Processing expectations</h3>
+<p>This element is expected to obey the semantics described in <em class="citetitle"><a class="citetitle" href="http://www.w3.org/TR/html401/struct/tables.html" target="_top">Tables</a></em>, as specified in <em class="citetitle"><a class="citetitle" href="appd.html#xhtml"><span class="trademark">XHTML</span>™ 1.0</a></em>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attribute-descriptions" id="attribute-descriptions"></a>
+<h3>Attributes</h3>
+<div class="variablelist">
+<dl>
+<dt><span class="term">align</span></dt>
+<dd>
+<p>Specifies the alignment of data and the justification of text in a cell.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“left”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Left-flush data/Left-justify text. This is the default value for table data.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“center”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Center data/Center-justify text. This is the default value for table headers.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“right”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Right-flush data/Right-justify text.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“justify”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Double-justify text.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“char”</td>
+<td style="" align="left">
+<p>Align text around a specific character. If a user agent doesn't support character alignment, behavior in the presence of this value is unspecified.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">char</span></dt>
+<dd>
+<p>This attribute specifies a single character within a text fragment to act as an axis for alignment. The default value for this attribute is the decimal point character for the current language as set by the lang attribute (e.g., the period in English and the comma in French). User agents are not required to support this attribute.</p>
+</dd>
+<dt><span class="term">charoff</span></dt>
+<dd>
+<p>When present, this attribute specifies the offset to the first occurrence of the alignment character on each line. If a line doesn't include the alignment character, it should be horizontally shifted to end at the alignment position. When charoff is used to set the offset of an alignment character, the direction of offset is determined by the current text direction (set by the dir attribute). In left-to-right texts (the default), offset is from the left margin. In right-to-left texts, offset is from the
+right margin. User agents are not required to support this attribute.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left"><code class="literal">xsd:integer</code></td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>An explicit offset.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left"><code class="literal">xsd:string</code> (Pattern: “[0-9]+%”)</td>
+<td style="" align="left">
+<p>A percentage offset.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">class</span></dt>
+<dd>
+<p>This attribute assigns a class name or set of class names to an element. Any number of elements may be assigned the same class name or names. Multiple class names must be separated by white space characters.</p>
+</dd>
+<dt><span class="term">lang</span></dt>
+<dd>
+<p>This attribute specifies the base language of an element's attribute values and text content. The default value of this attribute is unknown.</p>
+</dd>
+<dt><span class="term">onclick</span></dt>
+<dd>
+<p>Occurs when the pointing device button is clicked over an element.</p>
+</dd>
+<dt><span class="term">ondblclick</span></dt>
+<dd>
+<p>Occurs when the pointing device button is double clicked over an element.</p>
+</dd>
+<dt><span class="term">onkeydown</span></dt>
+<dd>
+<p>Occurs when a key is pressed down over an element.</p>
+</dd>
+<dt><span class="term">onkeypress</span></dt>
+<dd>
+<p>Occurs when a key is pressed and released over an element.</p>
+</dd>
+<dt><span class="term">onkeyup</span></dt>
+<dd>
+<p>Occurs when a key is released over an element.</p>
+</dd>
+<dt><span class="term">onmousedown</span></dt>
+<dd>
+<p>Occurs when the pointing device button is pressed over an element.</p>
+</dd>
+<dt><span class="term">onmousemove</span></dt>
+<dd>
+<p>Occurs when the pointing device is moved while it is over an element.</p>
+</dd>
+<dt><span class="term">onmouseout</span></dt>
+<dd>
+<p>Occurs when the pointing device is moved away from an element.</p>
+</dd>
+<dt><span class="term">onmouseover</span></dt>
+<dd>
+<p>Occurs when the pointing device is moved onto an element.</p>
+</dd>
+<dt><span class="term">onmouseup</span></dt>
+<dd>
+<p>Occurs when the pointing device button is released over an element.</p>
+</dd>
+<dt><span class="term">style</span></dt>
+<dd>
+<p>This attribute specifies style information for the current element.</p>
+</dd>
+<dt><span class="term">title</span></dt>
+<dd>
+<p>This attribute offers advisory information about the element for which it is set.</p>
+</dd>
+<dt><span class="term">valign</span></dt>
+<dd>
+<p>Specifies the vertical position of data within a cell.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“top”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Cell data is flush with the top of the cell.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“middle”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Cell data is centered vertically within the cell. This is the default value.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“bottom”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Cell data is flush with the bottom of the cell.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“baseline”</td>
+<td style="" align="left">
+<p>All cells in the same row as a cell whose valign attribute has this value should have their textual data positioned so that the first text line occurs on a baseline common to all cells in the row. This constraint does not apply to subsequent text lines in these cells.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="html.tr.html"><code class="sgmltag-element">tr</code></a>: <span class="simplelist"><a href="html.informaltable.html"><code class="sgmltag-element">informaltable</code></a>&#160;<span class="pattern">(db.html.informaltable)</span>, <a href="html.table.html"><code class="sgmltag-element">table</code></a>&#160;<span class="pattern">(db.html.table)</span>, <a href="html.tbody.html"><code class="sgmltag-element">tbody</code></a>&#160;<span class=
+"pattern">(db.html.tbody)</span>, <a href="html.tfoot.html"><code class="sgmltag-element">tfoot</code></a>&#160;<span class="pattern">(db.html.tfoot)</span>, <a href="html.thead.html"><code class="sgmltag-element">thead</code></a>&#160;<span class="pattern">(db.html.thead)</span></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in tr: <span class="simplelist"><a href="html.td.html"><code class="sgmltag-element">td</code></a>, <a href="html.th.html"><code class="sgmltag-element">th</code></a></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 22 Jul 2007.</p>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="token" href="token.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="trademark" href="trademark.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">token&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;trademark</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

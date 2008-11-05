@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>entrytbl</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="entry.html" title="entry" />
+<link rel="next" href="envar.html" title="envar" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="entry" href="entry.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="envar" href="envar.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.entrytbl" id="element.db.entrytbl"></a>
+<div>
+<div>
+<div>
+<h1 class="title">entrytbl</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>entrytbl — A subtable appearing in place of an Entry in a table</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>entrytbl&#160;<span class="cceq">::=</span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>Sequence of:
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>Zero or more of:
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li><a href="colspec.html"><code class="sgmltag-element">colspec</code></a></li>
+</ul>
+</div>
+</li>
+<li>Zero or more of:
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li><a href="spanspec.html"><code class="sgmltag-element">spanspec</code></a></li>
+</ul>
+</div>
+</li>
+<li><a href="cals.entrytbl.thead.html"><code class="sgmltag-element">thead</code></a>?&#160;<span class="pattern">(db.cals.entrytbl.thead)</span></li>
+<li><a href="cals.entrytbl.tbody.html"><code class="sgmltag-element">tbody</code></a>&#160;<span class="pattern">(db.cals.entrytbl.tbody)</span></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<p>Additional attributes:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>align (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“center”</li>
+<li>“char”</li>
+<li>“justify”</li>
+<li>“left”</li>
+<li>“right”</li>
+</ul>
+</div>
+</li>
+<li>char</li>
+<li>charoff (decimal)</li>
+<li><span class="emphasis"><em>At most one of:</em></span>
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>colname</li>
+<li>namest</li>
+<li>spanname</li>
+<li><span class="emphasis"><em>All or none of:</em></span>
+<div class="itemizedlist">
+<ul type="square" compact="compact">
+<li>namest</li>
+<li>nameend</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>cols (positiveInteger)</li>
+<li>colsep (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“0”</li>
+<li>“1”</li>
+</ul>
+</div>
+</li>
+<li>rowsep (enumeration)
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li>“0”</li>
+<li>“1”</li>
+</ul>
+</div>
+</li>
+<li>tgroupstyle</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>The <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a> element allows for a single level of nesting within <acronym class="acronym">CALS</acronym> tables.</p>
+<p>An entry table may occur in a row instead of an <a href="entry.html"><code class="sgmltag-element">entry</code></a>. An <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a> has most of the elements of a table but may not include themselves, thus limiting nesting to a single level.</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Note</h3>
+<p>An <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a> can span horizontally (across columns) but it cannot span across rows. Whether this is by accident or design is unclear, but it has always been that way in CALS.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e62592" id="d0e62592"></a>
+<h3>Processing expectations</h3>
+<p>This element is expected to obey the semantics of the <a class="link" href="appd.html#calsdtd"><em class="citetitle">CALS Table Model Document Type Definition</em></a>, as specified by <em class="citetitle"><a class="link" href="http://www.oasis-open.org/html/a502.htm" target="_top">OASIS Technical Memorandum TM 9502:1995</a></em>.</p>
+<p>The content of <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a> is formatted, <span class="emphasis"><em>as a table</em></span>, to fit within the table cell that it occupies. Horizontal and vertical spanning may allow an <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a> to occupy several physical cells in the table that contains it.</p>
+<p>If multiple <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a>s occur in a single row, formatters that support <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a> are not required to ensure that subrows within the various tables are vertically aligned.</p>
+<p>Many formatters are incapable of supporting <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a>s. This is an interchange issue. See <a class="xref" href="appf.html" title="Interchanging DocBook Documents">Appendix&#160;E, <i>Interchanging DocBook Documents</i></a>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attribute-descriptions" id="attribute-descriptions"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">align</span></dt>
+<dd>
+<p>Specifies the horizontal alignment of text in an entry.</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“center”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Centered.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“char”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Aligned on a particular character.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“justify”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Left and right justified.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“left”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>Left justified.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“right”</td>
+<td style="" align="left">
+<p>Right justified.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">char</span></dt>
+<dd>
+<p>Specifies the alignment character when <code class="sgmltag-attribute">align</code> is set to “<span class="quote">char</span>” .</p>
+</dd>
+<dt><span class="term">charoff</span></dt>
+<dd>
+<p>Specifies the percentage of the column's total width that should appear to the left of the first occurance of the character identified in <code class="sgmltag-attribute">char</code> when <code class="sgmltag-attribute">align</code> is set to “<span class="quote">char</span>” .</p>
+</dd>
+<dt><span class="term">colname</span></dt>
+<dd>
+<p>Specifies a column specification by name.</p>
+</dd>
+<dt><span class="term">cols</span></dt>
+<dd>
+<p>The number of columns in the entry table. Must be an integer greater than zero.</p>
+</dd>
+<dt><span class="term">colsep</span></dt>
+<dd>
+<p>Specifies the presence or absence of the column separator</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“0”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>No column separator rule.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“1”</td>
+<td style="" align="left">
+<p>Provide a column separator rule on the right</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">nameend</span></dt>
+<dd>
+<p>Specifies an ending column by name.</p>
+</dd>
+<dt><span class="term">namest</span></dt>
+<dd>
+<p>Specifies a starting column by name.</p>
+</dd>
+<dt><span class="term">namest</span></dt>
+<dd>
+<p>Specifies a starting column by name.</p>
+</dd>
+<dt><span class="term">rowsep</span></dt>
+<dd>
+<p>Specifies the presence or absence of the row separator</p>
+<div class="informaltable">
+<table style="border: none;">
+<colgroup>
+<col width="20%" align="left" />
+<col align="left" width="80%" /></colgroup>
+<thead>
+<tr>
+<th style="border-bottom: 0.5pt solid ;" colspan="2" align="left">Enumerated values:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;" align="left">“0”</td>
+<td style="border-bottom: 0.5pt solid ;" align="left">
+<p>No row separator rule.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;" align="left">“1”</td>
+<td style="" align="left">
+<p>Provide a row separator rule below</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt><span class="term">spanname</span></dt>
+<dd>
+<p>Specifies a span by name.</p>
+</dd>
+<dt><span class="term">tgroupstyle</span></dt>
+<dd>
+<p>Additional style information for downstream processing; typically the name of a style.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="entrytbl.html"><code class="sgmltag-element">entrytbl</code></a>: <span class="simplelist"><a href="row.html"><code class="sgmltag-element">row</code></a>&#160;<span class="pattern">(db.row)</span></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in entrytbl: <span class="simplelist"><a href="colspec.html"><code class="sgmltag-element">colspec</code></a>, <a href="spanspec.html"><code class="sgmltag-element">spanspec</code></a>, <a href="cals.entrytbl.tbody.html"><code class="sgmltag-element">tbody</code></a>&#160;<span class="pattern">(db.cals.entrytbl.tbody)</span>, <a href="cals.entrytbl.thead.html"><code class="sgmltag-element">thead</code></a>&#160;<span class=
+"pattern">(db.cals.entrytbl.thead)</span></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="seealso" id="seealso"></a>
+<h2>See Also</h2>
+<span class="simplelist"><a href="colspec.html"><code class="sgmltag-element">colspec</code></a>, <a href="entry.html"><code class="sgmltag-element">entry</code></a>, <a href="html.informaltable.html"><code class="sgmltag-element">informaltable</code></a>, <a href="row.html"><code class="sgmltag-element">row</code></a>, <a href="spanspec.html"><code class="sgmltag-element">spanspec</code></a>, <a href="html.table.html"><code class="sgmltag-element">table</code></a>, <a href="html.tbody.html"><code class=
+"sgmltag-element">tbody</code></a>, <a href="html.tfoot.html"><code class="sgmltag-element">tfoot</code></a>, <a href="tgroup.html"><code class="sgmltag-element">tgroup</code></a>, <a href="html.thead.html"><code class="sgmltag-element">thead</code></a></span></div>
+<div class="refsection" lang="en" xml:lang="en"><a name="examples" id="examples"></a>
+<h2>Examples</h2>
+<pre class="programlisting">
+&lt;article xmlns='http://docbook.org/ns/docbook'&gt;
+&lt;title&gt;Example entrytbl&lt;/title&gt;
+
+&lt;!-- entrytbl not supported, fake it in descrip.1 --&gt;
+&lt;informaltable frame='all'&gt;
+&lt;tgroup cols='3'&gt;
+&lt;tbody&gt;
+&lt;row&gt;
+  &lt;entry&gt;a1&lt;/entry&gt;
+  &lt;entry&gt;b1&lt;/entry&gt;
+  &lt;entry&gt;c1&lt;/entry&gt;
+&lt;/row&gt;
+&lt;row&gt;
+  &lt;entry&gt;a2&lt;/entry&gt;
+  &lt;entrytbl cols='3'&gt;
+    &lt;tbody&gt;
+      &lt;row&gt;
+        &lt;entry&gt;b2a1&lt;/entry&gt;
+        &lt;entry&gt;b2b1&lt;/entry&gt;
+        &lt;entry&gt;b2c1&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry&gt;b2a2&lt;/entry&gt;
+        &lt;entry&gt;b2b2&lt;/entry&gt;
+        &lt;entry&gt;b2c2&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry&gt;b2a3&lt;/entry&gt;
+        &lt;entry&gt;b2b3&lt;/entry&gt;
+        &lt;entry&gt;b2c3&lt;/entry&gt;
+      &lt;/row&gt;
+    &lt;/tbody&gt;
+  &lt;/entrytbl&gt;
+  &lt;entry&gt;c2&lt;/entry&gt;
+&lt;/row&gt;
+&lt;row&gt;
+  &lt;entry&gt;a3&lt;/entry&gt;
+  &lt;entry&gt;b3&lt;/entry&gt;
+  &lt;entry&gt;c3&lt;/entry&gt;
+&lt;/row&gt;
+&lt;/tbody&gt;
+&lt;/tgroup&gt;
+&lt;/informaltable&gt;
+
+&lt;/article&gt;
+</pre>
+<div class="example-output">
+<div class="informaltable">
+<table style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ;">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="34%" /></colgroup>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">a1</td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">b1</td>
+<td style="border-bottom: 0.5pt solid ;">c1</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">a2</td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">
+<table width="100%" style="border-collapse: collapse;border-top: 0.5pt solid ; border-bottom: 0.5pt solid ; border-left: 0.5pt solid ; border-right: 0.5pt solid ;">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="34%" /></colgroup>
+<tbody>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">b2a1</td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">b2b1</td>
+<td style="border-bottom: 0.5pt solid ;">b2c1</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">b2a2</td>
+<td style="border-right: 0.5pt solid ; border-bottom: 0.5pt solid ;">b2b2</td>
+<td style="border-bottom: 0.5pt solid ;">b2c2</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;">b2a3</td>
+<td style="border-right: 0.5pt solid ;">b2b3</td>
+<td style="">b2c3</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style="border-bottom: 0.5pt solid ;">c2</td>
+</tr>
+<tr>
+<td style="border-right: 0.5pt solid ;">a3</td>
+<td style="border-right: 0.5pt solid ;">b3</td>
+<td style="">c3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 22 Jul 2007.</p>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="entry" href="entry.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="envar" href="envar.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">entry&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;envar</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>

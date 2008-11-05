@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="HTML Tidy for Mac OS X (vers 1 September 2005), see www.w3.org" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>subjectset</title>
+<link rel="stylesheet" href="defguide.css" type="text/css" />
+<meta name="generator" content="DocBook XSL Stylesheets V1.74.0-pre" />
+<link rel="icon" href="http://docbook.org/graphics/defguide-icon16.png" type="image/png" />
+<script type="text/javascript" src="script/refentry.js">
+</script>
+<link rel="home" href="docbook.html" title="DocBook 5.0" />
+<link rel="up" href="ref-elements.html" title="DocBook Element Reference" />
+<link rel="previous" href="subject.html" title="subject" />
+<link rel="next" href="subjectterm.html" title="subjectterm" />
+</head>
+<body>
+<div class="navheader">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="Navigation table">
+<tr>
+<td align="left">&#160;<a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a>&#160;<a title="subject" href="subject.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;<a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a>&#160;<a title="subjectterm" href="subjectterm.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+<td align="right"><i>DocBook: The Definitive Guide</i> 0.0.25 for DocBook V5.0 <span class="alpha-version">(<a href="co01.html"><em>Alpha</em></a>)</span></td>
+</tr>
+</table>
+</div>
+<div class="refentry" lang="en" xml:lang="en"><a name="element.db.subjectset" id="element.db.subjectset"></a>
+<div>
+<div>
+<div>
+<h1 class="title">subjectset</h1>
+</div>
+</div>
+</div>
+<div class="refnamediv">
+<p>subjectset — A set of terms describing the subject matter of a document</p>
+</div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<p>subjectset&#160;<span class="cceq">::=</span></p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>One or more of:
+<div class="itemizedlist">
+<ul type="circle" compact="compact">
+<li><a href="subject.html"><code class="sgmltag-element">subject</code></a></li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attributes" id="attributes"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<p>Additional attributes:</p>
+<div class="itemizedlist">
+<ul type="disc" compact="compact">
+<li>scheme (NMTOKEN)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="description" id="description"></a>
+<h2>Description</h2>
+<p>A <a href="subjectset.html"><code class="sgmltag-element">subjectset</code></a> is a container for a set of <a href="subject.html"><code class="sgmltag-element">subject</code></a>s. All of the <a href="subject.html"><code class="sgmltag-element">subject</code></a>s within a <a href="subjectset.html"><code class="sgmltag-element">subjectset</code></a> should come from the <span class="emphasis"><em>same</em></span> controlled vocabulary.</p>
+<p>A document can be described using terms from more than one controlled vocabulary. In order to do this, you should use the <code class="sgmltag-attribute">scheme</code> attribute to distinguish between controlled vocabularies.</p>
+<div class="refsection" lang="en" xml:lang="en"><a name="d0e208823" id="d0e208823"></a>
+<h3>Processing expectations</h3>
+<p>May be formatted inline or as a displayed block, depending on context. Subjects are rarely displayed to a reader. Usually, they are reserved for searching and retrieval purposes.</p>
+<p>DocBook does not specify a relationship between <a href="subjectset.html"><code class="sgmltag-element">subjectset</code></a>s in different parts of a document or between a <a href="subjectset.html"><code class="sgmltag-element">subjectset</code></a> and the <a href="subjectset.html"><code class="sgmltag-element">subjectset</code></a>s of enclosing parts of the document.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="attribute-descriptions" id="attribute-descriptions"></a>
+<h3>Attributes</h3>
+<p><a class="link" href="ref-elements.html#common.attributes" title="Common Attributes">Common attributes</a> and <a class="link" href="ref-elements.html#common.linking.attributes" title="Common Linking Attributes">common linking attributes</a>.</p>
+<div class="variablelist">
+<dl>
+<dt><span class="term">scheme</span></dt>
+<dd>
+<p>Identifies the controlled vocabulary used by this set's terms</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="parents" id="parents"></a>
+<h3>Parents</h3>
+<p>These elements contain <a href="subjectset.html"><code class="sgmltag-element">subjectset</code></a>: <span class="simplelist"><a href="biblioentry.html"><code class="sgmltag-element">biblioentry</code></a>, <a href="bibliomixed.html"><code class="sgmltag-element">bibliomixed</code></a>, <a href="bibliomset.html"><code class="sgmltag-element">bibliomset</code></a>, <a href="biblioset.html"><code class="sgmltag-element">biblioset</code></a>, <a href="info.html"><code class=
+"sgmltag-element">info</code></a>&#160;<span class="pattern">(db.info)</span>, <a href="titleforbidden.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titleforbidden.info)</span>, <a href="titleonly.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titleonly.info)</span>, <a href="titleonlyreq.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titleonlyreq.info)</span>, <a href=
+"titlereq.info.html"><code class="sgmltag-element">info</code></a>&#160;<span class="pattern">(db.titlereq.info)</span></span>.</p>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="children" id="children"></a>
+<h3>Children</h3>
+<p>The following elements occur in subjectset: <span class="simplelist"><a href="subject.html"><code class="sgmltag-element">subject</code></a></span>.</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="seealso" id="seealso"></a>
+<h2>See Also</h2>
+<span class="simplelist"><a href="keyword.html"><code class="sgmltag-element">keyword</code></a>, <a href="keywordset.html"><code class="sgmltag-element">keywordset</code></a>, <a href="subject.html"><code class="sgmltag-element">subject</code></a>, <a href="subjectterm.html"><code class="sgmltag-element">subjectterm</code></a></span></div>
+<div class="refsection" lang="en" xml:lang="en"><a name="examples" id="examples"></a>
+<h2>Examples</h2>
+<pre class="programlisting">
+&lt;article xmlns='http://docbook.org/ns/docbook'&gt;
+&lt;info&gt;
+  &lt;title&gt;Example subjectset&lt;/title&gt;
+  &lt;subjectset scheme="libraryofcongress"&gt;
+    &lt;subject&gt;
+      &lt;subjectterm&gt;Electronic Publishing&lt;/subjectterm&gt;
+    &lt;/subject&gt;
+    &lt;subject&gt;
+      &lt;subjectterm&gt;SGML (Computer program language)&lt;/subjectterm&gt;
+    &lt;/subject&gt;
+  &lt;/subjectset&gt;
+&lt;/info&gt;
+
+&lt;para&gt;…&lt;/para&gt;
+
+&lt;/article&gt;
+</pre>
+<div class="example-output">
+<p>…</p>
+</div>
+</div>
+<div class="refsection" lang="en" xml:lang="en"><a name="changelog" id="changelog"></a>
+<h2>ChangeLog</h2>
+<p>This <span class="emphasis"><em>alpha</em></span> reference page is $Revision: 1.1 $ published Sun, 22 Jul 2007.</p>
+</div>
+</div>
+<div class="navfooter">
+<table width="100%" summary="Navigation table">
+<tr>
+<td width="40%" align="left"><a title="subject" href="subject.html"><img src="figures/nav-prev.png" alt="Prev" border="0" /></a>&#160;</td>
+<td width="20%" align="center"><a title="DocBook 5.0" href="docbook.html"><img src="figures/nav-home.png" alt="Home" border="0" /></a></td>
+<td width="40%" align="right">&#160;<a title="subjectterm" href="subjectterm.html"><img src="figures/nav-next.png" alt="Next" border="0" /></a></td>
+</tr>
+<tr>
+<td width="40%" align="left">subject&#160;</td>
+<td width="20%" align="center"><a title="DocBook Element Reference" href="ref-elements.html"><img src="figures/nav-up.png" alt="Up" border="0" /></a></td>
+<td width="40%" align="right">&#160;subjectterm</td>
+</tr>
+</table>
+</div>
+<div class="copyrightfooter">
+<p><a href="dbcpyright.html">Copyright</a> © 2004-2008 Norman Walsh. Portions Copright © 1999-2003 <a href="http://www.oreilly.com/">O'Reilly &amp; Associates, Inc.</a> All rights reserved.</p>
+</div>
+</body>
+</html>
